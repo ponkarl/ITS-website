@@ -1,0 +1,3152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PREVIEW ONLY: remove before launch -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="ITS Industrial Technology Supply Co., Ltd. — Thailand's trusted industrial automation partner since 1993. B&R, TRACO, Raycap, InHand, ORing, ABB Spirit, Control Maestro — all ex-stock in Thailand." />
+  <meta name="keywords" content="ITS, B&R, PLC, HMI, TRACO, Raycap, InHand, ORing, SCADA, industrial automation, Thailand, Samutsakhon" />
+  <title>ITS Industrial Technology Supply Co., Ltd.</title>
+
+  <!-- ============================================================
+       GOOGLE FONTS
+       Using Inter for body text and Barlow Condensed for headings.
+       Both are free, professional, and scale well at all sizes.
+       To swap fonts: replace the families in the @import URL below
+       and update the --font-display / --font-body variables.
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- ============================================================
+       TABLER ICONS (outline icon set — free, no account needed)
+       Used throughout for nav, feature chips, and contact rows.
+       Full icon list: https://tabler.io/icons
+  ============================================================ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES (Design Tokens)
+       ─────────────────────────────────────────────────────────────
+       Change these variables to retheme the entire site at once.
+       All colors, fonts, spacing and radii derive from here.
+    ============================================================ */
+    :root {
+      /* --- Brand colors --- */
+      --clr-orange:       #FF8800;   /* B&R signature orange — primary accent */
+      --clr-orange-dark:  #E07500;   /* Darker orange for hover states */
+      --clr-orange-soft:  #FFF3E0;   /* Pale orange for badge backgrounds */
+
+      /* --- Dark backgrounds (nav, hero, footer) --- */
+      --clr-dark-900:     #0f0f0e;   /* Deepest black — footer bar */
+      --clr-dark-800:     #181716;   /* Near-black — main hero / nav background */
+      --clr-dark-700:     #2C2C2A;   /* Dark card bg — stats panel */
+      --clr-dark-600:     #3C3C3A;   /* Border on dark surfaces */
+      --clr-dark-500:     #444441;   /* Hover bg on dark surfaces */
+
+      /* --- Text on dark backgrounds --- */
+      --clr-text-white:   #FFFFFF;
+      --clr-text-light:   #D3D1C7;   /* Primary text on dark */
+      --clr-text-muted:   #888780;   /* Secondary / muted text on dark */
+      --clr-text-dim:     #5F5E5A;   /* Tertiary / dimmed text on dark */
+
+      /* --- Light backgrounds (content area) --- */
+      --clr-light-100:    #FFFFFF;   /* Pure white — card bg */
+      --clr-light-200:    #FAFAF8;   /* Alternate row tint */
+      --clr-light-300:    #F5F3EE;   /* Section header / feature chip bg */
+      --clr-light-border: #E8E6E0;   /* Border on light surfaces */
+
+      /* --- Text on light backgrounds --- */
+      --clr-text-dark:    #181716;   /* Headings on light bg */
+      --clr-text-body:    #5F5E5A;   /* Body copy on light bg */
+      --clr-text-label:   #888780;   /* Labels, captions on light bg */
+      --clr-text-badge:   #854F0B;   /* Text inside orange-soft badges */
+
+      /* --- Typography --- */
+      --font-display: 'Barlow Condensed', sans-serif;   /* Headlines, nav logo */
+      --font-body:    'Inter', sans-serif;               /* All other text */
+
+      /* --- Spacing scale --- */
+      --space-xs:   4px;
+      --space-sm:   8px;
+      --space-md:   16px;
+      --space-lg:   24px;
+      --space-xl:   32px;
+      --space-2xl:  48px;
+      --space-3xl:  64px;
+
+      /* --- Layout --- */
+      --max-width:      1200px;   /* Maximum content width */
+      --nav-height:     58px;     /* Fixed nav bar height */
+      --topbar-height:  36px;     /* Top utility bar height */
+      --border-radius:  6px;      /* Standard corner radius */
+      --border-radius-lg: 10px;   /* Card corner radius */
+
+      /* --- Transitions --- */
+      --transition: 0.18s ease;
+    }
+
+    /* ============================================================
+       RESET & BASE STYLES
+       Normalises browser defaults so the design looks consistent
+       across Chrome, Firefox, Safari and Edge.
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;        /* Base font size — rem values are relative to this */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--clr-text-body);
+      background: var(--clr-light-100);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-family: var(--font-body);
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       UTILITY CLASSES
+       Reusable helpers used inline throughout the HTML.
+    ============================================================ */
+
+    /* Visually hidden — for screen reader accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Centered content wrapper with max-width */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--space-xl);
+      padding-right: var(--space-xl);
+    }
+
+    /* Orange 3px accent bar used as section dividers */
+    .divider-bar {
+      height: 3px;
+      background: var(--clr-orange);
+      width: 100%;
+    }
+
+
+    /* ============================================================
+       TOPBAR
+       Thin utility bar at the very top — contact info and social
+       links. Changes to a single centered line on mobile.
+    ============================================================ */
+    .topbar {
+      background: var(--clr-orange);
+      height: var(--topbar-height);
+      display: flex;
+      align-items: center;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar__company {
+      font-size: 0.6875rem;   /* 11px */
+      font-weight: 500;
+      color: var(--clr-dark-800);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topbar__links {
+      display: flex;
+      gap: var(--space-md);
+      list-style: none;
+      flex-shrink: 0;
+    }
+
+    .topbar__links a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--clr-dark-800);
+      transition: opacity var(--transition);
+    }
+
+    .topbar__links a:hover {
+      opacity: 0.7;
+    }
+
+    .topbar__links i {
+      font-size: 11px;
+    }
+
+
+    /* ============================================================
+       NAVIGATION BAR
+       Sticky nav — stays at top while scrolling.
+       Logo on the left, links in the center-right.
+       Dropdowns appear on hover for Menu and Products.
+    ============================================================ */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--clr-dark-800);
+      border-bottom: 2px solid var(--clr-orange);
+      height: var(--nav-height);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    /* --- Logo block --- */
+    .navbar__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm) + 2px;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .navbar__logo-mark {
+      height: 38px;
+      width: auto;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar__logo-mark img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .navbar__logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .navbar__logo-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--clr-text-white);
+      letter-spacing: 0.3px;
+    }
+
+    .navbar__logo-sub {
+      font-size: 0.625rem;   /* 10px */
+      font-weight: 400;
+      color: var(--clr-text-muted);
+    }
+
+    /* --- Nav links list --- */
+    .navbar__nav {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      height: 100%;
+      gap: 2px;
+    }
+
+    /* Each top-level nav item — wraps link + optional dropdown */
+    .nav-item {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+    }
+
+    /* Top-level link / button inside a nav item */
+    .nav-item__link {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      padding: 0 14px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--clr-text-muted);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color var(--transition), border-color var(--transition);
+      text-decoration: none;
+      height: 100%;
+    }
+
+    .nav-item__link:hover,
+    .nav-item__link.active {
+      color: var(--clr-orange);
+      border-bottom-color: var(--clr-orange);
+    }
+
+    .nav-item__link i {
+      font-size: 11px;
+      color: var(--clr-text-dim);
+      transition: transform var(--transition);
+    }
+
+    /* Rotate chevron when dropdown is open */
+    .nav-item:hover .nav-item__link i {
+      transform: rotate(180deg);
+    }
+
+    /* --- Dropdown menu --- */
+    .dropdown {
+      display: none;   /* Hidden by default; shown on hover */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #1a1a18;
+      border: 0.5px solid var(--clr-dark-600);
+      border-top: 2px solid var(--clr-orange);
+      min-width: 200px;
+      z-index: 2000;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      overflow: hidden;
+    }
+
+    /* Show dropdown on hover of parent nav-item */
+    .nav-item:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown__link {
+      display: block;
+      padding: 11px 18px;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--clr-text-muted);
+      border-bottom: 0.5px solid var(--clr-dark-700);
+      transition: background var(--transition), color var(--transition);
+      white-space: nowrap;
+    }
+
+    .dropdown__link:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown__link:hover {
+      background: var(--clr-dark-700);
+      color: var(--clr-orange);
+    }
+
+    /* --- CTA button in nav --- */
+    .navbar__cta {
+      display: flex;
+      align-items: center;
+      padding: 8px 18px;
+      margin-left: 10px;
+      background: var(--clr-orange);
+      color: var(--clr-dark-800);
+      font-size: 0.75rem;
+      font-weight: 500;
+      border: none;
+      border-radius: var(--border-radius);
+      transition: background var(--transition);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .navbar__cta:hover {
+      background: var(--clr-orange-dark);
+    }
+
+    /* --- Hamburger — mobile only --- */
+    .navbar__hamburger {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: 0.5px solid var(--clr-dark-600);
+      border-radius: var(--border-radius);
+      color: var(--clr-text-muted);
+      font-size: 20px;
+    }
+
+    /* Mobile drawer (slides in from right on small screens) */
+    .mobile-nav {
+      display: none;   /* JS toggles this to flex */
+      position: fixed;
+      top: 0; right: 0;
+      width: min(280px, 85vw);
+      height: 100vh;
+      background: var(--clr-dark-800);
+      border-left: 2px solid var(--clr-orange);
+      z-index: 9999;
+      flex-direction: column;
+      padding: var(--space-lg);
+      overflow-y: auto;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav__close {
+      align-self: flex-end;
+      background: transparent;
+      border: none;
+      color: var(--clr-text-muted);
+      font-size: 22px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .mobile-nav__link {
+      display: block;
+      padding: 12px 0;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--clr-text-light);
+      border-bottom: 0.5px solid var(--clr-dark-600);
+    }
+
+    .mobile-nav__link:hover {
+      color: var(--clr-orange);
+    }
+
+    .mobile-nav__section {
+      font-size: 0.625rem;
+      font-weight: 500;
+      color: var(--clr-orange);
+      letter-spacing: 0.5px;
+      padding: 14px 0 6px;
+    }
+
+    .mobile-nav__sub-link {
+      display: block;
+      padding: 9px 0 9px 14px;
+      font-size: 0.8125rem;
+      color: var(--clr-text-muted);
+      border-bottom: 0.5px solid var(--clr-dark-700);
+    }
+
+    .mobile-nav__sub-link:hover {
+      color: var(--clr-orange);
+    }
+
+    /* Overlay behind mobile nav */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 9998;
+    }
+
+    .mobile-overlay.open {
+      display: block;
+    }
+
+
+    /* ============================================================
+       PAGE SYSTEM
+       Each section of the site is a "page" div.
+       JS shows/hides pages by toggling the .active class.
+       Only the active page is displayed.
+    ============================================================ */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+
+    /* ============================================================
+       HERO / BANNER SECTION
+       Full-width dark hero with headline on the left and
+       a stats panel on the right.
+    ============================================================ */
+    /* Optional background photo: set style="--hero-image: url('images/...')"
+       on the hero section. The gradient keeps the text side dark. */
+    .hero {
+      --hero-image: none;
+      background-color: var(--clr-dark-800);
+      background-image: linear-gradient(90deg, var(--clr-dark-800) 0%, var(--clr-dark-800) 35%, rgba(24,23,22,0.55) 70%, rgba(24,23,22,0.35) 100%), var(--hero-image);
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      padding: var(--space-3xl) 0 var(--space-2xl);
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    /* Eyebrow tag above the headline */
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 0.5px solid var(--clr-orange);
+      color: var(--clr-orange);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      padding: 3px 11px;
+      border-radius: 3px;
+      margin-bottom: var(--space-md);
+      letter-spacing: 0.5px;
+    }
+
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.25rem);   /* Fluid type — scales with viewport */
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--clr-text-white);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Orange highlight within the headline */
+    .hero__headline span {
+      color: var(--clr-orange);
+    }
+
+    .hero__body {
+      font-size: 0.9375rem;
+      line-height: 1.8;
+      color: var(--clr-text-light);
+      margin-bottom: var(--space-lg);
+      max-width: 420px;
+    }
+
+    /* Button row in the hero */
+    .hero__actions {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    /* Primary orange button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px;
+      background: var(--clr-orange);
+      color: var(--clr-dark-800);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      border: none;
+      border-radius: var(--border-radius);
+      transition: background var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--clr-orange-dark);
+    }
+
+    /* Ghost / outline button */
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: transparent;
+      color: var(--clr-text-muted);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      border: 0.5px solid var(--clr-dark-500);
+      border-radius: var(--border-radius);
+      transition: border-color var(--transition), color var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--clr-orange);
+      color: var(--clr-orange);
+    }
+
+    /* --- Stats panel (right column of hero) --- */
+    .hero__stats {
+      display: flex;
+      flex-direction: column;
+      background: var(--clr-dark-700);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      border: 0.5px solid var(--clr-dark-600);
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 0.5px solid var(--clr-dark-600);
+    }
+
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .stat-row__label {
+      font-size: 0.6875rem;
+      color: var(--clr-text-muted);
+    }
+
+    .stat-row__value {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--clr-text-white);
+    }
+
+    /* Orange dot beside each stat value */
+    .stat-row__dot {
+      width: 7px;
+      height: 7px;
+      background: var(--clr-orange);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+
+    /* ============================================================
+       PARTNERS SECTION HEADER
+       Light-background bar that titles the partner list.
+    ============================================================ */
+    .section-header {
+      background: var(--clr-light-300);
+      border-bottom: 0.5px solid var(--clr-light-border);
+      padding: var(--space-md) 0;
+    }
+
+    .section-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-header__title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+    }
+
+    .section-header__badge {
+      font-size: 0.6875rem;
+      color: var(--clr-text-label);
+      background: var(--clr-light-100);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: 4px;
+      padding: 4px 12px;
+    }
+
+
+    /* ============================================================
+       PARTNER ROW
+       Each partner brand gets a horizontal row:
+         Left column  = logo icon + "Ex-stock" badge + name/category
+         Right column = heading + description + feature chips + link
+       Alternating rows have a slightly tinted background.
+    ============================================================ */
+    .partner-row {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      border-bottom: 0.5px solid var(--clr-light-border);
+      background: var(--clr-light-100);
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Alternate row tint for visual separation */
+    .partner-row:nth-child(even) {
+      background: var(--clr-light-200);
+    }
+
+    /* --- Logo column --- */
+    .partner-row__logo {
+      padding: var(--space-lg) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      border-right: 0.5px solid var(--clr-light-border);
+    }
+
+    /* Black box with orange icon and orange border */
+    .logo-box {
+      width: 80px;
+      height: 52px;
+      background: var(--clr-dark-800);
+      border-radius: var(--border-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--clr-orange);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-box i {
+      color: var(--clr-orange);
+      font-size: 24px;
+    }
+
+    /* Logo boxes that contain a partner photo */
+    .logo-box--img {
+      background: #ffffff;
+      padding: 6px;
+    }
+
+    .logo-box--img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Orange "Ex-stock Thailand" pill badge */
+    .exstock-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--clr-orange);
+      color: var(--clr-dark-800);
+      font-size: 0.625rem;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .exstock-badge i {
+      font-size: 10px;
+    }
+
+    .partner-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+    }
+
+    .partner-category {
+      font-size: 0.625rem;
+      color: var(--clr-text-label);
+    }
+
+    /* --- Info column --- */
+    .partner-row__info {
+      padding: var(--space-lg) var(--space-xl);
+    }
+
+    .partner-row__info h3 {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Small label badge beside the heading (e.g. "Rep. since 1995") */
+    .partner-badge {
+      font-size: 0.625rem;
+      font-weight: 400;
+      background: var(--clr-orange-soft);
+      color: var(--clr-text-badge);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .partner-row__info p {
+      font-size: 0.75rem;
+      line-height: 1.8;
+      color: var(--clr-text-body);
+      margin-bottom: var(--space-md);
+      max-width: 560px;
+    }
+
+    /* Feature chip row */
+    .feature-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.6875rem;
+      color: var(--clr-text-dark);
+      background: var(--clr-light-300);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: 4px;
+      padding: 4px 10px;
+    }
+
+    .chip i {
+      color: var(--clr-orange);
+      font-size: 11px;
+    }
+
+    /* "Learn more" arrow link */
+    .partner-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: var(--space-sm);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--clr-orange);
+      transition: gap var(--transition);
+    }
+
+    .partner-link:hover {
+      gap: 7px;
+    }
+
+
+    /* ============================================================
+       PARTNER GRID (home page)
+       Compact card per partner: logo + name + category + one-line
+       description + link. 4 columns desktop, 2 on tablet/phone.
+       TO ADD A NEW PARTNER: copy one .partner-card block.
+    ============================================================ */
+    .partner-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+    }
+
+    .partner-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: var(--clr-light-100);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-md);
+    }
+
+    .partner-card .logo-box {
+      margin-bottom: var(--space-sm);
+    }
+
+    .partner-card .partner-name {
+      font-size: 0.875rem;
+    }
+
+    .partner-card__desc {
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--clr-text-body);
+      margin-top: 4px;
+    }
+
+    /* Push the link to the bottom so links line up across a row */
+    .partner-card .partner-link {
+      margin-top: auto;
+      padding-top: var(--space-sm);
+    }
+
+
+    /* ============================================================
+       WHERE OUR SYSTEMS RUN (home page)
+       3 reference cards (reuses .app-card styling) + link to the
+       Application reference page. Stacks on mobile.
+    ============================================================ */
+    .refs-section {
+      padding: 0 0 var(--space-2xl);
+    }
+
+    .refs-section__title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+    }
+
+    .refs-section__sub {
+      font-size: 0.75rem;
+      color: var(--clr-text-label);
+      margin-bottom: var(--space-md);
+    }
+
+    .refs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+
+    /* ============================================================
+       SOCIAL STRIP
+       Full-width orange strip with Line, Facebook and website links.
+       Shown between the partner list and the footer contact band.
+    ============================================================ */
+    .social-strip {
+      background: var(--clr-orange);
+      padding: 13px 0;
+    }
+
+    .social-strip .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .social-strip__link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--clr-dark-800);
+      transition: opacity var(--transition);
+    }
+
+    .social-strip__link:hover {
+      opacity: 0.75;
+    }
+
+    .social-strip__link i {
+      font-size: 16px;
+    }
+
+    /* Vertical separator between social links */
+    .social-sep {
+      width: 1px;
+      height: 16px;
+      background: rgba(24, 23, 22, 0.3);
+    }
+
+
+    /* ============================================================
+       CONTACT BAND (footer top section)
+       Dark 4-column strip with address, phone, and social info.
+       Shown at the bottom of every page before the footer bar.
+    ============================================================ */
+    .contact-band {
+      background: var(--clr-light-100);
+      border-top: 3px solid var(--clr-orange);
+      padding: var(--space-xl) 0;
+    }
+
+    .contact-band .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .contact-col {
+      padding: 0 var(--space-lg);
+      border-right: 0.5px solid var(--clr-light-border);
+    }
+
+    .contact-col:first-child {
+      padding-left: 0;
+    }
+
+    .contact-col:last-child {
+      border-right: none;
+    }
+
+    .contact-col__label {
+      font-size: 0.625rem;
+      font-weight: 500;
+      color: var(--clr-orange);
+      letter-spacing: 0.5px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .contact-col__value {
+      font-size: 0.75rem;
+      color: var(--clr-text-dark);
+      line-height: 1.9;
+    }
+
+    .contact-col__value i {
+      color: var(--clr-orange);
+      font-size: 13px;
+      vertical-align: -1px;
+      margin-right: 4px;
+    }
+
+    .contact-col__value a {
+      color: var(--clr-text-dark);
+      transition: color var(--transition);
+    }
+
+    .contact-col__value a:hover {
+      color: var(--clr-orange);
+    }
+
+
+    /* ============================================================
+       FOOTER BAR
+       Thin black bar at the very bottom with copyright text.
+    ============================================================ */
+    .footer-bar {
+      background: var(--clr-dark-900);
+      padding: 12px 0;
+      border-top: 0.5px solid var(--clr-dark-700);
+    }
+
+    .footer-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bar span {
+      font-size: 0.625rem;
+      color: var(--clr-dark-600);
+    }
+
+
+    /* ============================================================
+       INNER PAGE HEADER
+       Used on all sub-pages (Products, Contact, etc.)
+       Dark header with breadcrumb, page title and subtitle.
+    ============================================================ */
+    .page-header {
+      background: var(--clr-dark-800);
+      border-bottom: 2px solid var(--clr-orange);
+      padding: var(--space-xl) 0;
+    }
+
+    /* Breadcrumb navigation trail */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.6875rem;
+      color: var(--clr-text-muted);
+      margin-bottom: var(--space-sm);
+    }
+
+    .breadcrumb i {
+      font-size: 10px;
+    }
+
+    .breadcrumb__current {
+      color: var(--clr-orange);
+    }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--clr-text-white);
+      margin-bottom: 6px;
+    }
+
+    .page-header p {
+      font-size: 0.8125rem;
+      color: var(--clr-text-light);
+      max-width: 520px;
+    }
+
+
+    /* ============================================================
+       CONTENT AREA
+       Wrapper for inner page content with consistent vertical padding.
+    ============================================================ */
+    .content-area {
+      padding: var(--space-xl) 0;
+    }
+
+
+    /* ============================================================
+       OVERVIEW PAGE — stat row + 2x2 grid of info cards
+    ============================================================ */
+
+    /* 4-column stat strip */
+    .overview-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .overview-stat {
+      background: var(--clr-light-300);
+      border-radius: var(--border-radius);
+      padding: 14px 18px;
+      border-left: 3px solid var(--clr-orange);
+    }
+
+    .overview-stat__number {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--clr-text-dark);
+    }
+
+    .overview-stat__label {
+      font-size: 0.6875rem;
+      color: var(--clr-text-label);
+      margin-top: 3px;
+    }
+
+    /* 2x2 info cards grid */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .overview-card {
+      background: var(--clr-light-100);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-lg);
+    }
+
+    .overview-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+      margin-bottom: var(--space-sm);
+    }
+
+    .overview-card h3 i {
+      color: var(--clr-orange);
+      font-size: 17px;
+    }
+
+    .overview-card p {
+      font-size: 0.75rem;
+      line-height: 1.75;
+      color: var(--clr-text-body);
+    }
+
+    /* Tagline callout block */
+    .tagline-block {
+      background: var(--clr-dark-800);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-lg) var(--space-xl);
+      border-left: 3px solid var(--clr-orange);
+    }
+
+    .tagline-block__label {
+      font-size: 0.625rem;
+      font-weight: 500;
+      color: var(--clr-orange);
+      letter-spacing: 0.4px;
+      margin-bottom: 6px;
+    }
+
+    .tagline-block__quote {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--clr-text-white);
+      margin-bottom: 6px;
+    }
+
+    .tagline-block__sub {
+      font-size: 0.8125rem;
+      color: var(--clr-text-light);
+      line-height: 1.65;
+    }
+
+
+    /* ============================================================
+       APPLICATION REFERENCE PAGE — card grid
+    ============================================================ */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .app-card {
+      background: var(--clr-light-100);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: var(--border-radius-lg);
+      border-top: 3px solid var(--clr-orange);
+      overflow: hidden;
+    }
+
+    .app-card__head {
+      background: var(--clr-light-300);
+      padding: 13px var(--space-md);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .app-card__head i {
+      color: var(--clr-orange);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .app-card__head h3 {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+    }
+
+    .app-card__body {
+      padding: var(--space-md);
+    }
+
+    .app-card__body p {
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--clr-text-body);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Tag row inside app card */
+    .app-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .app-tag {
+      display: inline-block;
+      font-size: 0.625rem;
+      background: var(--clr-dark-800);
+      color: var(--clr-orange);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+
+    /* ============================================================
+       PRODUCTS PAGE — clickable grid of product category cards
+    ============================================================ */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .product-card {
+      background: var(--clr-light-100);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: var(--border-radius-lg);
+      border-top: 3px solid var(--clr-orange);
+      padding: var(--space-md);
+      cursor: pointer;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .product-card:hover {
+      background: #FFFBF5;
+      box-shadow: 0 2px 12px rgba(255,136,0,0.08);
+    }
+
+    .product-card__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: var(--space-sm);
+    }
+
+    .product-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--clr-dark-800);
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-icon i {
+      color: var(--clr-orange);
+      font-size: 18px;
+    }
+
+    .product-label {
+      font-size: 0.625rem;
+      background: var(--clr-orange-soft);
+      color: var(--clr-text-badge);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+
+    .product-card h3 {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+      margin-bottom: 5px;
+    }
+
+    .product-card p {
+      font-size: 0.6875rem;
+      line-height: 1.6;
+      color: var(--clr-text-body);
+    }
+
+
+    /* ============================================================
+       PRODUCT DETAIL PAGE
+       Reuses the partner-row component on a bordered card.
+    ============================================================ */
+    .product-detail-card {
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Callout note below the product detail */
+    .product-note {
+      background: var(--clr-light-300);
+      border-radius: var(--border-radius);
+      border-left: 3px solid var(--clr-orange);
+      padding: 14px var(--space-lg);
+      font-size: 0.8125rem;
+      color: var(--clr-text-body);
+      line-height: 1.7;
+    }
+
+
+    /* ============================================================
+       PLACEHOLDER CARD — "coming soon" content (Stock page)
+       Same styles as .placeholder-card in ITS_OilGas.html.
+    ============================================================ */
+    .placeholder-card {
+      background: var(--clr-light-300);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: var(--border-radius-lg);
+      border-top: 3px solid var(--clr-orange);
+      padding: var(--space-3xl) var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: var(--space-md);
+    }
+
+    .placeholder-card i {
+      font-size: 40px;
+      color: var(--clr-orange);
+      opacity: 0.5;
+    }
+
+    .placeholder-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--clr-text-dark);
+    }
+
+    .placeholder-card p {
+      font-size: 0.8125rem;
+      color: var(--clr-text-label);
+      max-width: 360px;
+      line-height: 1.7;
+    }
+
+    /* Button row inside the placeholder card */
+    .placeholder-card__actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-sm);
+    }
+
+    /* Button icons keep their normal size/colour (overrides .placeholder-card i) */
+    .placeholder-card__actions i {
+      font-size: inherit;
+      color: inherit;
+      opacity: 1;
+    }
+
+    /* Small note under the buttons */
+    .placeholder-card p.placeholder-card__note {
+      font-size: 0.75rem;
+      color: var(--clr-text-body);
+    }
+
+    /* Ghost button variant for light backgrounds (dark text + border) */
+    .btn-ghost--light {
+      color: var(--clr-text-dark);
+      border-color: var(--clr-text-label);
+    }
+
+    /* Reference table for InHand page */
+    .ref-table-title {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+      margin-bottom: var(--space-sm);
+    }
+
+    .ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      border: 0.5px solid var(--clr-light-border);
+    }
+
+    .ref-table th {
+      background: var(--clr-dark-800);
+      color: var(--clr-orange);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2px;
+    }
+
+    .ref-table td {
+      padding: 10px 14px;
+      border-bottom: 0.5px solid var(--clr-light-border);
+      color: var(--clr-text-body);
+      vertical-align: top;
+    }
+
+    .ref-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .ref-table tr:nth-child(even) td {
+      background: var(--clr-light-200);
+    }
+
+    .ref-table td:first-child {
+      font-weight: 500;
+      color: var(--clr-text-dark);
+    }
+
+    /* Sector sub-header row — like the table header, one step lighter */
+    .ref-table tr.ref-table__group td {
+      background: var(--clr-dark-700);
+      color: var(--clr-orange);
+      font-weight: 500;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2px;
+      border-bottom: none;
+    }
+
+    /* Horizontal scroll wrapper so wide tables don't squash on mobile */
+    .ref-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .ref-table-wrap .ref-table {
+      min-width: 640px;
+    }
+
+
+    /* ============================================================
+       CONTACT PAGE
+    ============================================================ */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .contact-info h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+      margin-bottom: 7px;
+    }
+
+    .contact-info > p {
+      font-size: 0.8125rem;
+      color: var(--clr-text-body);
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Individual info row (icon + label + value) */
+    .info-rows {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-sm);
+      border: 0.5px solid var(--clr-light-border);
+      border-radius: var(--border-radius);
+      background: var(--clr-light-100);
+    }
+
+    .info-row > i {
+      color: var(--clr-orange);
+      font-size: 18px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .info-row__label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--clr-text-dark);
+      margin-bottom: 2px;
+    }
+
+    .info-row__value {
+      font-size: 0.75rem;
+      color: var(--clr-text-body);
+      line-height: 1.6;
+    }
+
+    /* Social cards row (Line + Facebook) */
+    .social-cards {
+      display: flex;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
+    }
+
+    .social-card {
+      flex: 1;
+      background: var(--clr-dark-800);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      transition: background var(--transition);
+    }
+
+    .social-card:hover {
+      background: var(--clr-dark-700);
+    }
+
+    .social-card i {
+      color: var(--clr-orange);
+      font-size: 26px;
+    }
+
+    .social-card__name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--clr-text-white);
+    }
+
+    .social-card__id {
+      font-size: 0.6875rem;
+      color: var(--clr-text-muted);
+    }
+
+    /* Map placeholder — replace with a real Google Maps embed */
+    .map-area {
+      background: var(--clr-light-300);
+      border-radius: var(--border-radius-lg);
+      border: 0.5px solid var(--clr-light-border);
+      overflow: hidden;
+    }
+
+    /* 
+      TO ADD A REAL MAP:
+      Replace the .map-placeholder div with an <iframe> from Google Maps.
+      Example:
+      <iframe
+        src="https://www.google.com/maps/embed?pb=..."
+        width="100%" height="260"
+        style="border:0" allowfullscreen loading="lazy">
+      </iframe>
+    */
+    .map-placeholder {
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      background: var(--clr-light-border);
+    }
+
+    .map-placeholder i {
+      color: var(--clr-orange);
+      font-size: 36px;
+    }
+
+    .map-placeholder span {
+      font-size: 0.75rem;
+      color: var(--clr-text-label);
+    }
+
+    .map-placeholder small {
+      font-size: 0.6875rem;
+      color: var(--clr-text-muted);
+    }
+
+    .map-info {
+      padding: var(--space-md);
+    }
+
+    .map-info p {
+      font-size: 0.75rem;
+      color: var(--clr-text-body);
+      line-height: 1.65;
+    }
+
+    /* "Open in Google Maps" / "Get directions" links under the map */
+    .map-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ─────────────────────────────────────────────────────────────
+       Three breakpoints:
+         ≤ 900px  → Tablet: collapse hero, shrink some grids
+         ≤ 600px  → Mobile: single column, show hamburger
+    ============================================================ */
+
+    /* --- Tablet (≤900px) --- */
+    @media (max-width: 900px) {
+      .container {
+        padding-left: var(--space-lg);
+        padding-right: var(--space-lg);
+      }
+
+      /* Hero becomes single column on tablet */
+      .hero .container {
+        grid-template-columns: 1fr;
+      }
+
+      /* Stronger, even overlay so text stays readable over a photo */
+      .hero {
+        background-image: linear-gradient(rgba(24,23,22,0.8), rgba(24,23,22,0.8)), var(--hero-image);
+      }
+
+      .hero__stats {
+        display: none;   /* Hide stat panel on tablet to save space */
+      }
+
+      /* Partner rows stack vertically */
+      .partner-row {
+        grid-template-columns: 1fr;
+      }
+
+      /* Home partner grid: 2 per row */
+      .partner-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .partner-row__logo {
+        border-right: none;
+        border-bottom: 0.5px solid var(--clr-light-border);
+        flex-direction: row;
+        align-items: center;
+        padding: var(--space-md) var(--space-lg);
+        gap: var(--space-md);
+      }
+
+      /* Overview: 2 stats per row, then 1 col grid */
+      .overview-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Contact band: 2 columns */
+      .contact-band .container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+      }
+
+      .contact-col {
+        padding: 0;
+        border: none;
+      }
+    }
+
+    /* --- Mobile (≤600px) --- */
+    @media (max-width: 600px) {
+      /* Hide topbar company name on small screens */
+      .topbar__company {
+        display: none;
+      }
+
+      /* Hide desktop nav; show hamburger */
+      .navbar__nav,
+      .navbar__cta {
+        display: none;
+      }
+
+      .navbar__hamburger {
+        display: flex;
+        flex-shrink: 0;
+      }
+
+      /* Brand text shrinks/truncates so it never touches the menu button */
+      .navbar .container {
+        gap: 12px;
+      }
+
+      .navbar__logo,
+      .navbar__logo-text {
+        flex-shrink: 1;
+        min-width: 0;
+      }
+
+      .navbar__logo-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .navbar__logo-sub {
+        display: none;
+      }
+
+      /* Hero adjustments */
+      .hero {
+        padding: var(--space-xl) 0;
+      }
+
+      .hero__headline {
+        font-size: 2rem;
+      }
+
+      /* Partner row logo goes horizontal */
+      .partner-row__logo {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      /* Grids go single column */
+      .overview-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Home "Where our systems run" cards stack */
+      .refs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-band .container {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+      }
+
+      .footer-bar .container {
+        flex-direction: column;
+        gap: 4px;
+        text-align: center;
+      }
+
+      /* Product grid: 2 per row on phone */
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* Social strip: vertical on mobile */
+      .social-strip .container {
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .social-sep {
+        display: none;
+      }
+    }
+
+    /* --- Very small phones (≤380px) --- */
+    @media (max-width: 380px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       TOPBAR
+       Thin utility bar: company name (left) + contact links (right)
+       To change contact info: update the <a> tags below.
+  ============================================================ -->
+  <div class="topbar">
+    <div class="container">
+      <span class="topbar__company">ITS Industrial Technology Supply Co., Ltd. &nbsp;·&nbsp; Samutsakhon, Thailand</span>
+      <ul class="topbar__links">
+        <li><a href="tel:+6634834840"><i class="ti ti-phone"></i> +66 3483 4840-2</a></li>
+        <li><a href="fax:+6634863500"><i class="ti ti-printer"></i> +66 3486 3500</a></li>
+        <li><a href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener"><i class="ti ti-brand-line"></i> itsltd</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       Logo (left) + nav links with dropdowns (right) + CTA button.
+       The hamburger button is shown on mobile; it opens .mobile-nav.
+       
+       TO ADD A NEW NAV ITEM:
+         Add a new <li class="nav-item"> inside .navbar__nav
+       
+       TO ADD A DROPDOWN:
+         Add a <div class="dropdown"> inside the nav-item
+         and put <a class="dropdown__link"> items inside it.
+  ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+
+      <!-- Logo -->
+      <a class="navbar__logo" href="#" onclick="showPage('home')" aria-label="ITS Industrial Technology Supply — Home">
+        <div class="navbar__logo-mark">
+          <img src="images/ITS_Logo-removebg-preview.png" alt="ITS Industrial Technology Supply logo" />
+        </div>
+        <div class="navbar__logo-text">
+          <span class="navbar__logo-name">ITS Industrial Technology Supply</span>
+          <span class="navbar__logo-sub">Perfection in Automation &nbsp;·&nbsp; Thailand</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="navbar__nav">
+
+        <li class="nav-item">
+          <a class="nav-item__link active" id="nav-home" href="#" onclick="showPage('home'); return false;">Home</a>
+        </li>
+
+        <!-- Menu dropdown: Application Reference + Overview -->
+        <li class="nav-item">
+          <button class="nav-item__link" aria-haspopup="true" aria-expanded="false">
+            Menu <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown" role="menu">
+            <a class="dropdown__link" href="#" onclick="showPage('appref'); return false;" role="menuitem">Application reference</a>
+            <a class="dropdown__link" href="#" onclick="showPage('overview'); return false;" role="menuitem">Overview</a>
+          </div>
+        </li>
+
+        <!-- Products dropdown: all 7 product pages -->
+        <li class="nav-item">
+          <button class="nav-item__link" aria-haspopup="true" aria-expanded="false">
+            Products <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown" role="menu">
+            <a class="dropdown__link" href="#" onclick="showPage('br'); return false;" role="menuitem">B&amp;R PLC / HMI</a>
+            <a class="dropdown__link" href="#" onclick="showPage('flowcomp'); return false;" role="menuitem">Flow computer</a>
+            <a class="dropdown__link" href="#" onclick="showPage('power'); return false;" role="menuitem">Power supply</a>
+            <a class="dropdown__link" href="#" onclick="showPage('surge'); return false;" role="menuitem">Surge &amp; lightning</a>
+            <a class="dropdown__link" href="#" onclick="showPage('inhand'); return false;" role="menuitem">InHand router</a>
+            <a class="dropdown__link" href="#" onclick="showPage('oring'); return false;" role="menuitem">ORing</a>
+            <a class="dropdown__link" href="#" onclick="showPage('cm'); return false;" role="menuitem">Control Maestro</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-item__link" id="nav-stock" href="#" onclick="showPage('stock'); return false;">Stock</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-item__link" href="#" onclick="showPage('contact'); return false;">Contact</a>
+        </li>
+
+      </ul>
+
+      <!-- CTA + hamburger -->
+      <a class="navbar__cta" href="#" onclick="showPage('contact'); return false;">Get a quote</a>
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open mobile menu" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MOBILE NAVIGATION DRAWER
+       Slides in from the right on screens ≤600px.
+       Controlled by the hamburger button + JS below.
+  ============================================================ -->
+  <div class="mobile-overlay" id="mobile-overlay" onclick="closeMobileNav()"></div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <button class="mobile-nav__close" onclick="closeMobileNav()" aria-label="Close mobile menu">
+      <i class="ti ti-x"></i>
+    </button>
+    <a class="mobile-nav__link" href="#" onclick="showPage('home'); closeMobileNav();">Home</a>
+    <div class="mobile-nav__section">MENU</div>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('appref'); closeMobileNav();">Application reference</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('overview'); closeMobileNav();">Overview</a>
+    <div class="mobile-nav__section">PRODUCTS</div>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('br'); closeMobileNav();">B&amp;R PLC / HMI</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('flowcomp'); closeMobileNav();">Flow computer</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('power'); closeMobileNav();">Power supply</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('surge'); closeMobileNav();">Surge &amp; lightning</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('inhand'); closeMobileNav();">InHand router</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('oring'); closeMobileNav();">ORing</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('cm'); closeMobileNav();">Control Maestro</a>
+    <a class="mobile-nav__link" href="#" onclick="showPage('stock'); closeMobileNav();">Stock</a>
+    <a class="mobile-nav__link" href="#" onclick="showPage('contact'); closeMobileNav();">Contact</a>
+    <a class="mobile-nav__link" style="color:var(--clr-orange);font-weight:500;" href="#" onclick="showPage('contact'); closeMobileNav();">Get a quote</a>
+  </nav>
+
+
+  <!-- ============================================================
+       ██████████████████████████████████████████████████████████
+       PAGE: HOME
+       ██████████████████████████████████████████████████████████
+       Sections: hero → partners list → social strip → contact band → footer
+  ============================================================ -->
+  <main id="page-home" class="page active" aria-label="Home">
+
+    <!-- ISO 9001 trust strip -->
+    <!-- Hero / Banner -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="container">
+
+        <!-- Left: headline + body + buttons -->
+        <div class="hero__content">
+          <div class="hero__eyebrow">
+            <i class="ti ti-circle-check" aria-hidden="true"></i>
+            AUTHORIZED DISTRIBUTOR &nbsp;·&nbsp; EX-STOCK THAILAND
+          </div>
+          <h1 class="hero__headline">Perfection in<br><span>Automation</span></h1>
+          <p class="hero__body">
+            Thailand's trusted industrial automation partner since 1993.
+            Premium brands in PLC, HMI, SCADA, power supply, surge protection
+            and industrial networking — all available from local stock for
+            immediate delivery anywhere in Thailand.
+          </p>
+          <div class="hero__actions">
+            <a class="btn-primary" href="#" onclick="showPage('products'); return false;">
+              <i class="ti ti-package" aria-hidden="true"></i> View all products
+            </a>
+            <a class="btn-ghost" href="#" onclick="showPage('overview'); return false;">
+              Our overview
+            </a>
+          </div>
+          <img src="images/BSI-ISO9001-certified-white-noBG.png" alt="BSI ISO 9001 Certified" style="height: 72px; width: auto; display: block; margin-top: 20px; opacity: 0.85;" />
+        </div>
+
+        <!-- Right: key stat panel (hidden on tablet/mobile) -->
+        <div class="hero__stats" aria-label="Key company statistics">
+          <div class="stat-row">
+            <span class="stat-row__label">Established</span>
+            <span class="stat-row__value">1993 <span class="stat-row__dot"></span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row__label">B&amp;R representative since</span>
+            <span class="stat-row__value">1995 <span class="stat-row__dot"></span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row__label">Premium brands</span>
+            <span class="stat-row__value">8 brands <span class="stat-row__dot"></span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row__label">Location</span>
+            <span class="stat-row__value">Samutsakhon <span class="stat-row__dot"></span></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider-bar"></div>
+
+    <!-- Partners section header -->
+    <div class="section-header">
+      <div class="container">
+        <h2 class="section-header__title">Our technology partners</h2>
+      </div>
+    </div>
+
+    <!-- ── Partner grid ──────────────────────────────────────────
+         One .partner-card per partner. Full partner descriptions
+         live on each product page.
+    ─────────────────────────────────────────────────────────── -->
+    <section class="partner-section" aria-label="Technology partners">
+      <div class="container">
+        <div class="partner-grid">
+
+          <!-- Partner: B&R Automation -->
+          <article class="partner-card" aria-label="B&R Automation">
+            <div class="logo-box logo-box--img"><img src="images/BR_logo_Colour.JPG" alt="B&R Automation logo" /></div>
+            <div class="partner-name">B&amp;R Automation</div>
+            <div class="partner-category">PLC · HMI · Motion · IPC</div>
+            <p class="partner-card__desc">PLC, HMI, motion control and industrial PCs. Part of ABB.</p>
+            <a class="partner-link" href="#" onclick="showPage('br'); return false;">View B&amp;R products <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <!-- Partner: Westermo -->
+          <article class="partner-card" aria-label="Westermo">
+            <div class="logo-box logo-box--img"><img src="images/Westermo-logo.png" alt="Westermo logo" /></div>
+            <div class="partner-name">Westermo</div>
+            <div class="partner-category">Industrial data communications</div>
+            <p class="partner-card__desc">Rugged Ethernet switches and routers for harsh environments.</p>
+          </article>
+
+          <!-- Partner: Spirit IT -->
+          <article class="partner-card" aria-label="Spirit IT">
+            <div class="logo-box logo-box--img"><img src="images/ABB_logo.svg.png" alt="Spirit IT logo" /></div>
+            <div class="partner-name">Spirit IT</div>
+            <div class="partner-category">Flow computers · Metering</div>
+            <p class="partner-card__desc">Flow computers and metering software.</p>
+            <a class="partner-link" href="#" onclick="showPage('flowcomp'); return false;">View flow products <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <!-- Partner: TRACO POWER -->
+          <article class="partner-card" aria-label="TRACO POWER">
+            <div class="logo-box logo-box--img"><img src="images/Traco_Power.png" alt="TRACO POWER logo" /></div>
+            <div class="partner-name">TRACO POWER</div>
+            <div class="partner-category">DIN-rail power supply</div>
+            <p class="partner-card__desc">Swiss-made DIN-rail and enclosed power supplies.</p>
+            <a class="partner-link" href="#" onclick="showPage('power'); return false;">View power products <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <!-- Partner: Raycap -->
+          <article class="partner-card" aria-label="Raycap">
+            <div class="logo-box logo-box--img"><img src="images/Raycap-Logo.jpg" alt="Raycap logo" /></div>
+            <div class="partner-name">Raycap</div>
+            <div class="partner-category">Surge &amp; lightning protection</div>
+            <p class="partner-card__desc">Surge and lightning protection for power and data lines.</p>
+            <a class="partner-link" href="#" onclick="showPage('surge'); return false;">View Raycap products <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <!-- Partner: InHand Networks -->
+          <article class="partner-card" aria-label="InHand Networks">
+            <div class="logo-box logo-box--img"><img src="images/inhand-logo-black-outline.png" alt="InHand Networks logo" /></div>
+            <div class="partner-name">InHand Networks</div>
+            <div class="partner-category">4G routers · IIoT · Gateways</div>
+            <p class="partner-card__desc">4G/5G industrial routers and IoT gateways.</p>
+            <a class="partner-link" href="#" onclick="showPage('inhand'); return false;">View InHand products <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <!-- Partner: Control Maestro -->
+          <article class="partner-card" aria-label="Control Maestro">
+            <div class="logo-box logo-box--img"><img src="images/controlmaestro_logo.jpg" alt="Control Maestro logo" /></div>
+            <div class="partner-name">Control Maestro</div>
+            <div class="partner-category">SCADA · Automation software</div>
+            <p class="partner-card__desc">SCADA software with built-in web access.</p>
+            <a class="partner-link" href="#" onclick="showPage('cm'); return false;">View SCADA products <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+          <!-- Partner: ORing Network -->
+          <article class="partner-card" aria-label="ORing Network">
+            <div class="logo-box logo-box--img"><img src="images/Oring.png" alt="ORing Network logo" /></div>
+            <div class="partner-name">ORing Network</div>
+            <div class="partner-category">Industrial networking · IIoT</div>
+            <p class="partner-card__desc">Industrial Ethernet switches and IIoT networking.</p>
+            <a class="partner-link" href="#" onclick="showPage('oring'); return false;">View ORing products <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Where our systems run ─────────────────────────────────
+         Selected installations. Full list on the Application
+         reference page (showPage('appref')).
+    ─────────────────────────────────────────────────────────── -->
+    <section class="refs-section" aria-labelledby="refs-title">
+      <div class="container">
+        <h2 class="refs-section__title" id="refs-title">Where our systems run</h2>
+        <p class="refs-section__sub">Selected installations across Thailand.</p>
+        <div class="refs-grid">
+
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-building-community" aria-hidden="true"></i>
+              <h3>Bangkok Metropolitan Administration</h3>
+            </div>
+            <div class="app-card__body">
+              <p>SCADA for the Bangkok Flood Control Center.</p>
+              <div class="app-tags"><span class="app-tag">Control Maestro</span></div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-bolt" aria-hidden="true"></i>
+              <h3>Provincial Electricity Authority</h3>
+            </div>
+            <div class="app-card__body">
+              <p>Several hundred poletop 4G routers linking auto-reclosers across the grid.</p>
+              <div class="app-tags"><span class="app-tag">InHand Networks</span></div>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-plane" aria-hidden="true"></i>
+              <h3>Suvarnabhumi Airport</h3>
+            </div>
+            <div class="app-card__body">
+              <p>OPC integration for airport systems.</p>
+              <div class="app-tags"><span class="app-tag">Control Maestro</span></div>
+            </div>
+          </div>
+
+        </div>
+        <a class="partner-link" href="#" onclick="showPage('appref'); return false;">
+          See all application references <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact band + footer (shared across all pages via include-like template below) -->
+    <div id="home-footer"></div>
+
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: APPLICATION REFERENCE
+  ============================================================ -->
+  <main id="page-appref" class="page" aria-label="Application reference">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Application reference</span>
+        </div>
+        <h1>Application reference</h1>
+        <p>Real-world installation examples from ITS products deployed across Thailand and the region.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+        <div class="app-grid">
+
+          <!-- App card: InHand Thailand installations -->
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-router" aria-hidden="true"></i>
+              <h3>InHand Networks — Thailand installations</h3>
+            </div>
+            <div class="app-card__body">
+              <p>
+                Several hundred PEA units on poletops for FRTU auto recloser and data communications. PTT gas pipeline
+                alarm transmission along hundreds of kilometres.
+              </p>
+              <div class="app-tags">
+                <span class="app-tag">PEA poletop</span>
+                <span class="app-tag">PTT pipelines</span>
+                <span class="app-tag">B. Grimm power</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- App card: B&R -->
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-cpu" aria-hidden="true"></i>
+              <h3>B&amp;R Automation — Machine control</h3>
+            </div>
+            <div class="app-card__body">
+              <p>
+                B&amp;R PLC and HMI systems deployed across manufacturing, packaging and process control
+                applications. Real-time motion control and GIG Powerlink fieldbus in demanding industrial
+                environments throughout Thailand.
+              </p>
+              <div class="app-tags">
+                <span class="app-tag">Manufacturing</span>
+                <span class="app-tag">Packaging</span>
+                <span class="app-tag">Process control</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- App card: ABB Spirit -->
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-droplet" aria-hidden="true"></i>
+              <h3>ABB Spirit — Oil &amp; gas metering</h3>
+            </div>
+            <div class="app-card__body">
+              <p>
+                Flow computers and metering systems installed at upstream and midstream oil and gas
+                facilities. Highly reliable measurement for custody transfer and fiscal metering
+                in the energy sector.
+              </p>
+              <div class="app-tags">
+                <span class="app-tag">Upstream O&amp;G</span>
+                <span class="app-tag">Custody transfer</span>
+                <span class="app-tag">Fiscal metering</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- App card: Raycap -->
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-shield-check" aria-hidden="true"></i>
+              <h3>Raycap — Telecom &amp; energy protection</h3>
+            </div>
+            <div class="app-card__body">
+              <p>
+                Surge and lightning protection deployed at telecom tower sites, energy substations and
+                industrial facilities across the region, protecting critical infrastructure from
+                electrical surges and lightning strikes.
+              </p>
+              <div class="app-tags">
+                <span class="app-tag">Telecom towers</span>
+                <span class="app-tag">Substations</span>
+                <span class="app-tag">Industrial sites</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- App card: TRACO -->
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-bolt" aria-hidden="true"></i>
+              <h3>TRACO POWER — Industrial power</h3>
+            </div>
+            <div class="app-card__body">
+              <p>
+                DIN-rail switching power supplies installed in control panels and automation cabinets
+                across manufacturing and process industries. Reliable 24 V and 48 V DC power solutions
+                for industrial control systems.
+              </p>
+              <div class="app-tags">
+                <span class="app-tag">Control panels</span>
+                <span class="app-tag">Automation cabinets</span>
+                <span class="app-tag">24V / 48V DC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- App card: Control Maestro -->
+          <div class="app-card">
+            <div class="app-card__head">
+              <i class="ti ti-device-desktop" aria-hidden="true"></i>
+              <h3>Control Maestro — SCADA deployments</h3>
+            </div>
+            <div class="app-card__body">
+              <p>
+                Site-wide business automation and SCADA installations providing remote monitoring,
+                engineering productivity tools and wireless mobility for industrial operations managers.
+              </p>
+              <div class="app-tags">
+                <span class="app-tag">Remote monitoring</span>
+                <span class="app-tag">Site-wide SCADA</span>
+                <span class="app-tag">Wireless mobility</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="appref-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: OVERVIEW
+  ============================================================ -->
+  <main id="page-overview" class="page" aria-label="Company overview">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Overview</span>
+        </div>
+        <h1>Company overview</h1>
+        <p>ITS Industrial Technology Supply — Thailand's industrial automation distributor since 1993.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+
+        <!-- Stat strip -->
+        <div class="overview-stats">
+          <div class="overview-stat">
+            <div class="overview-stat__number">1993</div>
+            <div class="overview-stat__label">Year established</div>
+          </div>
+          <div class="overview-stat">
+            <div class="overview-stat__number">7</div>
+            <div class="overview-stat__label">Premium brands ex-stock</div>
+          </div>
+          <div class="overview-stat">
+            <div class="overview-stat__number">30+</div>
+            <div class="overview-stat__label">Years as B&amp;R Thailand rep.</div>
+          </div>
+          <div class="overview-stat">
+            <div class="overview-stat__number">Samutsakhon</div>
+            <div class="overview-stat__label">Thailand HQ</div>
+          </div>
+        </div>
+
+        <!-- 2×2 info card grid -->
+        <div class="overview-grid">
+          <div class="overview-card">
+            <h3><i class="ti ti-building-factory" aria-hidden="true"></i> Who we are</h3>
+            <p>
+              ITS Industrial Technology Supply Co., Ltd. is Thailand's authorized distributor and
+              representative of leading global industrial automation brands. Founded in 1993 and
+              headquartered in Samutsakhon, we serve Thailand's industrial sector with best-quality,
+              highest-reliability industrial grade products at affordable cost.
+            </p>
+          </div>
+          <div class="overview-card">
+            <h3><i class="ti ti-star" aria-hidden="true"></i> Our mission</h3>
+            <p>
+              Perfection in Automation — we bring world-class technology brands to Thailand's industrial
+              market, providing local stock availability, technical expertise and after-sales support.
+              We are committed to being the most reliable automation partner for engineers and procurement
+              teams across Thailand.
+            </p>
+          </div>
+          <div class="overview-card">
+            <h3><i class="ti ti-package" aria-hidden="true"></i> What we supply</h3>
+            <p>
+              PLC &amp; HMI systems, flow computers, DIN-rail power supplies, surge &amp; lightning
+              protection, 3G/4G industrial routers, industrial networking and SCADA software — all
+              available ex-stock from our Samutsakhon warehouse for immediate delivery anywhere in
+              Thailand.
+            </p>
+          </div>
+          <div class="overview-card">
+            <h3><i class="ti ti-users" aria-hidden="true"></i> Who we serve</h3>
+            <p>
+              We serve system integrators, OEM machine builders, EPC contractors, plant engineers and
+              procurement teams across oil &amp; gas, manufacturing, energy, telecommunications,
+              transportation and smart infrastructure sectors throughout Thailand and the region.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tagline callout -->
+        <div class="tagline-block">
+          <div class="tagline-block__label">OUR TAGLINE</div>
+          <div class="tagline-block__quote">"Perfection in Automation"</div>
+          <div class="tagline-block__sub">
+            We offer the best quality and highest reliability industrial grade products at affordable
+            cost — with all brands available ex-stock in Thailand for fast local delivery.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="overview-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: PRODUCTS (category grid)
+  ============================================================ -->
+  <main id="page-products" class="page" aria-label="Products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Products</span>
+        </div>
+        <h1>All products</h1>
+        <p>Eight premium brands — all available ex-stock in Thailand for immediate delivery.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+        <div class="product-grid">
+
+          <!-- TO ADD A PRODUCT CARD: copy one block, update icon, label, h3, p, and onclick -->
+
+          <div class="product-card" onclick="showPage('br')" role="button" tabindex="0" aria-label="B&R PLC / HMI">
+            <div class="product-card__top">
+              <div class="product-icon"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+              <span class="product-label">PLC / HMI</span>
+            </div>
+            <h3>B&amp;R Automation</h3>
+            <p>Europe's leading PLC/HMI — real-time motion, GIG Powerlink fieldbus, IPC and integrated engineering platform.</p>
+          </div>
+
+          <div class="product-card" onclick="showPage('flowcomp')" role="button" tabindex="0" aria-label="ABB Spirit Flow computer">
+            <div class="product-card__top">
+              <div class="product-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
+              <span class="product-label">Flow computer</span>
+            </div>
+            <h3>ABB Spirit</h3>
+            <p>High-reliability flow computers and metering solutions for oil &amp; gas applications.</p>
+          </div>
+
+          <div class="product-card" onclick="showPage('power')" role="button" tabindex="0" aria-label="TRACO POWER Power supply">
+            <div class="product-card__top">
+              <div class="product-icon"><i class="ti ti-bolt" aria-hidden="true"></i></div>
+              <span class="product-label">Power supply</span>
+            </div>
+            <h3>TRACO POWER</h3>
+            <p>Swiss DIN-rail power supplies for industrial, medical and railway applications.</p>
+          </div>
+
+          <div class="product-card" onclick="showPage('surge')" role="button" tabindex="0" aria-label="Raycap Surge and lightning protection">
+            <div class="product-card__top">
+              <div class="product-icon"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+              <span class="product-label">Surge &amp; lightning</span>
+            </div>
+            <h3>Raycap</h3>
+            <p>Global surge &amp; lightning protection for telecoms, energy and industrial markets.</p>
+          </div>
+
+          <div class="product-card" onclick="showPage('inhand')" role="button" tabindex="0" aria-label="InHand Networks IIoT router">
+            <div class="product-card__top">
+              <div class="product-icon"><i class="ti ti-router" aria-hidden="true"></i></div>
+              <span class="product-label">IIoT / 4G router</span>
+            </div>
+            <h3>InHand Networks</h3>
+            <p>Industrial M2M 4G routers, gateways and IoT management platforms.</p>
+          </div>
+
+          <div class="product-card" onclick="showPage('oring')" role="button" tabindex="0" aria-label="ORing Network industrial networking">
+            <div class="product-card__top">
+              <div class="product-icon"><i class="ti ti-network" aria-hidden="true"></i></div>
+              <span class="product-label">Networking</span>
+            </div>
+            <h3>ORing Network</h3>
+            <p>One-stop industrial Ethernet, IIoT and cloud networking solutions.</p>
+          </div>
+
+          <div class="product-card" onclick="showPage('cm')" role="button" tabindex="0" aria-label="Control Maestro SCADA">
+            <div class="product-card__top">
+              <div class="product-icon"><i class="ti ti-device-desktop" aria-hidden="true"></i></div>
+              <span class="product-label">SCADA</span>
+            </div>
+            <h3>Control Maestro</h3>
+            <p>Advanced end-to-end site-wide automation and SCADA software.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="products-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PRODUCT DETAIL PAGES (one per brand)
+       Each follows the same structure:
+         page-header → content-area with partner-row card → footer
+       
+       TO UPDATE PRODUCT CONTENT: find the relevant page below
+       and edit the <p> description and .feature-chips chips.
+  ============================================================ -->
+
+  <!-- PAGE: B&R PLC / HMI -->
+  <main id="page-br" class="page" aria-label="B&R Automation products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('products'); return false;">Products</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">B&amp;R PLC / HMI</span>
+        </div>
+        <h1>B&amp;R Automation — PLC / HMI / Motion</h1>
+        <p>Europe's most innovative industrial control platform. ITS has been the B&amp;R Thailand representative since 1995.</p>
+      </div>
+    </div>
+    <div class="content-area">
+      <div class="container">
+        <div class="product-detail-card">
+          <article class="partner-row" style="border:none;">
+            <div class="partner-row__logo" style="background:var(--clr-light-200);">
+              <div class="logo-box"><i class="ti ti-cpu" aria-hidden="true"></i></div>
+              <span class="exstock-badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Ex-stock Thailand</span>
+              <div><div class="partner-name">B&amp;R Automation</div><div class="partner-category">PLC · HMI · Motion · IPC</div></div>
+            </div>
+            <div class="partner-row__info">
+              <h3>B&amp;R Automation <span class="partner-badge">Rep. since 1995</span></h3>
+              <p>
+                Probably the single most innovative industrial control solution available today — with features
+                far beyond most of the competition. B&amp;R offers PLC, Operator Panels with or without
+                integrated control, IPC, Motion Control in a real-time multitasking environment. High Memory
+                Capacity up to 16 GB removable Flash Card, program execution in fast DRAM, USB data ports,
+                real-time GIG Powerlink Fieldbus for Motion, Control and Remote I/O, integrated GIG PLC
+                Ethernet Ports, and one integrated engineering platform for PLC, panels and motion.
+              </p>
+              <div class="feature-chips">
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> PLC systems</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Operator panels</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> IPC</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Motion control</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Real-time multitasking OS</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Up to 16 GB Flash card</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> GIG Powerlink fieldbus</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Integrated GIG Ethernet</span>
+                <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> One engineering platform</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="product-note">
+          Contact ITS for B&amp;R product selection, technical specifications, pricing and availability.
+          All B&amp;R products available ex-stock in Thailand — call <strong>+66 3483 4840-2</strong>
+          or Line <strong>itsltd</strong>.
+        </div>
+      </div>
+    </div>
+    <div id="br-footer"></div>
+  </main>
+
+  <!-- PAGE: Flow Computer (ABB Spirit) -->
+  <main id="page-flowcomp" class="page" aria-label="ABB Spirit flow computer products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><i class="ti ti-home" aria-hidden="true"></i><a href="#" onclick="showPage('home');return false;">Home</a><i class="ti ti-chevron-right" aria-hidden="true"></i><a href="#" onclick="showPage('products');return false;">Products</a><i class="ti ti-chevron-right" aria-hidden="true"></i><span class="breadcrumb__current">Flow computer</span></div>
+        <h1>ABB Spirit — Flow computer &amp; metering</h1>
+        <p>State-of-the-art metering solutions for the demanding oil and gas industry.</p>
+      </div>
+    </div>
+    <div class="content-area"><div class="container">
+      <div class="product-detail-card"><article class="partner-row" style="border:none;"><div class="partner-row__logo" style="background:var(--clr-light-200);"><div class="logo-box"><i class="ti ti-droplet" aria-hidden="true"></i></div><span class="exstock-badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Ex-stock Thailand</span><div><div class="partner-name">ABB Spirit</div><div class="partner-category">Flow computer · UFM · Metering</div></div></div><div class="partner-row__info"><h3>ABB Spirit <span class="partner-badge">Oil &amp; Gas</span></h3><p>Spirit Innovative Technologies (ABB) provides automation products and technical services that enable end users and system integrating partners to create highly reliable state-of-the-art metering solutions for the demanding oil and gas industry. Products include flow computers, flow meters (UFM) and the Flow/X flow computer platform.</p><div class="feature-chips"><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Flow computers</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> UFM flow meters</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Flow/X platform</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Custody transfer</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Fiscal metering</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Oil &amp; gas certified</span></div></div></article></div>
+      <div class="product-note">Contact ITS for ABB Spirit product selection, specifications and pricing. All products available ex-stock in Thailand.</div>
+    </div></div>
+    <div id="flowcomp-footer"></div>
+  </main>
+
+  <!-- PAGE: Power Supply (TRACO) -->
+  <main id="page-power" class="page" aria-label="TRACO POWER products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><i class="ti ti-home" aria-hidden="true"></i><a href="#" onclick="showPage('home');return false;">Home</a><i class="ti ti-chevron-right" aria-hidden="true"></i><a href="#" onclick="showPage('products');return false;">Products</a><i class="ti ti-chevron-right" aria-hidden="true"></i><span class="breadcrumb__current">Power supply</span></div>
+        <h1>TRACO POWER — DIN-rail power supplies</h1>
+        <p>Swiss-engineered power supplies for industrial, medical and railway applications.</p>
+      </div>
+    </div>
+    <div class="content-area"><div class="container">
+      <div class="product-detail-card"><article class="partner-row" style="border:none;"><div class="partner-row__logo" style="background:var(--clr-light-200);"><div class="logo-box"><i class="ti ti-bolt" aria-hidden="true"></i></div><span class="exstock-badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Ex-stock Thailand</span><div><div class="partner-name">TRACO POWER</div><div class="partner-category">DIN-rail power supply</div></div></div><div class="partner-row__info"><h3>TRACO POWER <span class="partner-badge">Swiss-made</span></h3><p>From Switzerland for the world — TRACO POWER is an established leading supplier of industrial power supplies. Future emphasis increasingly on medical and railway/transport technology as well as customer-specific power supply solutions for a wide range of demanding applications.</p><div class="feature-chips"><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> DIN-rail switching PSU</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Industrial-grade</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Medical-grade PSU</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Railway / transport</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Custom solutions</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Swiss reliability</span></div></div></article></div>
+      <div class="product-note">Contact ITS for TRACO POWER product selection, specifications and pricing. All products available ex-stock in Thailand.</div>
+    </div></div>
+    <div id="power-footer"></div>
+  </main>
+
+  <!-- PAGE: Surge & Lightning (Raycap) -->
+  <main id="page-surge" class="page" aria-label="Raycap surge protection products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><i class="ti ti-home" aria-hidden="true"></i><a href="#" onclick="showPage('home');return false;">Home</a><i class="ti ti-chevron-right" aria-hidden="true"></i><a href="#" onclick="showPage('products');return false;">Products</a><i class="ti ti-chevron-right" aria-hidden="true"></i><span class="breadcrumb__current">Surge &amp; lightning</span></div>
+        <h1>Raycap — Surge &amp; lightning protection</h1>
+        <p>Global manufacturer of electrical protection and surge solutions for industrial markets.</p>
+      </div>
+    </div>
+    <div class="content-area"><div class="container">
+      <div class="product-detail-card"><article class="partner-row" style="border:none;"><div class="partner-row__logo" style="background:var(--clr-light-200);"><div class="logo-box"><i class="ti ti-shield-check" aria-hidden="true"></i></div><span class="exstock-badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Ex-stock Thailand</span><div><div class="partner-name">Raycap</div><div class="partner-category">Surge &amp; lightning protection</div></div></div><div class="partner-row__info"><h3>Raycap <span class="partner-badge">Global manufacturer</span></h3><p>Raycap is a global manufacturer and supplier of electrical protection, connectivity and power management solutions for telecommunications, energy, transportation and other industrial markets — and concealment solutions for wireless networks. Decades of experience in R&amp;D and manufacturing innovative products that maintain leading positions across global markets.</p><div class="feature-chips"><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Surge protection devices</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Lightning protection</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Power management</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Connectivity solutions</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Telecom &amp; energy</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Wireless concealment</span></div></div></article></div>
+      <div class="product-note">Contact ITS for Raycap product selection, specifications and pricing. All products available ex-stock in Thailand.</div>
+    </div></div>
+    <div id="surge-footer"></div>
+  </main>
+
+  <!-- PAGE: InHand Router (with reference table) -->
+  <main id="page-inhand" class="page" aria-label="InHand Networks products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><i class="ti ti-home" aria-hidden="true"></i><a href="#" onclick="showPage('home');return false;">Home</a><i class="ti ti-chevron-right" aria-hidden="true"></i><a href="#" onclick="showPage('products');return false;">Products</a><i class="ti ti-chevron-right" aria-hidden="true"></i><span class="breadcrumb__current">InHand router</span></div>
+        <h1>InHand Networks — Industrial IIoT &amp; Routers</h1>
+        <p>Global leader in Industrial IoT — M2M routers, gateways and IoT platforms. Key reference installations across Thailand.</p>
+      </div>
+    </div>
+    <div class="content-area"><div class="container">
+      <div class="product-detail-card"><article class="partner-row" style="border:none;"><div class="partner-row__logo" style="background:var(--clr-light-200);"><div class="logo-box"><i class="ti ti-router" aria-hidden="true"></i></div><span class="exstock-badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Ex-stock Thailand</span><div><div class="partner-name">InHand Networks</div><div class="partner-category">4G routers · IIoT · Gateways</div></div></div><div class="partner-row__info"><h3>InHand Networks <span class="partner-badge">Global IIoT leader</span></h3><p>InHand Networks is a global leader in Industrial IoT with a product portfolio including industrial M2M routers, gateways, industrial Ethernet switches, industrial computers and IoT management platforms. Complete IoT solutions for Smart Grid, Industrial Automation, Remote Machine Monitoring, Smart Vending, Smart City, Retail and more.</p><div class="feature-chips"><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> 3G / 4G M2M routers</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Industrial gateways</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Ethernet switches</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Industrial computers</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> IoT management platforms</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Smart grid &amp; city</span></div></div></article></div>
+
+      <!-- Reference installation table -->
+      <div class="ref-table-title" style="margin-top:var(--space-lg);">Key reference installations in Thailand</div>
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Location</th>
+            <th>Application</th>
+            <th>Scale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PEA</td>
+            <td>Nationwide (poletop)</td>
+            <td>Data communications for FRTU auto recloser &amp; applications</td>
+            <td>Several hundred units</td>
+          </tr>
+          <tr>
+            <td>PTT</td>
+            <td>Along gas pipelines</td>
+            <td>Alarm applications</td>
+            <td>Several hundred units</td>
+          </tr>
+          <tr>
+            <td>PTT &amp; gas customers</td>
+            <td>Thailand RSP</td>
+            <td>Event and alarm transmission</td>
+            <td>Multiple sites</td>
+          </tr>
+          <tr>
+            <td>B. Grimm</td>
+            <td>Power plant, Thailand</td>
+            <td>Electric consumption reporting for billing</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div></div>
+    <div id="inhand-footer"></div>
+  </main>
+
+  <!-- PAGE: ORing -->
+  <main id="page-oring" class="page" aria-label="ORing Network products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><i class="ti ti-home" aria-hidden="true"></i><a href="#" onclick="showPage('home');return false;">Home</a><i class="ti ti-chevron-right" aria-hidden="true"></i><a href="#" onclick="showPage('products');return false;">Products</a><i class="ti ti-chevron-right" aria-hidden="true"></i><span class="breadcrumb__current">ORing</span></div>
+        <h1>ORing Network — Industrial networking</h1>
+        <p>One-stop industrial networking, IIoT and cloud computing solutions.</p>
+      </div>
+    </div>
+    <div class="content-area"><div class="container">
+      <div class="product-detail-card"><article class="partner-row" style="border:none;"><div class="partner-row__logo" style="background:var(--clr-light-200);"><div class="logo-box"><i class="ti ti-network" aria-hidden="true"></i></div><span class="exstock-badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Ex-stock Thailand</span><div><div class="partner-name">ORing Network</div><div class="partner-category">Industrial networking · IIoT</div></div></div><div class="partner-row__info"><h3>ORing Network <span class="partner-badge">One-stop solution</span></h3><p>ORing specializes in industrial networking solutions, IIoT, automation and cloud computing — providing one-stop shopping services with comprehensive networking solutions for demanding industrial environments worldwide.</p><div class="feature-chips"><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Industrial Ethernet</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> IIoT solutions</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Cloud computing</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Industrial switches</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Automation networking</span></div></div></article></div>
+      <!-- TODO: ORing reference installations — waiting for data from team -->
+      <div class="product-note">Contact ITS for ORing product selection, specifications and pricing. All products available ex-stock in Thailand.</div>
+    </div></div>
+    <div id="oring-footer"></div>
+  </main>
+
+  <!-- PAGE: Control Maestro -->
+  <main id="page-cm" class="page" aria-label="Control Maestro products">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><i class="ti ti-home" aria-hidden="true"></i><a href="#" onclick="showPage('home');return false;">Home</a><i class="ti ti-chevron-right" aria-hidden="true"></i><a href="#" onclick="showPage('products');return false;">Products</a><i class="ti ti-chevron-right" aria-hidden="true"></i><span class="breadcrumb__current">Control Maestro</span></div>
+        <h1>Control Maestro — SCADA &amp; automation software</h1>
+        <p>Advanced end-to-end site-wide business automation by ELUTIONS.</p>
+      </div>
+    </div>
+    <div class="content-area"><div class="container">
+      <div class="product-detail-card"><article class="partner-row" style="border:none;"><div class="partner-row__logo" style="background:var(--clr-light-200);"><div class="logo-box"><i class="ti ti-device-desktop" aria-hidden="true"></i></div><span class="exstock-badge"><i class="ti ti-map-pin" aria-hidden="true"></i> Ex-stock Thailand</span><div><div class="partner-name">Control Maestro</div><div class="partner-category">SCADA · Automation software</div></div></div><div class="partner-row__info"><h3>Control Maestro <span class="partner-badge">ELUTIONS</span></h3><p>ELUTIONS' ControlMaestro automation software provides an advanced end-to-end solution for site-wide business automation by bringing together unparalleled Web performance for remote services and the most desired application benefits including engineering productivity, security, and wireless mobility.</p><div class="feature-chips"><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Site-wide SCADA</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Web remote access</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Engineering tools</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Enterprise security</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Wireless mobility</span><span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Business automation</span></div></div></article></div>
+      <!-- Reference installation table — grouped by sector -->
+      <div class="ref-table-title" style="margin-top:var(--space-lg);">Key reference installations in Thailand</div>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Location</th>
+              <th>Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ref-table__group"><td colspan="3">Government &amp; infrastructure</td></tr>
+            <tr>
+              <td>Suvarnabhumi Airport</td>
+              <td>Bangkok</td>
+              <td>OPC integration, New Bangkok International Airport project</td>
+            </tr>
+            <tr>
+              <td>Thai Meteorological Department</td>
+              <td>Bangkok</td>
+              <td>Telemetering system</td>
+            </tr>
+            <tr>
+              <td>Bangkok Metropolitan Administration</td>
+              <td>Bangkok</td>
+              <td>Bangkok Flood Control Center</td>
+            </tr>
+            <tr>
+              <td>Royal Irrigation Department</td>
+              <td>Pasak, Bang Pakong and Pak Phanang dams; Chumphon; Ping and Chao Phraya rivers</td>
+              <td>Flood monitoring &amp; telemetering</td>
+            </tr>
+            <tr>
+              <td>Public Works Department</td>
+              <td>Chonburi, Kanchanaburi, Songkhla, Cha-am, Samui</td>
+              <td>Wastewater treatment</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="ref-table__group"><td colspan="3">Water &amp; utilities</td></tr>
+            <tr>
+              <td>Metropolitan Waterworks Authority</td>
+              <td>Bangkok</td>
+              <td>Pipeline supervision</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="ref-table__group"><td colspan="3">Oil, gas &amp; energy</td></tr>
+            <tr>
+              <td>Thai Shell</td>
+              <td>Rayong</td>
+              <td>Process control</td>
+            </tr>
+            <tr>
+              <td>PTT Natural Gas Distribution</td>
+              <td>Samut Prakan</td>
+              <td>Flow monitoring &amp; data logging</td>
+            </tr>
+            <tr>
+              <td>World Gas</td>
+              <td>Bangkok</td>
+              <td>GPRS telemetry (tank level)</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="ref-table__group"><td colspan="3">Manufacturing &amp; process</td></tr>
+            <tr>
+              <td>H.C. Starck</td>
+              <td>Rayong</td>
+              <td>Tantalum process control</td>
+            </tr>
+            <tr>
+              <td>Micro Fiber Industries</td>
+              <td>Bangkok</td>
+              <td>Raw material process</td>
+            </tr>
+            <tr>
+              <td>Andaman Surimi Industries</td>
+              <td>Samut Sakhon</td>
+              <td>Food processing (fish paste)</td>
+            </tr>
+            <tr>
+              <td>CP Group</td>
+              <td>Tha Ruea</td>
+              <td>Extruder control</td>
+            </tr>
+            <tr>
+              <td>Green Spot</td>
+              <td>Nakhon Nayok</td>
+              <td>Boiler monitoring</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="product-note">Contact ITS for Control Maestro licensing, technical specifications and pricing. Available ex-stock in Thailand.</div>
+    </div></div>
+    <div id="cm-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: STOCK AVAILABILITY
+  ============================================================ -->
+  <!-- TODO: Replace placeholder with live stock table (stock.json from its_stock_export.py) once approved -->
+  <main id="page-stock" class="page" aria-label="Stock availability">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Stock</span>
+        </div>
+        <h1>Stock availability</h1>
+        <p>Online stock availability for our Samut Sakhon warehouse.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+        <div class="placeholder-card">
+          <i class="ti ti-package" aria-hidden="true"></i>
+          <h3>Coming soon</h3>
+          <p>We're preparing an online view of our warehouse stock. Until then, contact us for current availability and lead times.</p>
+          <div class="placeholder-card__actions">
+            <a class="btn-primary" href="#" onclick="showPage('contact'); return false;">
+              <i class="ti ti-mail" aria-hidden="true"></i> Check availability
+            </a>
+            <a class="btn-ghost btn-ghost--light" href="tel:+6634834840">
+              <i class="ti ti-phone" aria-hidden="true"></i> Call +66 3483 4840-2
+            </a>
+          </div>
+          <p class="placeholder-card__note">Or message us on Line: itsltd</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="stock-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: CONTACT
+  ============================================================ -->
+  <main id="page-contact" class="page" aria-label="Contact us">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Contact</span>
+        </div>
+        <h1>Contact us</h1>
+        <p>Get in touch with our team for product enquiries, technical support and quotations.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- Left: info + social cards -->
+          <div class="contact-info">
+            <h2>ITS Industrial Technology Supply Co., Ltd.</h2>
+            <p>
+              Visit us, call or message. Our team is available to help with product
+              selection, technical queries and pricing for all brands we carry.
+            </p>
+
+            <div class="info-rows">
+              <div class="info-row">
+                <i class="ti ti-map-pin" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Address</div>
+                  <div class="info-row__value">49/438 M4 Ekachai Road, Muang<br>Samutsakhon 74000, Thailand</div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-phone" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Telephone</div>
+                  <div class="info-row__value"><a href="tel:+6634834840">+66 3483 4840-2</a></div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-printer" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Fax</div>
+                  <div class="info-row__value">+66 3486 3500</div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-mail" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Email</div>
+                  <div class="info-row__value"><a href="mailto:office@plc-scada.com">office@plc-scada.com</a></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-cards">
+              <a class="social-card" href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener" aria-label="Add ITS on Line">
+                <i class="ti ti-brand-line" aria-hidden="true"></i>
+                <span class="social-card__name">Line</span>
+                <span class="social-card__id">ID: itsltd</span>
+              </a>
+              <a class="social-card" href="https://www.facebook.com/itsindustrial" target="_blank" rel="noopener" aria-label="ITS Facebook page">
+                <i class="ti ti-brand-facebook" aria-hidden="true"></i>
+                <span class="social-card__name">Facebook</span>
+                <span class="social-card__id">itsindustrial</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: map placeholder -->
+          <!--
+            TO EMBED A REAL GOOGLE MAP:
+            1. Go to maps.google.com and search for your address.
+            2. Click Share → Embed a map → Copy HTML.
+            3. Replace the .map-placeholder div below with the <iframe> code.
+            4. Set height="260" and width="100%" on the iframe.
+          -->
+          <div class="map-area">
+            <iframe
+              src="https://maps.google.com/maps?q=Industrial+Technology+Supply+Co.,+Ltd.,+49%2F438+M4,+Khok+Kham,+Mueang+Samut+Sakhon,+Samut+Sakhon+74000,+Thailand&output=embed&z=16"
+              width="100%"
+              height="280"
+              style="border:0; display:block;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="ITS Industrial Technology Supply — Samut Sakhon, Thailand"
+            ></iframe>
+            <div class="map-info">
+              <p>
+                ITS Industrial Technology Supply Co., Ltd. is located in Samutsakhon (Samut Sakhon),
+                approximately 30 km southwest of Bangkok. Easily accessible via Ekachai Road (Route 35).
+              </p>
+              <div class="map-links">
+                <a class="partner-link" href="https://www.google.com/maps/search/?api=1&amp;query=Industrial+Technology+Supply+Co.,+Ltd.,+49%2F438+M4,+Khok+Kham,+Mueang+Samut+Sakhon,+Samut+Sakhon+74000,+Thailand" target="_blank" rel="noopener">
+                  <i class="ti ti-map-pin" aria-hidden="true"></i> Open in Google Maps
+                </a>
+                <a class="partner-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Industrial+Technology+Supply+Co.,+Ltd.,+49%2F438+M4,+Khok+Kham,+Mueang+Samut+Sakhon,+Samut+Sakhon+74000,+Thailand" target="_blank" rel="noopener">
+                  <i class="ti ti-route" aria-hidden="true"></i> Get directions
+                </a>
+              </div>
+              <a class="btn-ghost" href="images/ITS_Map.pdf" download="ITS_Map.pdf" style="margin-top: var(--space-sm);">
+                <i class="ti ti-download" aria-hidden="true"></i> Download location map (PDF)
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="contact-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       SHARED FOOTER TEMPLATE
+       This is injected into every page's footer placeholder div
+       by the renderFooters() function in the JS below.
+       TO CHANGE THE FOOTER CONTENT: edit the footerHTML string.
+  ============================================================ -->
+
+  <!-- ============================================================
+       JAVASCRIPT
+       ─────────────────────────────────────────────────────────────
+       Three main responsibilities:
+         1. showPage()      — SPA-style page switching
+         2. Mobile nav      — hamburger open/close
+         3. renderFooters() — inject shared footer into all pages
+         4. Keyboard nav    — product cards work with Enter key
+  ============================================================ -->
+  <script>
+    /* ── 1. PAGE SWITCHING ─────────────────────────────────────
+       showPage(id) hides all .page elements and shows the one
+       matching id. Also scrolls to the top of the page and
+       updates the active state on the desktop nav links.
+
+       PARAMS:
+         id — string matching the id attribute of the target
+              <main> element WITHOUT the "page-" prefix.
+              e.g. showPage('home') shows #page-home.
+    ─────────────────────────────────────────────────────────── */
+    function showPage(id) {
+      /* Hide all pages */
+      document.querySelectorAll('.page').forEach(function(p) {
+        p.classList.remove('active');
+      });
+
+      /* Show the target page */
+      var target = document.getElementById('page-' + id);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      /* Scroll smoothly to the top */
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      /* Update active class on desktop nav links */
+      document.querySelectorAll('.nav-item__link').forEach(function(link) {
+        link.classList.remove('active');
+      });
+
+      /* Highlight the matching top-level link, if it has id="nav-<page>" */
+      var navLink = document.getElementById('nav-' + id);
+      if (navLink) {
+        navLink.classList.add('active');
+      }
+
+      /* Close mobile nav if open */
+      closeMobileNav();
+    }
+
+
+    /* ── 2. MOBILE NAV ─────────────────────────────────────────
+       Opens and closes the slide-in drawer on small screens.
+    ─────────────────────────────────────────────────────────── */
+    var hamburgerBtn  = document.getElementById('hamburger-btn');
+    var mobileNav     = document.getElementById('mobile-nav');
+    var mobileOverlay = document.getElementById('mobile-overlay');
+
+    hamburgerBtn.addEventListener('click', function() {
+      mobileNav.classList.add('open');
+      mobileOverlay.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';   /* Prevent scroll behind drawer */
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+
+    /* ── 3. FOOTER INJECTION ───────────────────────────────────
+       Build the shared footer HTML once and inject it into every
+       page's footer placeholder div. This keeps the footer
+       consistent without repeating HTML across all pages.
+
+       TO CHANGE FOOTER CONTENT: edit the strings inside
+       footerHTML below.
+    ─────────────────────────────────────────────────────────── */
+    var footerHTML = `
+      <div class="divider-bar"></div>
+
+      <div class="social-strip">
+        <div class="container">
+          <a class="social-strip__link" href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener">
+            <i class="ti ti-brand-line" aria-hidden="true"></i> Add us on Line — ID: itsltd
+          </a>
+          <div class="social-sep" aria-hidden="true"></div>
+          <a class="social-strip__link" href="https://www.facebook.com/itsindustrial" target="_blank" rel="noopener">
+            <i class="ti ti-brand-facebook" aria-hidden="true"></i> Follow us on Facebook
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-band">
+        <div class="container">
+          <div class="contact-col">
+            <div class="contact-col__label">COMPANY</div>
+            <div class="contact-col__value">ITS Industrial Technology<br>Supply Co., Ltd.</div>
+          </div>
+          <div class="contact-col">
+            <div class="contact-col__label">ADDRESS</div>
+            <div class="contact-col__value">
+              49/438 M4 Ekachai Road, Muang<br>
+              Samutsakhon 74000, Thailand
+            </div>
+          </div>
+          <div class="contact-col">
+            <div class="contact-col__label">CONTACT</div>
+            <div class="contact-col__value">
+              <div><i class="ti ti-phone" aria-hidden="true"></i>+66 3483 4840-2</div>
+              <div><i class="ti ti-printer" aria-hidden="true"></i>+66 3486 3500</div>
+              <div><i class="ti ti-mail" aria-hidden="true"></i><a href="mailto:office@plc-scada.com">office@plc-scada.com</a></div>
+              <div><i class="ti ti-brand-line" aria-hidden="true"></i>Line: itsltd</div>
+            </div>
+          </div>
+          <div class="contact-col">
+            <div class="contact-col__label">SOCIAL</div>
+            <div class="contact-col__value">
+              <div><i class="ti ti-brand-facebook" aria-hidden="true"></i>
+                <a href="https://www.facebook.com/itsindustrial" target="_blank" rel="noopener">
+                  facebook.com/itsindustrial
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer-bar">
+        <div class="container">
+          <span>&copy; 2025 ITS Industrial Technology Supply Co., Ltd. &mdash; All rights reserved</span>
+          <span>Samutsakhon, Thailand</span>
+        </div>
+      </footer>
+    `;
+
+    /* Inject footer HTML into all placeholder divs */
+    var footerIds = [
+      'home-footer', 'appref-footer', 'overview-footer', 'products-footer',
+      'br-footer', 'flowcomp-footer', 'power-footer', 'surge-footer',
+      'inhand-footer', 'oring-footer', 'cm-footer', 'contact-footer',
+      'stock-footer'
+    ];
+
+    footerIds.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = footerHTML;
+    });
+
+
+    /* ── 4. KEYBOARD NAVIGATION ────────────────────────────────
+       Product cards use onclick but also need to work for
+       keyboard users who Tab to them and press Enter.
+    ─────────────────────────────────────────────────────────── */
+    document.querySelectorAll('.product-card[role="button"]').forEach(function(card) {
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+  </script>
+
+</body>
+</html>

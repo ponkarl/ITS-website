@@ -1,0 +1,8 @@
+images/media/
+oilgas_projects.json
+*.xlsx
+stock.json
+stock_issues.txt
+stock_export.log
+last_count.txt
+.claude/settings.local.json

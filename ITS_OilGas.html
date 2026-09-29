@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PREVIEW ONLY: remove before launch -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="ITS Industrial Technology Supply Co., Ltd. — Oil &amp; Gas division. Process instrumentation, valves, and automation for the oil &amp; gas and process industries in Thailand." />
+  <meta name="keywords" content="ITS, oil gas, Krohne, Della Foglia, B&R, process instrumentation, valves, Thailand" />
+  <title>ITS — Oil &amp; Gas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <style>
+    :root {
+      --clr-orange:       #FF8800;
+      --clr-orange-dark:  #E07500;
+      --clr-orange-soft:  #FFF3E0;
+      --clr-dark-900:     #0f0f0e;
+      --clr-dark-800:     #181716;
+      --clr-dark-700:     #2C2C2A;
+      --clr-dark-600:     #3C3C3A;
+      --clr-dark-500:     #444441;
+      --clr-text-white:   #FFFFFF;
+      --clr-text-light:   #D3D1C7;
+      --clr-text-muted:   #888780;
+      --clr-text-dim:     #5F5E5A;
+      --clr-light-100:    #FFFFFF;
+      --clr-light-200:    #FAFAF8;
+      --clr-light-300:    #F5F3EE;
+      --clr-light-border: #E8E6E0;
+      --clr-text-dark:    #181716;
+      --clr-text-body:    #5F5E5A;
+      --clr-text-label:   #888780;
+      --clr-text-badge:   #854F0B;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --space-xs:   4px;
+      --space-sm:   8px;
+      --space-md:   16px;
+      --space-lg:   24px;
+      --space-xl:   32px;
+      --space-2xl:  48px;
+      --space-3xl:  64px;
+      --max-width:      1200px;
+      --nav-height:     58px;
+      --topbar-height:  36px;
+      --border-radius:  6px;
+      --border-radius-lg: 10px;
+      --transition: 0.18s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--clr-text-body); background: var(--clr-light-100); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { font-family: var(--font-body); cursor: pointer; }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .container { width: 100%; max-width: var(--max-width); margin-left: auto; margin-right: auto; padding-left: var(--space-xl); padding-right: var(--space-xl); }
+    .divider-bar { height: 3px; background: var(--clr-orange); width: 100%; }
+
+    /* TOPBAR */
+    .topbar { background: var(--clr-orange); height: var(--topbar-height); display: flex; align-items: center; }
+    .topbar .container { display: flex; justify-content: space-between; align-items: center; }
+    .topbar__company { font-size: 0.6875rem; font-weight: 500; color: var(--clr-dark-800); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .topbar__links { display: flex; gap: var(--space-md); list-style: none; flex-shrink: 0; }
+    .topbar__links a { display: flex; align-items: center; gap: 4px; font-size: 0.6875rem; font-weight: 500; color: var(--clr-dark-800); transition: opacity var(--transition); }
+    .topbar__links a:hover { opacity: 0.7; }
+    .topbar__links i { font-size: 11px; }
+
+    /* NAVBAR */
+    .navbar { position: sticky; top: 0; z-index: 1000; background: var(--clr-dark-800); border-bottom: 2px solid var(--clr-orange); height: var(--nav-height); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+    .navbar__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+    .navbar__logo-mark { height: 38px; width: auto; flex-shrink: 0; display: flex; align-items: center; }
+    .navbar__logo-mark img { height: 100%; width: auto; object-fit: contain; display: block; }
+    .navbar__logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .navbar__logo-name { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--clr-text-white); letter-spacing: 0.3px; }
+    .navbar__logo-sub { font-size: 0.625rem; font-weight: 400; color: var(--clr-text-muted); }
+    .navbar__nav { display: flex; align-items: center; list-style: none; height: 100%; gap: 2px; }
+    .nav-item { position: relative; height: 100%; display: flex; align-items: stretch; }
+    .nav-item__link { display: flex; align-items: center; gap: 3px; padding: 0 14px; font-size: 0.75rem; font-weight: 500; color: var(--clr-text-muted); background: transparent; border: none; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; transition: color var(--transition), border-color var(--transition); text-decoration: none; height: 100%; }
+    .nav-item__link:hover, .nav-item__link.active { color: var(--clr-orange); border-bottom-color: var(--clr-orange); }
+    .nav-item__link i { font-size: 11px; color: var(--clr-text-dim); transition: transform var(--transition); }
+    .nav-item:hover .nav-item__link i { transform: rotate(180deg); }
+    .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #1a1a18; border: 0.5px solid var(--clr-dark-600); border-top: 2px solid var(--clr-orange); min-width: 200px; z-index: 2000; border-radius: 0 0 var(--border-radius) var(--border-radius); overflow: hidden; }
+    .nav-item:hover .dropdown { display: block; }
+    .dropdown__link { display: block; padding: 11px 18px; font-size: 0.75rem; font-weight: 400; color: var(--clr-text-muted); border-bottom: 0.5px solid var(--clr-dark-700); transition: background var(--transition), color var(--transition); white-space: nowrap; }
+    .dropdown__link:last-child { border-bottom: none; }
+    .dropdown__link:hover { background: var(--clr-dark-700); color: var(--clr-orange); }
+    .navbar__cta { display: flex; align-items: center; padding: 8px 18px; margin-left: 10px; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.75rem; font-weight: 500; border: none; border-radius: var(--border-radius); transition: background var(--transition); white-space: nowrap; text-decoration: none; }
+    .navbar__cta:hover { background: var(--clr-orange-dark); }
+    .navbar__hamburger { display: none; align-items: center; justify-content: center; width: 36px; height: 36px; background: transparent; border: 0.5px solid var(--clr-dark-600); border-radius: var(--border-radius); color: var(--clr-text-muted); font-size: 20px; }
+
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; top: 0; right: 0; width: min(280px, 85vw); height: 100vh; background: var(--clr-dark-800); border-left: 2px solid var(--clr-orange); z-index: 9999; flex-direction: column; padding: var(--space-lg); overflow-y: auto; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav__close { align-self: flex-end; background: transparent; border: none; color: var(--clr-text-muted); font-size: 22px; margin-bottom: var(--space-lg); }
+    .mobile-nav__link { display: block; padding: 12px 0; font-size: 0.875rem; font-weight: 500; color: var(--clr-text-light); border-bottom: 0.5px solid var(--clr-dark-600); }
+    .mobile-nav__link:hover { color: var(--clr-orange); }
+    .mobile-nav__section { font-size: 0.625rem; font-weight: 500; color: var(--clr-orange); letter-spacing: 0.5px; padding: 14px 0 6px; }
+    .mobile-nav__sub-link { display: block; padding: 9px 0 9px 14px; font-size: 0.8125rem; color: var(--clr-text-muted); border-bottom: 0.5px solid var(--clr-dark-700); }
+    .mobile-nav__sub-link:hover { color: var(--clr-orange); }
+    .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9998; }
+    .mobile-overlay.open { display: block; }
+
+    /* PAGE SYSTEM */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* HERO */
+    /* Optional background photo via --hero-image on the hero section; the gradient keeps the text side dark */
+    .hero { --hero-image: none; background-color: var(--clr-dark-800); background-image: linear-gradient(90deg, var(--clr-dark-800) 0%, var(--clr-dark-800) 35%, rgba(24,23,22,0.55) 70%, rgba(24,23,22,0.35) 100%), var(--hero-image); background-size: cover; background-position: center right; background-repeat: no-repeat; padding: var(--space-3xl) 0 var(--space-2xl); }
+    .hero .container { display: grid; grid-template-columns: 1fr 300px; gap: var(--space-3xl); align-items: center; }
+    .hero__eyebrow { display: inline-flex; align-items: center; gap: 6px; border: 0.5px solid var(--clr-orange); color: var(--clr-orange); font-size: 0.6875rem; font-weight: 500; padding: 3px 11px; border-radius: 3px; margin-bottom: var(--space-md); letter-spacing: 0.5px; }
+    .hero__headline { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 600; line-height: 1.1; color: var(--clr-text-white); margin-bottom: var(--space-md); }
+    .hero__headline span { color: var(--clr-orange); }
+    .hero__body { font-size: 0.9375rem; line-height: 1.8; color: var(--clr-text-light); margin-bottom: var(--space-lg); max-width: 420px; }
+    .hero__actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.8125rem; font-weight: 500; border: none; border-radius: var(--border-radius); transition: background var(--transition); cursor: pointer; }
+    .btn-primary:hover { background: var(--clr-orange-dark); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; background: transparent; color: var(--clr-text-muted); font-size: 0.8125rem; font-weight: 400; border: 0.5px solid var(--clr-dark-500); border-radius: var(--border-radius); transition: border-color var(--transition), color var(--transition); cursor: pointer; }
+    .btn-ghost:hover { border-color: var(--clr-orange); color: var(--clr-orange); }
+    .hero__stats { display: flex; flex-direction: column; background: var(--clr-dark-700); border-radius: var(--border-radius-lg); overflow: hidden; border: 0.5px solid var(--clr-dark-600); }
+    .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border-bottom: 0.5px solid var(--clr-dark-600); }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-row__label { font-size: 0.6875rem; color: var(--clr-text-muted); }
+    .stat-row__value { display: flex; align-items: center; gap: 7px; font-size: 0.9375rem; font-weight: 500; color: var(--clr-text-white); }
+    .stat-row__dot { width: 7px; height: 7px; background: var(--clr-orange); border-radius: 50%; flex-shrink: 0; }
+
+    /* SECTION HEADER */
+    .section-header { background: var(--clr-light-300); border-bottom: 0.5px solid var(--clr-light-border); padding: var(--space-md) 0; }
+    .section-header .container { display: flex; justify-content: space-between; align-items: center; }
+    .section-header__title { font-size: 1rem; font-weight: 500; color: var(--clr-text-dark); }
+    .section-header__badge { font-size: 0.6875rem; color: var(--clr-text-label); background: var(--clr-light-100); border: 0.5px solid var(--clr-light-border); border-radius: 4px; padding: 4px 12px; }
+
+    /* PARTNER ROWS */
+    .partner-row { display: grid; grid-template-columns: 210px 1fr; border-bottom: 0.5px solid var(--clr-light-border); background: var(--clr-light-100); max-width: var(--max-width); margin-left: auto; margin-right: auto; }
+    .partner-row:nth-child(even) { background: var(--clr-light-200); }
+    .partner-row__logo { padding: var(--space-lg); display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-sm); border-right: 0.5px solid var(--clr-light-border); }
+    .logo-box { width: 80px; height: 52px; background: var(--clr-dark-800); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: center; border: 2px solid var(--clr-orange); flex-shrink: 0; overflow: hidden; }
+    .logo-box i { color: var(--clr-orange); font-size: 24px; }
+    .logo-box--img { background: #ffffff; padding: 6px; }
+    .logo-box--img img { width: 100%; height: 100%; object-fit: contain; }
+    .partner-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.625rem; font-weight: 500; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
+    .partner-tag i { font-size: 10px; }
+    .partner-name { font-size: 0.75rem; font-weight: 500; color: var(--clr-text-dark); }
+    .partner-category { font-size: 0.625rem; color: var(--clr-text-label); }
+    .partner-row__info { padding: var(--space-lg) var(--space-xl); }
+    .partner-row__info h3 { font-size: 0.9375rem; font-weight: 500; color: var(--clr-text-dark); margin-bottom: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-sm); }
+    .partner-badge { font-size: 0.625rem; font-weight: 400; background: var(--clr-orange-soft); color: var(--clr-text-badge); padding: 2px 8px; border-radius: 3px; }
+    .partner-row__info p { font-size: 0.75rem; line-height: 1.8; color: var(--clr-text-body); margin-bottom: var(--space-md); max-width: 560px; }
+    .feature-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: var(--space-sm); }
+    .chip { display: inline-flex; align-items: center; gap: 4px; font-size: 0.6875rem; color: var(--clr-text-dark); background: var(--clr-light-300); border: 0.5px solid var(--clr-light-border); border-radius: 4px; padding: 4px 10px; }
+    .chip i { color: var(--clr-orange); font-size: 11px; }
+
+    /* SOCIAL STRIP */
+    .social-strip { background: var(--clr-orange); padding: 13px 0; }
+    .social-strip .container { display: flex; justify-content: center; align-items: center; gap: var(--space-lg); flex-wrap: wrap; }
+    .social-strip__link { display: flex; align-items: center; gap: 7px; font-size: 0.75rem; font-weight: 500; color: var(--clr-dark-800); transition: opacity var(--transition); }
+    .social-strip__link:hover { opacity: 0.75; }
+    .social-strip__link i { font-size: 16px; }
+    .social-sep { width: 1px; height: 16px; background: rgba(24,23,22,0.3); }
+
+    /* CONTACT BAND */
+    .contact-band { background: var(--clr-light-100); border-top: 3px solid var(--clr-orange); padding: var(--space-xl) 0; }
+    .contact-band .container { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+    .contact-col { padding: 0 var(--space-lg); border-right: 0.5px solid var(--clr-light-border); }
+    .contact-col:first-child { padding-left: 0; }
+    .contact-col:last-child { border-right: none; }
+    .contact-col__label { font-size: 0.625rem; font-weight: 500; color: var(--clr-orange); letter-spacing: 0.5px; margin-bottom: var(--space-sm); }
+    .contact-col__value { font-size: 0.75rem; color: var(--clr-text-dark); line-height: 1.9; }
+    .contact-col__value i { color: var(--clr-orange); font-size: 13px; vertical-align: -1px; margin-right: 4px; }
+    .contact-col__value a { color: var(--clr-text-dark); transition: color var(--transition); }
+    .contact-col__value a:hover { color: var(--clr-orange); }
+
+    /* FOOTER BAR */
+    .footer-bar { background: var(--clr-dark-900); padding: 12px 0; border-top: 0.5px solid var(--clr-dark-700); }
+    .footer-bar .container { display: flex; justify-content: space-between; align-items: center; }
+    .footer-bar span { font-size: 0.625rem; color: var(--clr-dark-600); }
+
+    /* INNER PAGE HEADER */
+    .page-header { background: var(--clr-dark-800); border-bottom: 2px solid var(--clr-orange); padding: var(--space-xl) 0; }
+    .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: 0.6875rem; color: var(--clr-text-muted); margin-bottom: var(--space-sm); }
+    .breadcrumb i { font-size: 10px; }
+    .breadcrumb__current { color: var(--clr-orange); }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; color: var(--clr-text-white); margin-bottom: 6px; }
+    .page-header p { font-size: 0.8125rem; color: var(--clr-text-light); max-width: 520px; }
+    .content-area { padding: var(--space-xl) 0; }
+
+    /* CONTACT PAGE */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+    .contact-info h2 { font-size: 1rem; font-weight: 500; color: var(--clr-text-dark); margin-bottom: 7px; }
+    .contact-info > p { font-size: 0.8125rem; color: var(--clr-text-body); line-height: 1.7; margin-bottom: var(--space-lg); }
+    .info-rows { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .info-row { display: flex; align-items: flex-start; gap: var(--space-sm); padding: var(--space-sm); border: 0.5px solid var(--clr-light-border); border-radius: var(--border-radius); background: var(--clr-light-100); }
+    .info-row > i { color: var(--clr-orange); font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+    .info-row__label { font-size: 0.6875rem; font-weight: 500; color: var(--clr-text-dark); margin-bottom: 2px; }
+    .info-row__value { font-size: 0.75rem; color: var(--clr-text-body); line-height: 1.6; }
+    .social-cards { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }
+    .social-card { flex: 1; background: var(--clr-dark-800); border-radius: var(--border-radius-lg); padding: var(--space-md); display: flex; flex-direction: column; align-items: center; gap: 7px; text-decoration: none; transition: background var(--transition); }
+    .social-card:hover { background: var(--clr-dark-700); }
+    .social-card i { color: var(--clr-orange); font-size: 26px; }
+    .social-card__name { font-size: 0.75rem; font-weight: 500; color: var(--clr-text-white); }
+    .social-card__id { font-size: 0.6875rem; color: var(--clr-text-muted); }
+    .map-area { background: var(--clr-light-300); border-radius: var(--border-radius-lg); border: 0.5px solid var(--clr-light-border); overflow: hidden; }
+    .map-info { padding: var(--space-md); }
+    .map-info p { font-size: 0.75rem; color: var(--clr-text-body); line-height: 1.65; }
+    /* Responsive Google Maps embed */
+    .map-embed { position: relative; aspect-ratio: 16 / 9; min-height: 240px; width: 100%; overflow: hidden; background: var(--clr-light-300); border-radius: var(--border-radius); }
+    .map-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .map-links { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+
+    /* PLACEHOLDER CARD */
+    .placeholder-card { background: var(--clr-light-300); border: 0.5px solid var(--clr-light-border); border-radius: var(--border-radius-lg); border-top: 3px solid var(--clr-orange); padding: var(--space-3xl) var(--space-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: var(--space-md); }
+    .placeholder-card i { font-size: 40px; color: var(--clr-orange); opacity: 0.5; }
+    .placeholder-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--clr-text-dark); }
+    .placeholder-card p { font-size: 0.8125rem; color: var(--clr-text-label); max-width: 360px; line-height: 1.7; }
+
+    /* CASE STUDY (featured project — home + projects pages) */
+    .partner-link { display: inline-flex; align-items: center; gap: 4px; margin-top: var(--space-sm); font-size: 0.75rem; font-weight: 500; color: var(--clr-orange); transition: gap var(--transition); }
+    .partner-link:hover { gap: 7px; }
+    .case-study { background: var(--clr-light-200); border-top: 0.5px solid var(--clr-light-border); padding: var(--space-2xl) 0; }
+    .case-study__layout { display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-xl); align-items: center; }
+    .case-study__photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: var(--space-sm); height: 440px; }
+    .case-study__photos img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius); }
+    .case-study__photo--tall { grid-row: span 2; }
+    .case-study__title { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; line-height: 1.15; color: var(--clr-text-dark); margin: var(--space-sm) 0; }
+    .case-study__body { font-size: 0.8125rem; line-height: 1.8; color: var(--clr-text-body); margin-bottom: var(--space-md); }
+    .case-study__stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm); }
+    .case-stat { background: var(--clr-light-100); border: 0.5px solid var(--clr-light-border); border-top: 2px solid var(--clr-orange); border-radius: var(--border-radius); padding: var(--space-sm) var(--space-md); }
+    .case-stat__value { font-family: var(--font-display); font-size: 1.75rem; font-weight: 600; line-height: 1.1; color: var(--clr-text-dark); }
+    .case-stat__label { font-size: 0.6875rem; line-height: 1.4; color: var(--clr-text-body); }
+    .case-study-full__banner { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: center top; border-radius: var(--border-radius); }
+    .case-study-full__text { display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-xl); align-items: start; padding: var(--space-xl) 0; }
+    .case-study-full__photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+    .case-study-full__photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--border-radius); }
+
+    /* PROJECT CARDS (other projects page) */
+    .project-section-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--clr-text-dark); margin-bottom: var(--space-md); }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .project-card { background: var(--clr-light-100); border: 0.5px solid var(--clr-light-border); border-radius: var(--border-radius); display: flex; flex-direction: column; }
+    .project-card__photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--border-radius) var(--border-radius) 0 0; display: block; }
+    .project-card__body { padding: var(--space-md); display: flex; flex-direction: column; gap: var(--space-sm); }
+    .project-card__eyebrow { font-size: 0.625rem; font-weight: 500; letter-spacing: 0.5px; color: var(--clr-orange); text-transform: uppercase; }
+    .project-card__title { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; line-height: 1.2; color: var(--clr-text-dark); }
+    .project-card .feature-chips { margin-bottom: 0; }
+
+    /* PARTNER PAGES (KROHNE, Della Foglia, B&R) — facts band, product grid, role list, CTA */
+    .partner-section { margin-top: var(--space-2xl); }
+    .facts-band { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: var(--space-sm); margin-top: var(--space-xl); }
+    .fact { background: var(--clr-dark-800); border-top: 2px solid var(--clr-orange); border-radius: var(--border-radius); padding: var(--space-md) var(--space-lg); }
+    .fact__value { font-family: var(--font-display); font-size: 2rem; font-weight: 600; line-height: 1.1; color: var(--clr-text-white); }
+    .fact__label { font-size: 0.6875rem; line-height: 1.4; color: var(--clr-text-muted); margin-top: 2px; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+    .product-item { background: var(--clr-light-100); border: 0.5px solid var(--clr-light-border); border-radius: var(--border-radius); padding: var(--space-lg); }
+    .product-item > i { font-size: 26px; color: var(--clr-orange); }
+    .product-item__title { font-size: 0.875rem; font-weight: 500; color: var(--clr-text-dark); margin: var(--space-sm) 0 4px; }
+    .product-item__desc { font-size: 0.75rem; line-height: 1.6; color: var(--clr-text-body); }
+    .build-steps { margin-top: var(--space-lg); padding: var(--space-md) var(--space-lg); background: var(--clr-light-300); border-radius: var(--border-radius); }
+    .build-steps__title { font-size: 0.75rem; font-weight: 500; color: var(--clr-text-dark); margin-bottom: var(--space-md); }
+    .build-steps__list { list-style: none; display: flex; justify-content: space-between; position: relative; }
+    .build-steps__list::before { content: ""; position: absolute; top: 13px; left: 10%; right: 10%; height: 2px; background: var(--clr-orange); }
+    .build-steps__step { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.6875rem; color: var(--clr-text-body); text-align: center; }
+    .build-steps__dot { width: 28px; height: 28px; border-radius: 50%; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; justify-content: center; }
+    .role-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+    .role-item { border-top: 2px solid var(--clr-orange); padding-top: var(--space-md); }
+    .role-item > i { font-size: 22px; color: var(--clr-orange); }
+    .role-item__title { font-size: 0.8125rem; font-weight: 500; color: var(--clr-text-dark); margin: 6px 0 2px; }
+    .role-item__desc { font-size: 0.75rem; line-height: 1.6; color: var(--clr-text-body); }
+    .product-note { background: var(--clr-light-300); border-radius: var(--border-radius); border-left: 3px solid var(--clr-orange); padding: 14px var(--space-lg); font-size: 0.8125rem; color: var(--clr-text-body); line-height: 1.7; }
+    .partner-cta { margin-top: var(--space-2xl); }
+    .partner-cta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); margin-top: var(--space-sm); }
+    .partner-cta__actions .partner-link { margin-top: 0; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .container { padding-left: var(--space-lg); padding-right: var(--space-lg); }
+      .hero .container { grid-template-columns: 1fr; }
+      .hero { background-image: linear-gradient(rgba(24,23,22,0.8), rgba(24,23,22,0.8)), var(--hero-image); }
+      .hero__stats { display: none; }
+      .partner-row { grid-template-columns: 1fr; }
+      .partner-row__logo { border-right: none; border-bottom: 0.5px solid var(--clr-light-border); flex-direction: row; align-items: center; padding: var(--space-md) var(--space-lg); gap: var(--space-md); }
+      .contact-band .container { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
+      .contact-col { padding: 0; border: none; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .case-study__layout, .case-study-full__text { grid-template-columns: 1fr; }
+      .case-study__photos { height: 360px; }
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-grid, .role-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .topbar__company { display: none; }
+      .navbar__nav, .navbar__cta { display: none; }
+      .navbar__hamburger { display: flex; flex-shrink: 0; }
+      /* Brand text shrinks/truncates so it never touches the menu button */
+      .navbar .container { gap: 12px; }
+      .navbar__logo, .navbar__logo-text { flex-shrink: 1; min-width: 0; }
+      .navbar__logo-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .navbar__logo-sub { display: none; }
+      .hero { padding: var(--space-xl) 0; }
+      .hero__headline { font-size: 2rem; }
+      .partner-row__logo { flex-direction: row; flex-wrap: wrap; }
+      .contact-band .container { grid-template-columns: 1fr; gap: var(--space-lg); }
+      .footer-bar .container { flex-direction: column; gap: 4px; text-align: center; }
+      .social-strip .container { flex-direction: column; gap: var(--space-sm); }
+      .social-sep { display: none; }
+      .case-study__photos { height: 300px; }
+      .case-study-full__photos { grid-template-columns: 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .facts-band { grid-auto-flow: row; grid-template-columns: 1fr 1fr; }
+      .product-grid, .role-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <span class="topbar__company">ITS Industrial Technology Supply Co., Ltd. &nbsp;·&nbsp; Nonthaburi, Thailand</span>
+      <ul class="topbar__links">
+        <li><a href="tel:+66808300058"><i class="ti ti-phone"></i> 080 830 0058</a></li>
+        <li><a href="tel:+6634834840"><i class="ti ti-phone"></i> +66 3483 4840-2</a></li>
+        <li><a href="fax:+6634863500"><i class="ti ti-printer"></i> +66 3486 3500</a></li>
+        <li><a href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener"><i class="ti ti-brand-line"></i> itsltd</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+
+      <a class="navbar__logo" href="#" onclick="showPage('home')" aria-label="ITS Oil &amp; Gas — Home">
+        <div class="navbar__logo-mark">
+          <img src="images/ITS_Logo-removebg-preview.png" alt="ITS logo" />
+        </div>
+        <div class="navbar__logo-text">
+          <span class="navbar__logo-name">ITS Industrial Technology Supply</span>
+          <span class="navbar__logo-sub">Oil &amp; Gas &nbsp;·&nbsp; Process Industry &nbsp;·&nbsp; Thailand</span>
+        </div>
+      </a>
+
+      <ul class="navbar__nav">
+
+        <li class="nav-item">
+          <a class="nav-item__link active" id="nav-home" href="#" onclick="showPage('home'); return false;">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-item__link" aria-haspopup="true">
+            Partners <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown" role="menu">
+            <a class="dropdown__link" href="#" onclick="showPage('krohne'); return false;" role="menuitem">KROHNE</a>
+            <a class="dropdown__link" href="#" onclick="showPage('dellafoglia'); return false;" role="menuitem">Della Foglia</a>
+            <a class="dropdown__link" href="#" onclick="showPage('br'); return false;" role="menuitem">B&amp;R Automation</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <button class="nav-item__link" aria-haspopup="true">
+            Projects <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown" role="menu">
+            <a class="dropdown__link" href="#" onclick="showPage('projects'); return false;" role="menuitem">Featured project</a>
+            <a class="dropdown__link" href="#" onclick="showPage('other-projects'); return false;" role="menuitem">Other projects</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-item__link" href="#" onclick="showPage('contact'); return false;">Contact</a>
+        </li>
+
+      </ul>
+
+      <a class="navbar__cta" href="#" onclick="showPage('contact'); return false;">Get a quote</a>
+      <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open mobile menu" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+      </button>
+
+    </div>
+  </nav>
+
+  <div class="mobile-overlay" id="mobile-overlay" onclick="closeMobileNav()"></div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <button class="mobile-nav__close" onclick="closeMobileNav()" aria-label="Close mobile menu">
+      <i class="ti ti-x"></i>
+    </button>
+    <a class="mobile-nav__link" href="#" onclick="showPage('home'); closeMobileNav();">Home</a>
+    <div class="mobile-nav__section">PARTNERS</div>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('krohne'); closeMobileNav();">KROHNE</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('dellafoglia'); closeMobileNav();">Della Foglia</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('br'); closeMobileNav();">B&amp;R Automation</a>
+    <div class="mobile-nav__section">PROJECTS</div>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('projects'); closeMobileNav();">Featured project</a>
+    <a class="mobile-nav__sub-link" href="#" onclick="showPage('other-projects'); closeMobileNav();">Other projects</a>
+    <a class="mobile-nav__link" href="#" onclick="showPage('contact'); closeMobileNav();">Contact</a>
+    <a class="mobile-nav__link" style="color:var(--clr-orange);font-weight:500;" href="#" onclick="showPage('contact'); closeMobileNav();">Get a quote</a>
+  </nav>
+
+
+  <!-- ============================================================
+       PAGE: HOME
+  ============================================================ -->
+  <main id="page-home" class="page active" aria-label="Home">
+
+    <section class="hero" aria-label="Hero banner" style="--hero-image: url('images/image83.png')">
+      <div class="container">
+
+        <div class="hero__content">
+          <div class="hero__eyebrow">
+            <i class="ti ti-circle-check" aria-hidden="true"></i>
+            OIL &amp; GAS &nbsp;·&nbsp; PROCESS INDUSTRY &nbsp;·&nbsp; THAILAND
+          </div>
+          <h1 class="hero__headline">Precision in<br><span>Measurement</span></h1>
+          <p class="hero__body">
+            Thailand's custody transfer metering specialist since 1993.
+            Flow computers, ultrasonic flow meters and complete metering systems,
+            engineered, fabricated and commissioned in-house for the country's
+            leading energy companies. More than 238 flow computers installed nationwide.
+          </p>
+          <div class="hero__actions">
+            <a class="btn-primary" href="#" onclick="showPage('contact'); return false;">
+              <i class="ti ti-mail" aria-hidden="true"></i> Get a quote
+            </a>
+            <a class="btn-ghost" href="#" onclick="showPage('projects'); return false;">
+              Our projects
+            </a>
+          </div>
+          <img src="images/BSI-ISO9001-certified-white-noBG.png" alt="BSI ISO 9001 Certified" style="height: 72px; width: auto; display: block; margin-top: 20px; opacity: 0.85;" />
+        </div>
+
+        <div class="hero__stats" aria-label="Key company statistics">
+          <div class="stat-row">
+            <span class="stat-row__label">Established</span>
+            <span class="stat-row__value">1993 <span class="stat-row__dot"></span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row__label">Flow computers installed</span>
+            <span class="stat-row__value">238 <span class="stat-row__dot"></span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row__label">O&amp;G key partners</span>
+            <span class="stat-row__value">3 brands <span class="stat-row__dot"></span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row__label">Location</span>
+            <span class="stat-row__value">Nonthaburi <span class="stat-row__dot"></span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-row__label">Scope</span>
+            <span class="stat-row__value">Design to commissioning <span class="stat-row__dot"></span></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider-bar"></div>
+
+    <div class="section-header">
+      <div class="container">
+        <h2 class="section-header__title">Our technology partners</h2>
+        <span class="section-header__badge">Oil &amp; Gas · Process Industry</span>
+      </div>
+    </div>
+
+    <!-- Partner 1: KROHNE -->
+    <article class="partner-row" aria-label="KROHNE">
+      <div class="partner-row__logo">
+        <div class="logo-box logo-box--img"><img src="images/Logo_Krohne.svg.png" alt="Krohne logo" /></div>
+        <span class="partner-tag"><i class="ti ti-users" aria-hidden="true"></i> Project partner</span>
+        <div>
+          <div class="partner-name">KROHNE</div>
+          <div class="partner-category">Flow measurement · Process instrumentation</div>
+        </div>
+      </div>
+      <div class="partner-row__info">
+        <h3>KROHNE <span class="partner-badge">Since 1921 · Germany</span></h3>
+        <p>
+          Founded in Duisburg, Germany in 1921, KROHNE is a family-owned manufacturer of process
+          instrumentation, with more than 4,000 employees and local support in over 100 countries.
+          Its flow, level, pressure, temperature and analytics instruments are used across oil &amp; gas,
+          chemical, power and water applications. ITS works closely with KROHNE on oil &amp; gas projects
+          in Thailand, from meter selection and system engineering through installation and commissioning.
+        </p>
+        <div class="feature-chips">
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Custody transfer flow metering</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Ultrasonic &amp; Coriolis flowmeters</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Level &amp; pressure</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Process analytics</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Oil &amp; gas</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> LNG</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Power</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Partner 2: Della Foglia -->
+    <article class="partner-row" aria-label="Della Foglia">
+      <div class="partner-row__logo">
+        <div class="logo-box logo-box--img"><img src="images/Della_Foglia.png" alt="Della Foglia logo" /></div>
+        <span class="partner-tag"><i class="ti ti-map-pin" aria-hidden="true"></i> Thai representative</span>
+        <div>
+          <div class="partner-name">Della Foglia</div>
+          <div class="partner-category">Ball valves · Oil &amp; gas · LNG</div>
+        </div>
+      </div>
+      <div class="partner-row__info">
+        <h3>Della Foglia <span class="partner-badge">Made in Italy · Since 1962</span></h3>
+        <p>
+          Italian ball valve manufacturer based in Gorla Minore, building custom-engineered valves for
+          oil &amp; gas, LNG, hydrogen and water since 1962. Design, machining, welding, assembly and testing
+          all take place in its own 40,000 m² plant, which produces around 10,000 customized valves a year.
+          Della Foglia is approved by more than 50 end users and EPC contractors worldwide. ITS is
+          Della Foglia's representative in Thailand for the oil &amp; gas sector.
+        </p>
+        <div class="feature-chips">
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Trunnion &amp; floating ball valves</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Cryogenic valves for LNG</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> High pressure &amp; high temperature</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Subsea &amp; underground</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> HIPPS</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Partner 3: B&R Automation -->
+    <article class="partner-row" aria-label="B&R Automation">
+      <div class="partner-row__logo">
+        <div class="logo-box logo-box--img"><img src="images/BR_logo_Colour.JPG" alt="B&R Automation logo" /></div>
+        <div>
+          <div class="partner-name">B&amp;R Automation</div>
+          <div class="partner-category">PLC · HMI · Motion · IPC · ABB Group</div>
+        </div>
+      </div>
+      <div class="partner-row__info">
+        <h3>B&amp;R Automation <span class="partner-badge">Rep. since 1995</span> <span class="partner-badge">ABB Group</span></h3>
+        <p>
+          The leading automation brand in Europe — probably the single most innovative industrial control
+          solution available today with features far beyond most of the competition. One integrated
+          engineering platform for PLC, operator panels and motion control with real-time multitasking.
+          Since 2017, B&amp;R has been part of ABB, operating as ABB's Machine Automation division, combining
+          ABB's global reach with B&amp;R's expertise in machine and factory automation.
+        </p>
+        <div class="feature-chips">
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> PLC &amp; operator panels</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> IPC &amp; motion control</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> GIG Powerlink fieldbus</span>
+          <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Real-time multitasking OS</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- FEATURED PROJECT: PTTLNG Nong Fab -->
+    <section class="case-study" aria-label="Featured project">
+      <div class="container case-study__layout">
+        <div class="case-study__photos">
+          <img class="case-study__photo--tall" src="images/image76.jpeg" alt="Two metering skids with large meter runs and headers under fabrication in the ITS workshop, with welders at work" />
+          <img src="images/image79.jpeg" alt="Large-bore flanged meter runs with blue bolt covers on a metering skid in the fabrication workshop" />
+          <img src="images/image75.png" alt="Ultrasonic flow meter with pressure gauge and transmitter mounted on a metering skid" />
+        </div>
+        <div>
+          <span class="partner-badge">FEATURED PROJECT · 2021–2022</span>
+          <h2 class="case-study__title">PTTLNG Nong Fab LNG Terminal</h2>
+          <p class="case-study__body">
+            Metering systems for PTTLNG's Nong Fab LNG receiving terminal, engineered and fabricated
+            in-house by ITS. The scope covered LNG and seawater ultrasonic metering, a 30-inch export
+            gas and fuel gas custody transfer system, and the T1/T2 interconnection — from skid design
+            and fabrication through installation.
+          </p>
+          <div class="case-study__stats">
+            <div class="case-stat"><div class="case-stat__value">35</div><div class="case-stat__label">Ultrasonic flow meters (LNG &amp; seawater)</div></div>
+            <div class="case-stat"><div class="case-stat__value">9</div><div class="case-stat__label">Flow computers</div></div>
+            <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Gas chromatographs</div></div>
+            <div class="case-stat"><div class="case-stat__value">30</div><div class="case-stat__label">Cameron valves supplied</div></div>
+          </div>
+          <a class="partner-link" href="#" onclick="showPage('projects'); return false;">See all projects →</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="home-footer"></div>
+
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: PROJECTS (placeholder)
+  ============================================================ -->
+  <main id="page-projects" class="page" aria-label="Projects">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Projects</span>
+        </div>
+        <h1>Previous Projects</h1>
+        <p>A selection of completed oil &amp; gas and process industry projects delivered by ITS.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+        <!-- Case study: PTTLNG Nong Fab -->
+        <article aria-label="PTTLNG Nong Fab LNG Terminal">
+          <!-- Cropped via CSS (21:9, top-anchored) to hide the camera date stamp bottom-right -->
+          <img class="case-study-full__banner" src="images/image72.png" alt="Completed metering skids installed at the PTTLNG Nong Fab LNG terminal, with the LNG tank and pipe rack behind" />
+          <div class="case-study-full__text">
+            <div>
+              <span class="partner-badge">FEATURED PROJECT · 2021–2022</span>
+              <h2 class="case-study__title">PTTLNG Nong Fab LNG Terminal</h2>
+              <p class="case-study__body">
+                Metering systems for PTTLNG's Nong Fab LNG receiving terminal, engineered and fabricated
+                in-house by ITS. The scope covered LNG and seawater ultrasonic metering, a 30-inch export
+                gas and fuel gas custody transfer system, and the T1/T2 interconnection — from skid design
+                and fabrication through installation.
+              </p>
+            </div>
+            <div class="case-study__stats">
+              <div class="case-stat"><div class="case-stat__value">35</div><div class="case-stat__label">Ultrasonic flow meters (LNG &amp; seawater)</div></div>
+              <div class="case-stat"><div class="case-stat__value">9</div><div class="case-stat__label">Flow computers</div></div>
+              <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Gas chromatographs</div></div>
+              <div class="case-stat"><div class="case-stat__value">30</div><div class="case-stat__label">Cameron valves supplied</div></div>
+            </div>
+          </div>
+          <div class="case-study-full__photos">
+            <img src="images/image76.jpeg" alt="Two metering skids with large meter runs and headers under fabrication in the ITS workshop, with welders at work" />
+            <img src="images/image79.jpeg" alt="Large-bore flanged meter runs with blue bolt covers on a metering skid in the fabrication workshop" />
+            <img src="images/image75.png" alt="Ultrasonic flow meter with pressure gauge and transmitter mounted on a metering skid" />
+          </div>
+        </article>
+        <a class="partner-link" href="#" onclick="showPage('other-projects'); return false;">See other projects →</a>
+      </div>
+    </div>
+
+    <div id="projects-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: OTHER PROJECTS
+  ============================================================ -->
+  <main id="page-other-projects" class="page" aria-label="Other projects">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Other projects</span>
+        </div>
+        <h1>Other projects</h1>
+        <p>Metering, SCADA and upgrade projects delivered for Thailand's energy sector.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+
+        <!-- Project highlights -->
+        <section aria-label="Project highlights">
+          <h2 class="project-section-title">Project highlights</h2>
+          <div class="project-grid">
+
+            <article class="project-card">
+              <img class="project-card__photo" src="images/image66.jpeg" alt="Completed metering skid at the PTTLNG in-plant generator station" loading="lazy" />
+              <div class="project-card__body">
+                <span class="project-card__eyebrow">PTTLNG · 2018</span>
+                <h3 class="project-card__title">In-Plant Generator metering station</h3>
+                <div class="feature-chips">
+                  <span class="chip">3 flow computers</span>
+                  <span class="chip">3 ultrasonic meters</span>
+                  <span class="chip">1 GC</span>
+                  <span class="chip">Skid fabrication</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__photo" src="images/image82.png" alt="ITS engineer installing an ultrasonic flow meter for the PTTLNG ASU project" loading="lazy" />
+              <div class="project-card__body">
+                <span class="project-card__eyebrow">PTTLNG · 2019</span>
+                <h3 class="project-card__title">ASU natural gas and LNG custody metering</h3>
+                <div class="feature-chips">
+                  <span class="chip">4 flow computers</span>
+                  <span class="chip">4 ultrasonic meters</span>
+                  <span class="chip">2 GCs</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__photo" src="images/image84.png" alt="Ultrasonic flow meter installed on the PTTLNG T1/T2 interconnection" loading="lazy" />
+              <div class="project-card__body">
+                <span class="project-card__eyebrow">PTTLNG · 2022</span>
+                <h3 class="project-card__title">T1 and T2 interconnecting project</h3>
+                <div class="feature-chips">
+                  <span class="chip">2 flow computers</span>
+                  <span class="chip">1 ultrasonic meter</span>
+                  <span class="chip">1 GC</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__photo" src="images/image83.png" alt="Crew installing an ultrasonic meter replacing an orifice meter at PTTLNG" loading="lazy" />
+              <div class="project-card__body">
+                <span class="project-card__eyebrow">PTTLNG · 2022</span>
+                <h3 class="project-card__title">Orifice to ultrasonic meter replacement, Map Ta Phut</h3>
+                <div class="feature-chips">
+                  <span class="chip">2 ultrasonic meters</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__photo" src="images/image63.png" alt="ITS team fitting clamp-on ultrasonic meters at the PTTLNG receiving terminal" loading="lazy" />
+              <div class="project-card__body">
+                <span class="project-card__eyebrow">PTTLNG · 2017</span>
+                <h3 class="project-card__title">Receiving terminal 1.5 MTPA expansion</h3>
+                <div class="feature-chips">
+                  <span class="chip">4 clamp-on ultrasonic meters</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img class="project-card__photo" src="images/image56.jpeg" alt="Flow computer and metering control panels for the Ratchaburi gas metering station" loading="lazy" />
+              <div class="project-card__body">
+                <span class="project-card__eyebrow">PTT – EGAT</span>
+                <h3 class="project-card__title">Ratchaburi gas metering station</h3>
+                <div class="feature-chips">
+                  <span class="chip">Flow computer &amp; metering panels</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Project reference list (#project-list) goes here once PROJECT_DATA is available -->
+
+      </div>
+    </div>
+
+    <div id="other-projects-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: KROHNE (partner page)
+  ============================================================ -->
+  <main id="page-krohne" class="page" aria-label="KROHNE">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Partners</span>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">KROHNE</span>
+        </div>
+        <h1>KROHNE — Process measurement for oil &amp; gas</h1>
+        <p>Custody transfer flow metering and process instrumentation from one of the world's leading measurement manufacturers. ITS works alongside KROHNE on oil &amp; gas projects in Thailand.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+
+        <!-- Overview (copy of the home page partner card) -->
+        <article class="partner-row" aria-label="KROHNE">
+          <div class="partner-row__logo">
+            <div class="logo-box logo-box--img"><img src="images/Logo_Krohne.svg.png" alt="Krohne logo" /></div>
+            <span class="partner-tag"><i class="ti ti-users" aria-hidden="true"></i> Project partner</span>
+            <div>
+              <div class="partner-name">KROHNE</div>
+              <div class="partner-category">Flow measurement · Process instrumentation</div>
+            </div>
+          </div>
+          <div class="partner-row__info">
+            <h3>KROHNE <span class="partner-badge">Since 1921 · Germany</span></h3>
+            <p>
+              Founded in Duisburg, Germany in 1921, KROHNE is a family-owned manufacturer of process
+              instrumentation, with more than 4,000 employees and local support in over 100 countries.
+              Its flow, level, pressure, temperature and analytics instruments are used across oil &amp; gas,
+              chemical, power and water applications. ITS works closely with KROHNE on oil &amp; gas projects
+              in Thailand, from meter selection and system engineering through installation and commissioning.
+            </p>
+            <div class="feature-chips">
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Custody transfer flow metering</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Ultrasonic &amp; Coriolis flowmeters</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Level &amp; pressure</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Process analytics</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Oil &amp; gas</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> LNG</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Power</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Facts band -->
+        <div class="facts-band">
+          <div class="fact"><div class="fact__value">1921</div><div class="fact__label">Founded in Duisburg, Germany</div></div>
+          <div class="fact"><div class="fact__value">4,000+</div><div class="fact__label">Employees worldwide</div></div>
+          <div class="fact"><div class="fact__value">100+</div><div class="fact__label">Countries with local support</div></div>
+          <div class="fact"><div class="fact__value">Family-owned</div><div class="fact__label">Independent since founding</div></div>
+        </div>
+
+        <!-- Product range -->
+        <section class="partner-section" aria-label="Product range for oil and gas">
+          <h2 class="project-section-title">Product range for oil &amp; gas</h2>
+          <div class="product-grid">
+          <div class="product-item">
+            <i class="ti ti-wave-sine" aria-hidden="true"></i>
+            <h3 class="product-item__title">Ultrasonic custody transfer meters</h3>
+            <p class="product-item__desc">ALTOSONIC V12 for natural gas and ALTOSONIC 5 for crude oil, refined products and cryogenic liquids.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-calculator" aria-hidden="true"></i>
+            <h3 class="product-item__title">Flow computers</h3>
+            <p class="product-item__desc">Summit 8800 flow computer for custody transfer metering systems.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-scale" aria-hidden="true"></i>
+            <h3 class="product-item__title">Coriolis mass flowmeters</h3>
+            <p class="product-item__desc">OPTIMASS meters approved for custody transfer of liquids and gases, including LNG and CNG.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-building-factory-2" aria-hidden="true"></i>
+            <h3 class="product-item__title">Metering systems</h3>
+            <p class="product-item__desc">Complete liquid and gas metering systems, provers and calibration systems.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-route" aria-hidden="true"></i>
+            <h3 class="product-item__title">Pipeline leak detection</h3>
+            <p class="product-item__desc">PipePatrol leak detection and localisation, retrofittable using existing pipeline instruments.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-gauge" aria-hidden="true"></i>
+            <h3 class="product-item__title">Level, pressure &amp; temperature</h3>
+            <p class="product-item__desc">Radar level transmitters and pressure and temperature instruments for tanks and process lines.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-flask" aria-hidden="true"></i>
+            <h3 class="product-item__title">Process analytics</h3>
+            <p class="product-item__desc">Analysers for monitoring liquid and gas quality in the process.</p>
+          </div>
+          </div>
+        </section>
+
+        <!-- How ITS works with the partner -->
+        <section class="partner-section" aria-label="How ITS works with KROHNE">
+          <h2 class="project-section-title">How ITS works with KROHNE</h2>
+          <div class="role-list">
+          <div class="role-item">
+            <i class="ti ti-list-check" aria-hidden="true"></i>
+            <h3 class="role-item__title">Meter selection</h3>
+            <p class="role-item__desc">Matching the right technology to each application and standard.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-settings" aria-hidden="true"></i>
+            <h3 class="role-item__title">System engineering</h3>
+            <p class="role-item__desc">Integrating meters with flow computers, PLC and SCADA.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-tool" aria-hidden="true"></i>
+            <h3 class="role-item__title">Fabrication &amp; installation</h3>
+            <p class="role-item__desc">Skid fabrication and site installation by the ITS team.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-headset" aria-hidden="true"></i>
+            <h3 class="role-item__title">Commissioning &amp; support</h3>
+            <p class="role-item__desc">Start-up, calibration support and after-sales service in Thailand.</p>
+          </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="product-note partner-cta">
+          <p>Planning a metering or instrumentation project? Talk to our oil &amp; gas team about KROHNE solutions.</p>
+          <div class="partner-cta__actions">
+            <a class="btn-primary" href="#" onclick="showPage('contact'); return false;">
+              <i class="ti ti-mail" aria-hidden="true"></i> Discuss your project
+            </a>
+            <a class="partner-link" href="https://krohne.com" target="_blank" rel="noopener">Visit krohne.com <i class="ti ti-external-link" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="krohne-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: DELLA FOGLIA (partner page)
+  ============================================================ -->
+  <main id="page-dellafoglia" class="page" aria-label="Della Foglia">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Partners</span>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Della Foglia</span>
+        </div>
+        <h1>Della Foglia — Engineered ball valves</h1>
+        <p>Custom-engineered ball valves for oil &amp; gas, LNG and hydrogen, made in Italy. ITS is Della Foglia's representative in Thailand for the oil &amp; gas sector.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+
+        <!-- Overview (copy of the home page partner card) -->
+        <article class="partner-row" aria-label="Della Foglia">
+          <div class="partner-row__logo">
+            <div class="logo-box logo-box--img"><img src="images/Della_Foglia.png" alt="Della Foglia logo" /></div>
+            <span class="partner-tag"><i class="ti ti-map-pin" aria-hidden="true"></i> Thai representative</span>
+            <div>
+              <div class="partner-name">Della Foglia</div>
+              <div class="partner-category">Ball valves · Oil &amp; gas · LNG</div>
+            </div>
+          </div>
+          <div class="partner-row__info">
+            <h3>Della Foglia <span class="partner-badge">Made in Italy · Since 1962</span></h3>
+            <p>
+              Italian ball valve manufacturer based in Gorla Minore, building custom-engineered valves for
+              oil &amp; gas, LNG, hydrogen and water since 1962. Design, machining, welding, assembly and testing
+              all take place in its own 40,000 m² plant, which produces around 10,000 customized valves a year.
+              Della Foglia is approved by more than 50 end users and EPC contractors worldwide. ITS is
+              Della Foglia's representative in Thailand for the oil &amp; gas sector.
+            </p>
+            <div class="feature-chips">
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Trunnion &amp; floating ball valves</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Cryogenic valves for LNG</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> High pressure &amp; high temperature</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Subsea &amp; underground</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> HIPPS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Facts band -->
+        <div class="facts-band">
+          <div class="fact"><div class="fact__value">1962</div><div class="fact__label">Founded in Italy</div></div>
+          <div class="fact"><div class="fact__value">40,000 m²</div><div class="fact__label">Production plant</div></div>
+          <div class="fact"><div class="fact__value">~10,000</div><div class="fact__label">Custom valves per year</div></div>
+          <div class="fact"><div class="fact__value">50+</div><div class="fact__label">Client &amp; EPC approvals</div></div>
+        </div>
+
+        <!-- Product range -->
+        <section class="partner-section" aria-label="Product range for oil and gas">
+          <h2 class="project-section-title">Product range for oil &amp; gas</h2>
+          <div class="product-grid">
+          <div class="product-item">
+            <i class="ti ti-circle-dot" aria-hidden="true"></i>
+            <h3 class="product-item__title">Trunnion-mounted ball valves</h3>
+            <p class="product-item__desc">Side-entry and top-entry designs for pipelines and process plants.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-circles" aria-hidden="true"></i>
+            <h3 class="product-item__title">Floating &amp; double ball valves</h3>
+            <p class="product-item__desc">Compact isolation, including double block and bleed configurations.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-snowflake" aria-hidden="true"></i>
+            <h3 class="product-item__title">Cryogenic valves</h3>
+            <p class="product-item__desc">Designed for LNG and other low-temperature service.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-flame" aria-hidden="true"></i>
+            <h3 class="product-item__title">High pressure &amp; high temperature</h3>
+            <p class="product-item__desc">For demanding process conditions and high pressure classes.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-droplet" aria-hidden="true"></i>
+            <h3 class="product-item__title">Fully welded, underground &amp; subsea</h3>
+            <p class="product-item__desc">For buried pipelines and offshore installations.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-shield-check" aria-hidden="true"></i>
+            <h3 class="product-item__title">HIPPS &amp; automation</h3>
+            <p class="product-item__desc">High-integrity pressure protection systems and actuated valves.</p>
+          </div>
+          </div>
+          <div class="build-steps">
+            <h3 class="build-steps__title">Built in-house</h3>
+            <ol class="build-steps__list">
+              <li class="build-steps__step"><span class="build-steps__dot" aria-hidden="true">1</span>Design</li>
+              <li class="build-steps__step"><span class="build-steps__dot" aria-hidden="true">2</span>Machining</li>
+              <li class="build-steps__step"><span class="build-steps__dot" aria-hidden="true">3</span>Welding</li>
+              <li class="build-steps__step"><span class="build-steps__dot" aria-hidden="true">4</span>Assembly</li>
+              <li class="build-steps__step"><span class="build-steps__dot" aria-hidden="true">5</span>Testing</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- How ITS works with the partner -->
+        <section class="partner-section" aria-label="How ITS works with Della Foglia">
+          <h2 class="project-section-title">How ITS works with Della Foglia</h2>
+          <div class="role-list">
+          <div class="role-item">
+            <i class="ti ti-message-circle" aria-hidden="true"></i>
+            <h3 class="role-item__title">Local contact</h3>
+            <p class="role-item__desc">Enquiries and technical questions handled in Thailand.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-file-description" aria-hidden="true"></i>
+            <h3 class="role-item__title">Specification support</h3>
+            <p class="role-item__desc">Helping match valve design to project requirements.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-file-invoice" aria-hidden="true"></i>
+            <h3 class="role-item__title">Quotations</h3>
+            <p class="role-item__desc">Coordinating technical and commercial offers with the factory.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-truck-delivery" aria-hidden="true"></i>
+            <h3 class="role-item__title">Delivery &amp; after-sales</h3>
+            <p class="role-item__desc">Follow-up on documentation, delivery and after-sales support.</p>
+          </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="product-note partner-cta">
+          <p>Need valves for an oil &amp; gas or LNG project? Contact ITS, Della Foglia's representative in Thailand.</p>
+          <div class="partner-cta__actions">
+            <a class="btn-primary" href="#" onclick="showPage('contact'); return false;">
+              <i class="ti ti-mail" aria-hidden="true"></i> Discuss your project
+            </a>
+            <a class="partner-link" href="https://www.dellafoglia.it" target="_blank" rel="noopener">Visit dellafoglia.it <i class="ti ti-external-link" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="dellafoglia-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: B&R AUTOMATION (partner page)
+  ============================================================ -->
+  <main id="page-br" class="page" aria-label="B&R Automation">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span>Partners</span>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">B&amp;R Automation</span>
+        </div>
+        <h1>B&amp;R — Control and visualization</h1>
+        <p>PLC, HMI and industrial PC platforms from ABB's Machine Automation division. ITS has represented B&amp;R in Thailand since 1995.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+
+        <!-- Overview (copy of the home page partner card) -->
+        <article class="partner-row" aria-label="B&R Automation">
+          <div class="partner-row__logo">
+            <div class="logo-box logo-box--img"><img src="images/BR_logo_Colour.JPG" alt="B&R Automation logo" /></div>
+            <div>
+              <div class="partner-name">B&amp;R Automation</div>
+              <div class="partner-category">PLC · HMI · Motion · IPC · ABB Group</div>
+            </div>
+          </div>
+          <div class="partner-row__info">
+            <h3>B&amp;R Automation <span class="partner-badge">Rep. since 1995</span> <span class="partner-badge">ABB Group</span></h3>
+            <p>
+              The leading automation brand in Europe — probably the single most innovative industrial control
+              solution available today with features far beyond most of the competition. One integrated
+              engineering platform for PLC, operator panels and motion control with real-time multitasking.
+              Since 2017, B&amp;R has been part of ABB, operating as ABB's Machine Automation division, combining
+              ABB's global reach with B&amp;R's expertise in machine and factory automation.
+            </p>
+            <div class="feature-chips">
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> PLC &amp; operator panels</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> IPC &amp; motion control</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> GIG Powerlink fieldbus</span>
+              <span class="chip"><i class="ti ti-check" aria-hidden="true"></i> Real-time multitasking OS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Facts band -->
+        <div class="facts-band">
+          <div class="fact"><div class="fact__value">1979</div><div class="fact__label">Founded in Austria</div></div>
+          <div class="fact"><div class="fact__value">2017</div><div class="fact__label">Part of ABB</div></div>
+          <div class="fact"><div class="fact__value">1995</div><div class="fact__label">ITS representative since</div></div>
+        </div>
+
+        <!-- Product range -->
+        <section class="partner-section" aria-label="Product range for oil and gas">
+          <h2 class="project-section-title">Product range for oil &amp; gas</h2>
+          <div class="product-grid">
+          <div class="product-item">
+            <i class="ti ti-cpu" aria-hidden="true"></i>
+            <h3 class="product-item__title">PLC &amp; I/O</h3>
+            <p class="product-item__desc">Scalable controllers and remote I/O on one engineering platform.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-device-desktop" aria-hidden="true"></i>
+            <h3 class="product-item__title">Operator panels &amp; HMI</h3>
+            <p class="product-item__desc">Power Panel operator terminals with or without integrated control.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-server" aria-hidden="true"></i>
+            <h3 class="product-item__title">Industrial PCs</h3>
+            <p class="product-item__desc">Rugged PCs for control, visualization and data acquisition.</p>
+          </div>
+          <div class="product-item">
+            <i class="ti ti-network" aria-hidden="true"></i>
+            <h3 class="product-item__title">Industrial networking</h3>
+            <p class="product-item__desc">POWERLINK and OPC UA for real-time, open communication.</p>
+          </div>
+          </div>
+        </section>
+
+        <!-- How ITS works with the partner -->
+        <section class="partner-section" aria-label="B&amp;R in oil and gas">
+          <h2 class="project-section-title">B&amp;R in oil &amp; gas</h2>
+          <div class="role-list">
+          <div class="role-item">
+            <i class="ti ti-gauge" aria-hidden="true"></i>
+            <h3 class="role-item__title">Metering station control</h3>
+            <p class="role-item__desc">PLC control of metering runs and valves.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-chart-line" aria-hidden="true"></i>
+            <h3 class="role-item__title">HMI &amp; data acquisition</h3>
+            <p class="role-item__desc">Operator screens and data logging at stations.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-refresh" aria-hidden="true"></i>
+            <h3 class="role-item__title">System upgrades</h3>
+            <p class="role-item__desc">Replacing ageing control systems at existing stations.</p>
+          </div>
+          <div class="role-item">
+            <i class="ti ti-plug-connected" aria-hidden="true"></i>
+            <h3 class="role-item__title">Integration</h3>
+            <p class="role-item__desc">Linking PLCs with flow computers and SCADA.</p>
+          </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="product-note partner-cta">
+          <p>Need control or HMI for a metering station? Talk to our team.</p>
+          <div class="partner-cta__actions">
+            <a class="btn-primary" href="#" onclick="showPage('contact'); return false;">
+              <i class="ti ti-mail" aria-hidden="true"></i> Discuss your project
+            </a>
+            <a class="partner-link" href="https://www.br-automation.com" target="_blank" rel="noopener">Visit br-automation.com <i class="ti ti-external-link" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="br-footer"></div>
+  </main>
+
+
+  <!-- ============================================================
+       PAGE: CONTACT (placeholder)
+  ============================================================ -->
+  <main id="page-contact" class="page" aria-label="Contact us">
+    <div class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <a href="#" onclick="showPage('home'); return false;">Home</a>
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+          <span class="breadcrumb__current">Contact</span>
+        </div>
+        <h1>Contact us</h1>
+        <p>Get in touch for product enquiries, project specifications and quotations.</p>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="container">
+        <div class="contact-layout">
+
+          <div class="contact-info">
+            <h2>ITS Industrial Technology Supply Co., Ltd.</h2>
+            <p>
+              Visit us, call or message. Our team is available to help with product
+              selection, technical queries and pricing for all brands we carry.
+            </p>
+
+            <div class="info-rows">
+              <!-- TODO: add street address (house no., soi, road) - Maps listing only has plus code RFPF+PR2 -->
+              <div class="info-row">
+                <i class="ti ti-map-pin" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Oil &amp; Gas office</div>
+                  <div class="info-row__value">ITS Industrial Technology Supply Co., Ltd. (Bang Si Mueang branch)<br>Bang Si Mueang, Mueang Nonthaburi, Nonthaburi 11000, Thailand</div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-building" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Head office</div>
+                  <div class="info-row__value">49/438 Moo 4, Ekachai Road, Khok Kham, Muang,<br>Samut Sakhon 74000, Thailand</div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-phone" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Phone (Oil &amp; Gas)</div>
+                  <div class="info-row__value"><a href="tel:+66808300058">080 830 0058</a></div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-phone" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Telephone</div>
+                  <div class="info-row__value"><a href="tel:+6634834840">+66 3483 4840-2</a></div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-printer" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Fax</div>
+                  <div class="info-row__value">+66 3486 3500</div>
+                </div>
+              </div>
+              <div class="info-row">
+                <i class="ti ti-mail" aria-hidden="true"></i>
+                <div>
+                  <div class="info-row__label">Email</div>
+                  <div class="info-row__value"><a href="mailto:office@plc-scada.com">office@plc-scada.com</a></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-cards">
+              <a class="social-card" href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener" aria-label="Add ITS on Line">
+                <i class="ti ti-brand-line" aria-hidden="true"></i>
+                <span class="social-card__name">Line</span>
+                <span class="social-card__id">ID: itsltd</span>
+              </a>
+              <a class="social-card" href="https://www.facebook.com/itsindustrial" target="_blank" rel="noopener" aria-label="ITS Facebook page">
+                <i class="ti ti-brand-facebook" aria-hidden="true"></i>
+                <span class="social-card__name">Facebook</span>
+                <span class="social-card__id">itsindustrial</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="map-area">
+            <div class="map-embed">
+              <iframe src="https://www.google.com/maps?q=13.8372398,100.4744044&z=17&output=embed"
+                title="Map of ITS Oil &amp; Gas office, Bang Si Mueang, Nonthaburi"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            </div>
+            <div class="map-info">
+              <p>Our Oil &amp; Gas team works from our branch office in Bang Si Mueang, Nonthaburi. Our head office is in Samut Sakhon.</p>
+              <div class="map-links">
+                <a class="partner-link" href="https://maps.app.goo.gl/gnBXQUUhjKoaa84F9" target="_blank" rel="noopener">
+                  <i class="ti ti-map-pin" aria-hidden="true"></i> Open in Google Maps
+                </a>
+                <a class="partner-link" href="https://www.google.com/maps/dir/?api=1&destination=13.8372398,100.4744044" target="_blank" rel="noopener">
+                  <i class="ti ti-route" aria-hidden="true"></i> Get directions
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="contact-footer"></div>
+  </main>
+
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+      var target = document.getElementById('page-' + id);
+      if (target) target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('.nav-item__link').forEach(function(link) { link.classList.remove('active'); });
+      closeMobileNav();
+    }
+
+    var hamburgerBtn  = document.getElementById('hamburger-btn');
+    var mobileNav     = document.getElementById('mobile-nav');
+    var mobileOverlay = document.getElementById('mobile-overlay');
+
+    hamburgerBtn.addEventListener('click', function() {
+      mobileNav.classList.add('open');
+      mobileOverlay.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeMobileNav() {
+      mobileNav.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    var footerHTML = `
+      <div class="divider-bar"></div>
+
+      <div class="social-strip">
+        <div class="container">
+          <a class="social-strip__link" href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener">
+            <i class="ti ti-brand-line" aria-hidden="true"></i> Add us on Line — ID: itsltd
+          </a>
+          <div class="social-sep" aria-hidden="true"></div>
+          <a class="social-strip__link" href="https://www.facebook.com/itsindustrial" target="_blank" rel="noopener">
+            <i class="ti ti-brand-facebook" aria-hidden="true"></i> Follow us on Facebook
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-band">
+        <div class="container">
+          <div class="contact-col">
+            <div class="contact-col__label">COMPANY</div>
+            <div class="contact-col__value">ITS Industrial Technology<br>Supply Co., Ltd.</div>
+          </div>
+          <div class="contact-col">
+            <div class="contact-col__label">ADDRESS</div>
+            <div class="contact-col__value">Bang Si Mueang, Mueang Nonthaburi,<br>Nonthaburi 11000</div>
+          </div>
+          <div class="contact-col">
+            <div class="contact-col__label">CONTACT</div>
+            <div class="contact-col__value">
+              <div><i class="ti ti-phone" aria-hidden="true"></i><a href="tel:+66808300058">080 830 0058</a></div>
+              <div><i class="ti ti-phone" aria-hidden="true"></i>+66 3483 4840-2</div>
+              <div><i class="ti ti-printer" aria-hidden="true"></i>+66 3486 3500</div>
+              <div><i class="ti ti-mail" aria-hidden="true"></i><a href="mailto:office@plc-scada.com">office@plc-scada.com</a></div>
+              <div><i class="ti ti-brand-line" aria-hidden="true"></i>Line: itsltd</div>
+            </div>
+          </div>
+          <div class="contact-col">
+            <div class="contact-col__label">SOCIAL</div>
+            <div class="contact-col__value">
+              <div><i class="ti ti-brand-facebook" aria-hidden="true"></i>
+                <a href="https://www.facebook.com/itsindustrial" target="_blank" rel="noopener">facebook.com/itsindustrial</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer-bar">
+        <div class="container">
+          <span>&copy; 2025 ITS Industrial Technology Supply Co., Ltd. &mdash; All rights reserved</span>
+          <span>Nonthaburi, Thailand</span>
+        </div>
+      </footer>
+    `;
+
+    var footerIds = ['home-footer', 'projects-footer', 'other-projects-footer', 'krohne-footer', 'dellafoglia-footer', 'br-footer', 'contact-footer'];
+    footerIds.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = footerHTML;
+    });
+  </script>
+
+</body>
+</html>
