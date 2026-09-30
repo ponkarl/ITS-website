@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- Theme: set data-theme before any CSS loads so there is no light/dark flash.
+       Mirrors getThemeMode()/applyTheme() in the bottom script. -->
+  <script>
+    (function () {
+      var mode = 'auto';
+      try { mode = localStorage.getItem('its-theme') || 'auto'; } catch (e) {}
+      if (mode !== 'light' && mode !== 'dark') {
+        mode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', mode);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- PREVIEW ONLY: remove before launch -->
   <meta name="robots" content="noindex, nofollow">
@@ -87,6 +99,48 @@
 
       /* --- Transitions --- */
       --transition: 0.18s ease;
+      /* --- Fixed / themed extras --- */
+      --clr-card-hover:   #FFFBF5;   /* Product card hover tint (dark variant below) */
+      --clr-logo-tile:    #FFFFFF;   /* Partner logo tile: white in BOTH themes */
+    }
+
+    /* ============================================================
+       DARK MODE
+       <html data-theme="light|dark"> is set by the inline script at the
+       top of <head> and by the theme toggle (bottom script).
+       Only the light-section tokens change; the header, hero and other
+       dark sections keep their colours. The orange accent passes 4.5:1
+       on every dark surface below, so it is not changed.
+    ============================================================ */
+    :root[data-theme="light"] { color-scheme: light; }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --clr-light-100:    #1E1D1B;   /* Page + card surface */
+      --clr-light-200:    #232220;   /* Alternate row tint */
+      --clr-light-300:    #2B2A27;   /* Section header / chip bg */
+      --clr-light-border: #3A3935;
+      --clr-text-dark:    #F2F0EA;   /* Headings */
+      --clr-text-body:    #C8C6BE;   /* Body copy */
+      --clr-text-label:   #A3A198;   /* Labels, captions */
+      --clr-orange-soft:  #3D2A12;   /* Badge bg */
+      --clr-text-badge:   #FFB870;   /* Text inside orange-soft badges */
+      --clr-card-hover:   #2A2118;   /* Product card hover tint */
+    }
+    /* Outline button that sits on a light card (contact map card): readable text in dark mode */
+    :root[data-theme="dark"] .map-info .btn-ghost { color: var(--clr-text-body); border-color: var(--clr-text-label); }
+    /* Dark cards on the dark page: add an edge so they don't blend in */
+    :root[data-theme="dark"] .social-card { border: 0.5px solid var(--clr-light-border); }
+    :root[data-theme="dark"] .project-card__placeholder { background: var(--clr-dark-700); }
+    :root[data-theme="dark"] .project-card__placeholder span { color: var(--clr-text-light); }
+
+    /* Theme toggle: icon button in the navbar + full-width row in the mobile drawer */
+    .navbar__actions { display: flex; align-items: center; }   /* Keeps toggle + CTA together so the nav stays centred */
+    .theme-btn { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: transparent; border: 0.5px solid var(--clr-dark-600); border-radius: var(--border-radius); color: var(--clr-text-light); font-size: 18px; cursor: pointer; transition: color var(--transition), border-color var(--transition); }
+    .theme-btn:hover { color: var(--clr-orange); border-color: var(--clr-orange); }
+    .mobile-nav__theme { display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: none; border-bottom: 0.5px solid var(--clr-dark-600); font-family: inherit; text-align: left; cursor: pointer; }
+    .mobile-nav__theme i { font-size: 16px; }
+    @media (max-width: 600px) {
+      .navbar__actions { display: none; }   /* Mobile: CTA + theme toggle live in the drawer */
     }
 
     /* ============================================================
@@ -742,7 +796,7 @@
 
     /* Logo boxes that contain a partner photo */
     .logo-box--img {
-      background: #ffffff;
+      background: var(--clr-logo-tile);
       padding: 6px;
     }
 
@@ -1299,7 +1353,7 @@
     }
 
     .product-card:hover {
-      background: #FFFBF5;
+      background: var(--clr-card-hover);
       box-shadow: 0 2px 12px rgba(255,136,0,0.08);
     }
 
@@ -1930,7 +1984,12 @@
       </ul>
 
       <!-- CTA + hamburger -->
-      <a class="navbar__cta" href="#" onclick="showPage('contact'); return false;">Get a quote</a>
+      <div class="navbar__actions">
+        <button type="button" class="theme-btn" data-theme-toggle aria-label="Theme: Auto" title="Theme: Auto">
+          <i class="ti ti-device-desktop" aria-hidden="true"></i>
+        </button>
+        <a class="navbar__cta" href="#" onclick="showPage('contact'); return false;">Get a quote</a>
+      </div>
       <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open mobile menu" aria-expanded="false">
         <i class="ti ti-menu-2"></i>
       </button>
@@ -1964,6 +2023,9 @@
     <a class="mobile-nav__link" href="#" onclick="showPage('stock'); closeMobileNav();">Stock</a>
     <a class="mobile-nav__link" href="#" onclick="showPage('contact'); closeMobileNav();">Contact</a>
     <a class="mobile-nav__link" style="color:var(--clr-orange);font-weight:500;" href="#" onclick="showPage('contact'); closeMobileNav();">Get a quote</a>
+    <button type="button" class="mobile-nav__link mobile-nav__theme" data-theme-toggle aria-label="Theme: Auto" title="Theme: Auto">
+      <i class="ti ti-device-desktop" aria-hidden="true"></i> <span data-theme-label>Theme: Auto</span>
+    </button>
   </nav>
 
 
@@ -3146,6 +3208,57 @@
       });
     });
 
+
+    /* ── Theme: Auto / Light / Dark ────────────────────────────
+       Stored in localStorage "its-theme" (auto | light | dark).
+       Auto follows prefers-color-scheme, live. Applied as
+       data-theme="light|dark" on <html>.
+    ─────────────────────────────────────────────────────────── */
+    var THEME_KEY   = 'its-theme';
+    var THEME_ORDER = ['auto', 'light', 'dark'];
+    var THEME_ICON  = { auto: 'ti-device-desktop', light: 'ti-sun', dark: 'ti-moon' };
+    var THEME_NAME  = { auto: 'Auto', light: 'Light', dark: 'Dark' };
+    var themeQuery  = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+    function getThemeMode() {
+      try {
+        var m = localStorage.getItem(THEME_KEY);
+        if (THEME_ORDER.indexOf(m) >= 0) return m;
+      } catch (e) {}
+      return 'auto';
+    }
+
+    var themeMode = getThemeMode();
+
+    function applyTheme(mode) {
+      var dark = mode === 'dark' || (mode === 'auto' && themeQuery && themeQuery.matches);
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      var label = 'Theme: ' + THEME_NAME[mode];
+      document.querySelectorAll('[data-theme-toggle]').forEach(function(btn) {
+        btn.setAttribute('aria-label', label);
+        btn.setAttribute('title', label);
+        var icon = btn.querySelector('i');
+        if (icon) icon.className = 'ti ' + THEME_ICON[mode];
+        var text = btn.querySelector('[data-theme-label]');
+        if (text) text.textContent = label;
+      });
+    }
+
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        themeMode = THEME_ORDER[(THEME_ORDER.indexOf(themeMode) + 1) % THEME_ORDER.length];
+        try { localStorage.setItem(THEME_KEY, themeMode); } catch (e) {}
+        applyTheme(themeMode);
+      });
+    });
+
+    if (themeQuery) {
+      var onSchemeChange = function() { if (themeMode === 'auto') applyTheme('auto'); };
+      if (themeQuery.addEventListener) themeQuery.addEventListener('change', onSchemeChange);
+      else if (themeQuery.addListener) themeQuery.addListener(onSchemeChange);
+    }
+
+    applyTheme(themeMode);
   </script>
 
 </body>
