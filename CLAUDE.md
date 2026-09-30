@@ -39,7 +39,7 @@ The two division files share the same structure, design tokens, and JS. They are
 - Keep each page as a single self-contained HTML file. Don't split CSS/JS into separate files unless asked.
 - Any shared change (nav, footer, tokens, contact info) must be applied to BOTH division files in the same edit.
 - Site copy is [English / Thai / both] — match existing tone.
-- Deploys via `git push` to github.com/ponkarl/ITS-website-. Don't push without asking.
+- Deploys via `git push` to github.com/ponkarl/ITS-website. Don't push without asking.
 
 ## Launch checklist
 

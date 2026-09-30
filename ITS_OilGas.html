@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
 
   <style>
     :root {
@@ -261,6 +261,8 @@
     .case-equipment summary { font-size: 0.75rem; font-weight: 500; color: var(--clr-orange); cursor: pointer; margin-bottom: var(--space-sm); }
     .case-study-full__banner { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: center top; border-radius: var(--border-radius); }
     .case-study-full__text { display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-xl); align-items: start; padding: var(--space-xl) 0; }
+    .case-study-full--next { margin-top: var(--space-2xl); padding-top: var(--space-2xl); border-top: 0.5px solid var(--clr-light-border); }
+    .case-study-full__banner--center { object-position: center; }
     .case-study-full__photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
     .case-study-full__photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--border-radius); }
 
@@ -269,10 +271,26 @@
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
     .project-card { background: var(--clr-light-100); border: 0.5px solid var(--clr-light-border); border-radius: var(--border-radius); display: flex; flex-direction: column; }
     .project-card__photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--border-radius) var(--border-radius) 0 0; display: block; }
+    /* Stand-in for a missing card photo: same size/ratio as .project-card__photo */
+    .project-card__placeholder { width: 100%; aspect-ratio: 4 / 3; border-radius: var(--border-radius) var(--border-radius) 0 0; background: var(--clr-dark-800); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-sm); }
+    .project-card__placeholder i { font-size: 48px; color: var(--clr-orange); }
+    .project-card__placeholder span { font-size: 0.75rem; color: var(--clr-text-muted); }
     .project-card__body { padding: var(--space-md); display: flex; flex-direction: column; gap: var(--space-sm); }
     .project-card__eyebrow { font-size: 0.625rem; font-weight: 500; letter-spacing: 0.5px; color: var(--clr-orange); text-transform: uppercase; }
     .project-card__title { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; line-height: 1.2; color: var(--clr-text-dark); }
     .project-card .feature-chips { margin-bottom: 0; }
+    /* Project reference list (Other projects page) */
+    .project-refs { margin-top: var(--space-2xl); }
+    .project-refs__sub { font-size: 0.8125rem; color: var(--clr-text-body); margin: -8px 0 var(--space-lg); }
+    .project-group { margin-bottom: var(--space-xl); }
+    .project-group__title { display: flex; align-items: center; gap: var(--space-sm); font-size: 0.9375rem; font-weight: 500; color: var(--clr-text-dark); margin-bottom: var(--space-sm); }
+    .project-group .ref-table { min-width: 640px; }
+    .project-group .feature-chips { margin-bottom: 0; gap: 4px; }
+    .project-group .chip { font-size: 0.625rem; padding: 2px 7px; }
+    .project-group .project-year { white-space: nowrap; }
+    .project-toggle { margin-top: var(--space-sm); }
+    /* Ghost button variant for light backgrounds (dark text + border) */
+    .btn-ghost--light { color: var(--clr-text-dark); border-color: var(--clr-text-label); }
 
     /* PARTNER PAGES (KROHNE, Della Foglia, B&R) — facts band, product grid, role list, CTA */
     .partner-section { margin-top: var(--space-2xl); }
@@ -298,6 +316,9 @@
     .role-item__desc { font-size: 0.75rem; line-height: 1.6; color: var(--clr-text-body); }
     .product-note { background: var(--clr-light-300); border-radius: var(--border-radius); border-left: 3px solid var(--clr-orange); padding: 14px var(--space-lg); font-size: 0.8125rem; color: var(--clr-text-body); line-height: 1.7; }
     .partner-cta { margin-top: var(--space-2xl); }
+    .related-projects { margin-top: var(--space-2xl); }
+    .related-projects__list { display: flex; flex-direction: column; align-items: flex-start; }
+    .related-projects + .partner-cta { margin-top: var(--space-lg); }
     .partner-cta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md) var(--space-lg); margin-top: var(--space-sm); }
     .partner-cta__actions .partner-link { margin-top: 0; }
 
@@ -598,35 +619,35 @@
           <h2 class="case-study__title">PTTLNG Nong Fab LNG Terminal</h2>
           <p class="case-study__body">
             Metering systems for PTTLNG's Nong Fab LNG receiving terminal, engineered and fabricated
-            in-house by ITS. The scope covered 40 ultrasonic flow meters for process, natural gas and
-            seawater service, a 30-inch export gas and fuel gas custody transfer system, gas quality
-            analysis, Cameron 30-inch valves and the T1/T2 interconnection — from skid design and
-            fabrication through installation.
+            in-house by ITS. The scope covered skid fabrication, nine flow computer systems, ultrasonic
+            metering up to 30 inches, online gas analysis and sampling, and 64 Cameron and Goodwin
+            valves from 1 to 34 inches.
           </p>
           <div class="case-study__stats">
-            <div class="case-stat"><div class="case-stat__value">40</div><div class="case-stat__label">Ultrasonic flow meters</div></div>
-            <div class="case-stat"><div class="case-stat__value">9</div><div class="case-stat__label">Flow computers</div></div>
+            <div class="case-stat"><div class="case-stat__value">9</div><div class="case-stat__label">Flow computer systems</div></div>
+            <div class="case-stat"><div class="case-stat__value">4</div><div class="case-stat__label">Ultrasonic flow meters</div></div>
             <div class="case-stat"><div class="case-stat__value">3</div><div class="case-stat__label">Gas chromatographs</div></div>
             <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Moisture analyzers</div></div>
-            <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Cameron 30-inch valves</div></div>
+            <div class="case-stat"><div class="case-stat__value">64</div><div class="case-stat__label">Cameron &amp; Goodwin valves</div></div>
           </div>
           <details class="case-equipment">
             <summary>View equipment list</summary>
             <h3 class="ref-table-title">Equipment supplied</h3>
             <div class="ref-table-wrap">
               <table class="ref-table ref-table--compact">
-                <thead><tr><th scope="col">Equipment</th><th scope="col" class="ref-table__qty">Qty</th></tr></thead>
+                <thead><tr><th scope="col">Equipment</th><th scope="col">Size</th><th scope="col" class="ref-table__qty">Qty</th></tr></thead>
                 <tbody>
-                  <tr><td>Process ultrasonic flow meter</td><td class="ref-table__qty">15</td></tr>
-                  <tr><td>Process ultrasonic flow meter, SIL 2</td><td class="ref-table__qty">5</td></tr>
-                  <tr><td>NG ultrasonic flow meter, model 388Ci, 30&quot;</td><td class="ref-table__qty">2</td></tr>
-                  <tr><td>NG ultrasonic flow meter, model 380Ci, 4&quot;</td><td class="ref-table__qty">2</td></tr>
-                  <tr><td>Clamp-on ultrasonic flow meter, seawater</td><td class="ref-table__qty">16</td></tr>
-                  <tr class="ref-table__total"><td>Total ultrasonic flow meters</td><td class="ref-table__qty">40</td></tr>
-                  <tr><td>Flow computer</td><td class="ref-table__qty">9</td></tr>
-                  <tr><td>Gas chromatograph</td><td class="ref-table__qty">3</td></tr>
-                  <tr><td>Moisture analyzer</td><td class="ref-table__qty">2</td></tr>
-                  <tr><td>Cameron valve, 30&quot;</td><td class="ref-table__qty">2</td></tr>
+                  <tr><td>Skid fabrication</td><td>—</td><td class="ref-table__qty">✓</td></tr>
+                  <tr><td>Flow computer system</td><td>—</td><td class="ref-table__qty">9</td></tr>
+                  <tr><td>Ultrasonic flow meter, model 388Ci</td><td>30&quot;</td><td class="ref-table__qty">2</td></tr>
+                  <tr><td>Ultrasonic flow meter, model 380Ci</td><td>4&quot;</td><td class="ref-table__qty">2</td></tr>
+                  <tr><td>Online gas chromatograph</td><td>—</td><td class="ref-table__qty">3</td></tr>
+                  <tr><td>Online moisture analyzer</td><td>—</td><td class="ref-table__qty">2</td></tr>
+                  <tr><td>Sampling system</td><td>—</td><td class="ref-table__qty">6</td></tr>
+                  <tr><td>Power-operated valve (Cameron)</td><td>34&quot; ×1 · 30&quot; ×2 · 4&quot; ×3</td><td class="ref-table__qty">6</td></tr>
+                  <tr><td>Ball valve (Cameron)</td><td>34&quot; ×3 · 30&quot; ×6 · 20&quot; ×1 · 4&quot; ×9 · 2&quot; ×8 · 1&quot; ×17</td><td class="ref-table__qty">44</td></tr>
+                  <tr><td>Globe valve (Cameron)</td><td>2&quot; ×6 · 1&quot; ×4</td><td class="ref-table__qty">10</td></tr>
+                  <tr><td>Check valve (Goodwin)</td><td>30&quot; ×2 · 4&quot; ×2</td><td class="ref-table__qty">4</td></tr>
                 </tbody>
               </table>
             </div>
@@ -671,25 +692,24 @@
               <h2 class="case-study__title">PTTLNG Nong Fab LNG Terminal</h2>
               <p class="case-study__body">
                 Metering systems for PTTLNG's Nong Fab LNG receiving terminal, engineered and fabricated
-                in-house by ITS. The scope covered 40 ultrasonic flow meters for process, natural gas and
-                seawater service, a 30-inch export gas and fuel gas custody transfer system, gas quality
-                analysis, Cameron 30-inch valves and the T1/T2 interconnection — from skid design and
-                fabrication through installation.
+                in-house by ITS. The scope covered skid fabrication, nine flow computer systems, ultrasonic
+                metering up to 30 inches, online gas analysis and sampling, and 64 Cameron and Goodwin
+                valves from 1 to 34 inches.
               </p>
               <div class="case-study__stats">
-                <div class="case-stat"><div class="case-stat__value">40</div><div class="case-stat__label">Ultrasonic flow meters</div></div>
-                <div class="case-stat"><div class="case-stat__value">9</div><div class="case-stat__label">Flow computers</div></div>
+                <div class="case-stat"><div class="case-stat__value">9</div><div class="case-stat__label">Flow computer systems</div></div>
+                <div class="case-stat"><div class="case-stat__value">4</div><div class="case-stat__label">Ultrasonic flow meters</div></div>
                 <div class="case-stat"><div class="case-stat__value">3</div><div class="case-stat__label">Gas chromatographs</div></div>
                 <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Moisture analyzers</div></div>
-                <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Cameron 30-inch valves</div></div>
+                <div class="case-stat"><div class="case-stat__value">64</div><div class="case-stat__label">Cameron &amp; Goodwin valves</div></div>
               </div>
               <div class="case-scope">
                 <h3 class="ref-table-title">Scope of work</h3>
                 <ul class="case-scope__list">
                   <li><i class="ti ti-check" aria-hidden="true"></i> Skid design &amp; in-house fabrication</li>
-                  <li><i class="ti ti-check" aria-hidden="true"></i> 30&quot; export gas &amp; fuel gas custody transfer system</li>
-                  <li><i class="ti ti-check" aria-hidden="true"></i> Gas quality analysis (GC + moisture)</li>
-                  <li><i class="ti ti-check" aria-hidden="true"></i> T1/T2 interconnection &amp; installation</li>
+                  <li><i class="ti ti-check" aria-hidden="true"></i> Nine flow computer systems with ultrasonic metering up to 30&quot;</li>
+                  <li><i class="ti ti-check" aria-hidden="true"></i> Online gas analysis &amp; sampling (GC + moisture)</li>
+                  <li><i class="ti ti-check" aria-hidden="true"></i> 64 Cameron &amp; Goodwin valves, 1&quot; to 34&quot;</li>
                 </ul>
               </div>
             </div>
@@ -699,18 +719,19 @@
                 <h3 class="ref-table-title">Equipment supplied</h3>
                 <div class="ref-table-wrap">
                   <table class="ref-table ref-table--compact">
-                    <thead><tr><th scope="col">Equipment</th><th scope="col" class="ref-table__qty">Qty</th></tr></thead>
+                    <thead><tr><th scope="col">Equipment</th><th scope="col">Size</th><th scope="col" class="ref-table__qty">Qty</th></tr></thead>
                     <tbody>
-                      <tr><td>Process ultrasonic flow meter</td><td class="ref-table__qty">15</td></tr>
-                      <tr><td>Process ultrasonic flow meter, SIL 2</td><td class="ref-table__qty">5</td></tr>
-                      <tr><td>NG ultrasonic flow meter, model 388Ci, 30&quot;</td><td class="ref-table__qty">2</td></tr>
-                      <tr><td>NG ultrasonic flow meter, model 380Ci, 4&quot;</td><td class="ref-table__qty">2</td></tr>
-                      <tr><td>Clamp-on ultrasonic flow meter, seawater</td><td class="ref-table__qty">16</td></tr>
-                      <tr class="ref-table__total"><td>Total ultrasonic flow meters</td><td class="ref-table__qty">40</td></tr>
-                      <tr><td>Flow computer</td><td class="ref-table__qty">9</td></tr>
-                      <tr><td>Gas chromatograph</td><td class="ref-table__qty">3</td></tr>
-                      <tr><td>Moisture analyzer</td><td class="ref-table__qty">2</td></tr>
-                      <tr><td>Cameron valve, 30&quot;</td><td class="ref-table__qty">2</td></tr>
+                      <tr><td>Skid fabrication</td><td>—</td><td class="ref-table__qty">✓</td></tr>
+                      <tr><td>Flow computer system</td><td>—</td><td class="ref-table__qty">9</td></tr>
+                      <tr><td>Ultrasonic flow meter, model 388Ci</td><td>30&quot;</td><td class="ref-table__qty">2</td></tr>
+                      <tr><td>Ultrasonic flow meter, model 380Ci</td><td>4&quot;</td><td class="ref-table__qty">2</td></tr>
+                      <tr><td>Online gas chromatograph</td><td>—</td><td class="ref-table__qty">3</td></tr>
+                      <tr><td>Online moisture analyzer</td><td>—</td><td class="ref-table__qty">2</td></tr>
+                      <tr><td>Sampling system</td><td>—</td><td class="ref-table__qty">6</td></tr>
+                      <tr><td>Power-operated valve (Cameron)</td><td>34&quot; ×1 · 30&quot; ×2 · 4&quot; ×3</td><td class="ref-table__qty">6</td></tr>
+                      <tr><td>Ball valve (Cameron)</td><td>34&quot; ×3 · 30&quot; ×6 · 20&quot; ×1 · 4&quot; ×9 · 2&quot; ×8 · 1&quot; ×17</td><td class="ref-table__qty">44</td></tr>
+                      <tr><td>Globe valve (Cameron)</td><td>2&quot; ×6 · 1&quot; ×4</td><td class="ref-table__qty">10</td></tr>
+                      <tr><td>Check valve (Goodwin)</td><td>30&quot; ×2 · 4&quot; ×2</td><td class="ref-table__qty">4</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -721,6 +742,58 @@
             <img src="images/image76.jpeg" alt="Two metering skids with large meter runs and headers under fabrication in the ITS workshop, with welders at work" />
             <img src="images/image79.jpeg" alt="Large-bore flanged meter runs with blue bolt covers on a metering skid in the fabrication workshop" />
             <img src="images/image75.png" alt="Ultrasonic flow meter with pressure gauge and transmitter mounted on a metering skid" />
+          </div>
+        </article>
+
+        <!-- Case study: PTTLNG ITCP -->
+        <article class="case-study-full--next" aria-label="PTTLNG ITCP Metering">
+          <!-- Centre-cropped (not top-anchored) so the meters stay in frame -->
+          <img class="case-study-full__banner case-study-full__banner--center" src="images/itcp-krohne-meters.jpg" alt="Two KROHNE ALTOSONIC V12 Twin ultrasonic meters with blue-capped flange bolts on the ITCP metering skid, seen from the access platform" />
+          <div class="case-study-full__text">
+            <!-- Left: title, description, stats -->
+            <div class="case-study-full__main">
+              <!-- TODO: add ITCP year -->
+              <span class="partner-badge">FEATURED PROJECT</span>
+              <h2 class="case-study__title">PTTLNG ITCP Metering</h2>
+              <p class="case-study__body">
+                Custody transfer metering for PTTLNG's ITCP, combining KROHNE ALTOSONIC V12 Twin ultrasonic
+                meters with Della Foglia valves — two of our key partners on one project. The scope covered
+                flow computer systems, online gas analysis, sampling and a TIMS package.
+              </p>
+              <div class="case-study__stats">
+                <div class="case-stat"><div class="case-stat__value">4</div><div class="case-stat__label">KROHNE ultrasonic meters (24&quot;)</div></div>
+                <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Flow computer systems</div></div>
+                <div class="case-stat"><div class="case-stat__value">2</div><div class="case-stat__label">Gas chromatographs</div></div>
+                <div class="case-stat"><div class="case-stat__value">49</div><div class="case-stat__label">Della Foglia valves</div></div>
+              </div>
+            </div>
+            <!-- Right: equipment table only -->
+            <div>
+              <div class="case-equipment">
+                <h3 class="ref-table-title">Equipment supplied</h3>
+                <div class="ref-table-wrap">
+                  <table class="ref-table ref-table--compact">
+                    <thead><tr><th scope="col">Equipment</th><th scope="col">Size</th><th scope="col" class="ref-table__qty">Qty</th></tr></thead>
+                    <tbody>
+                      <tr><td>Flow computer system</td><td>—</td><td class="ref-table__qty">2</td></tr>
+                      <tr><td>Ultrasonic flow meter, KROHNE ALTOSONIC V12 Twin</td><td>24&quot;</td><td class="ref-table__qty">4</td></tr>
+                      <tr><td>Online gas chromatograph</td><td>—</td><td class="ref-table__qty">2</td></tr>
+                      <tr><td>Online moisture analyzer</td><td>—</td><td class="ref-table__qty">2</td></tr>
+                      <tr><td>Sampling system</td><td>—</td><td class="ref-table__qty">4</td></tr>
+                      <tr><td>TIMS package</td><td>—</td><td class="ref-table__qty">1</td></tr>
+                      <tr><td>Motor-operated valve, DBB side-entry (Della Foglia)</td><td>24&quot;</td><td class="ref-table__qty">4</td></tr>
+                      <tr><td>Ball valve, DBB side-entry</td><td>24&quot; ×12 · 2&quot; ×17 · 1&quot; ×6</td><td class="ref-table__qty">35</td></tr>
+                      <tr><td>Ball valve, top-entry</td><td>2&quot;</td><td class="ref-table__qty">10</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case-study-full__photos">
+            <img src="images/itcp-site-overview.jpg" alt="Aerial view of the ITCP metering skid during installation, with a mobile crane, solar panels and the jetty behind" />
+            <img src="images/itcp-meter-install.jpg" alt="Crew lifting a KROHNE ultrasonic meter into place on the ITCP pipeline" />
+            <img src="images/itcp-metering-skid.jpg" alt="ITCP metering skid with Della Foglia valves, yellow handrails and field instruments" />
           </div>
         </article>
         <a class="partner-link" href="#" onclick="showPage('other-projects'); return false;">See other projects →</a>
@@ -757,14 +830,52 @@
           <div class="project-grid">
 
             <article class="project-card">
+              <img class="project-card__photo" src="images/gsp7-team.jpg" alt="ITS and client team at the GSP 7 metering station" loading="lazy" />
+              <div class="project-card__body">
+                <!-- TODO: add GSP 7 year -->
+                <span class="project-card__eyebrow">PTTLNG</span>
+                <h3 class="project-card__title">GSP 7 — LNG and NG custody metering</h3>
+                <div class="feature-chips">
+                  <span class="chip">1 flow computer system</span>
+                  <span class="chip">4 ultrasonic meters</span>
+                  <span class="chip">2 GCs</span>
+                  <span class="chip">1 moisture analyzer</span>
+                  <span class="chip">Vaporizer system</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card" id="card-ole3">
+              <!-- TODO: replace placeholder with OLE3 photo (images/ole3-*.jpg) when received -->
+              <div class="project-card__placeholder" role="img" aria-label="Photo coming soon">
+                <i class="ti ti-photo" aria-hidden="true"></i>
+                <span>Photo coming soon</span>
+              </div>
+              <div class="project-card__body">
+                <!-- TODO: add OLE3 year -->
+                <span class="project-card__eyebrow">PE LNG</span>
+                <h3 class="project-card__title">LMPT2 OLE3 — cold energy utilization metering</h3>
+                <div class="feature-chips">
+                  <span class="chip">1 flow computer system</span>
+                  <span class="chip">1 KROHNE ALTOSONIC 5 (6&quot;)</span>
+                  <span class="chip">1 GC</span>
+                  <span class="chip">1 sampling system</span>
+                  <span class="chip">Vaporizer system</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
               <img class="project-card__photo" src="images/image66.jpeg" alt="Completed metering skid at the PTTLNG in-plant generator station" loading="lazy" />
               <div class="project-card__body">
                 <span class="project-card__eyebrow">PTTLNG · 2018</span>
                 <h3 class="project-card__title">In-Plant Generator metering station</h3>
                 <div class="feature-chips">
-                  <span class="chip">3 flow computers</span>
-                  <span class="chip">3 ultrasonic meters</span>
+                  <span class="chip">3 flow computer systems</span>
+                  <span class="chip">3 ultrasonic meters (380Ci, 4&quot;)</span>
                   <span class="chip">1 GC</span>
+                  <span class="chip">1 moisture analyzer</span>
+                  <span class="chip">14 Cameron valves</span>
                   <span class="chip">Skid fabrication</span>
                 </div>
               </div>
@@ -776,9 +887,10 @@
                 <span class="project-card__eyebrow">PTTLNG · 2019</span>
                 <h3 class="project-card__title">ASU natural gas and LNG custody metering</h3>
                 <div class="feature-chips">
-                  <span class="chip">4 flow computers</span>
-                  <span class="chip">4 ultrasonic meters</span>
-                  <span class="chip">2 GCs</span>
+                  <span class="chip">2 flow computer systems</span>
+                  <span class="chip">4 ultrasonic meters (NG &amp; LNG)</span>
+                  <span class="chip">1 GC</span>
+                  <span class="chip">1 OGM</span>
                 </div>
               </div>
             </article>
@@ -787,11 +899,12 @@
               <img class="project-card__photo" src="images/image84.png" alt="Ultrasonic flow meter installed on the PTTLNG T1/T2 interconnection" loading="lazy" />
               <div class="project-card__body">
                 <span class="project-card__eyebrow">PTTLNG · 2022</span>
-                <h3 class="project-card__title">T1 and T2 interconnecting project</h3>
+                <h3 class="project-card__title">NG custody transfer metering — export and fuel gas interconnection</h3>
                 <div class="feature-chips">
-                  <span class="chip">2 flow computers</span>
-                  <span class="chip">1 ultrasonic meter</span>
+                  <span class="chip">1 flow computer system</span>
+                  <span class="chip">1 ultrasonic meter (380Ci, 24&quot;)</span>
                   <span class="chip">1 GC</span>
+                  <span class="chip">1 sampling system</span>
                 </div>
               </div>
             </article>
@@ -800,9 +913,9 @@
               <img class="project-card__photo" src="images/image83.png" alt="Crew installing an ultrasonic meter replacing an orifice meter at PTTLNG" loading="lazy" />
               <div class="project-card__body">
                 <span class="project-card__eyebrow">PTTLNG · 2022</span>
-                <h3 class="project-card__title">Orifice to ultrasonic meter replacement, Map Ta Phut</h3>
+                <h3 class="project-card__title">Map Ta Phut interconnecting pipeline modification</h3>
                 <div class="feature-chips">
-                  <span class="chip">2 ultrasonic meters</span>
+                  <span class="chip">2 ultrasonic meters (388Ci, 24&quot;)</span>
                 </div>
               </div>
             </article>
@@ -832,7 +945,12 @@
           </div>
         </section>
 
-        <!-- Project reference list (#project-list) goes here once PROJECT_DATA is available -->
+        <!-- Project reference list: rendered from PROJECT_DATA (bottom script) -->
+        <section class="project-refs" aria-labelledby="project-refs-title">
+          <h2 class="project-section-title" id="project-refs-title">Project references</h2>
+          <p class="project-refs__sub">Oil &amp; gas projects delivered by ITS across Thailand.</p>
+          <div id="project-list"></div>
+        </section>
 
       </div>
     </div>
@@ -970,6 +1088,15 @@
           </div>
           </div>
         </section>
+
+        <!-- Related projects -->
+        <div class="related-projects">
+          <h3 class="ref-table-title">Related projects</h3>
+          <div class="related-projects__list">
+            <a class="partner-link" href="#" onclick="showPage('projects'); return false;">PTTLNG ITCP Metering — 4 ALTOSONIC V12 Twin meters, 24&quot; <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+            <a class="partner-link" href="#" onclick="showProjectRow('card-ole3'); return false;">PE LNG LMPT2 OLE3 — ALTOSONIC 5 liquid meter, 6&quot; <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
 
         <!-- CTA -->
         <div class="product-note partner-cta">
@@ -1121,6 +1248,14 @@
           </div>
           </div>
         </section>
+
+        <!-- Related projects -->
+        <div class="related-projects">
+          <h3 class="ref-table-title">Related projects</h3>
+          <div class="related-projects__list">
+            <a class="partner-link" href="#" onclick="showPage('projects'); return false;">PTTLNG ITCP Metering — 49 motor-operated and ball valves <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
 
         <!-- CTA -->
         <div class="product-note partner-cta">
@@ -1459,7 +1594,7 @@
 
       <footer class="footer-bar">
         <div class="container">
-          <span>&copy; 2025 ITS Industrial Technology Supply Co., Ltd. &mdash; All rights reserved</span>
+          <span>&copy; <span class="js-year">2026</span> ITS Industrial Technology Supply Co., Ltd. &mdash; All rights reserved</span>
           <span>Nonthaburi, Thailand</span>
         </div>
       </footer>
@@ -1470,6 +1605,1610 @@
       var el = document.getElementById(id);
       if (el) el.innerHTML = footerHTML;
     });
+
+    /* Footer copyright year (HTML fallback: 2026) */
+    document.querySelectorAll('.js-year').forEach(function(el) {
+      el.textContent = new Date().getFullYear();
+    });
+
+    /* ── Project reference list (Other projects page) ─────────────
+       Copy of oilgas_projects.json with _note and note fields removed.
+       Re-embed when the JSON changes.
+    ─────────────────────────────────────────────────────────── */
+    const PROJECT_DATA = {
+     "groups": [
+      {
+       "id": "lng",
+       "title": "LNG terminals"
+      },
+      {
+       "id": "power",
+       "title": "Power plant gas metering"
+      },
+      {
+       "id": "ngd",
+       "title": "Natural gas distribution"
+      },
+      {
+       "id": "offshore",
+       "title": "Offshore"
+      },
+      {
+       "id": "oil",
+       "title": "Oil terminals & liquid metering"
+      },
+      {
+       "id": "upgrade",
+       "title": "Upgrades & replacements"
+      },
+      {
+       "id": "systems",
+       "title": "Billing & data systems"
+      }
+     ],
+     "projects": [
+      {
+       "group": "lng",
+       "client": "PTTLNG",
+       "project": "Nong Fab LNG receiving terminal: metering skids incl. 2 moisture analyzers, 6 sampling systems and 64 Cameron/Goodwin valves",
+       "year": "2021-2022",
+       "flowComputers": 9,
+       "ultrasonicMeters": 4,
+       "gasChromatographs": 3,
+       "fluid": "LNG / natural gas",
+       "featured": true
+      },
+      {
+       "group": "lng",
+       "client": "PTTLNG",
+       "project": "NG custody transfer metering (export and fuel gas), interconnecting project",
+       "year": "2022",
+       "flowComputers": 1,
+       "ultrasonicMeters": 1,
+       "gasChromatographs": 1,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "lng",
+       "client": "PTTLNG",
+       "project": "GSP 7 (Gas Separation Plant OSBL): LNG and NG custody metering, incl. vaporizer and network cabinet",
+       "year": "",
+       "flowComputers": 1,
+       "ultrasonicMeters": 4,
+       "gasChromatographs": 2,
+       "fluid": "LNG / natural gas",
+       "featured": true,
+       "recent": true
+      },
+      {
+       "group": "lng",
+       "client": "PTTLNG",
+       "project": "ITCP metering: KROHNE ALTOSONIC V12 Twin 24\" meters and Della Foglia valves",
+       "year": "",
+       "flowComputers": 2,
+       "ultrasonicMeters": 4,
+       "gasChromatographs": 2,
+       "fluid": "Natural gas",
+       "featured": true,
+       "recent": true
+      },
+      {
+       "group": "lng",
+       "client": "PE LNG",
+       "project": "LMPT2 OLE3 cold energy utilization (OSBL): KROHNE ALTOSONIC 5 liquid metering, incl. vaporizer",
+       "year": "",
+       "flowComputers": 1,
+       "ultrasonicMeters": 1,
+       "gasChromatographs": 1,
+       "fluid": "LNG",
+       "featured": true,
+       "recent": true
+      },
+      {
+       "group": "lng",
+       "client": "PTTLNG",
+       "project": "Map Ta Phut interconnecting pipeline modification",
+       "year": "2022",
+       "flowComputers": 0,
+       "ultrasonicMeters": 2,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "lng",
+       "client": "Samsung",
+       "project": "In-plant generator (IPG) metering for PTTLNG: skid fabrication, incl. moisture analyzer, sampling and 14 Cameron valves",
+       "year": "2018",
+       "flowComputers": 3,
+       "ultrasonicMeters": 3,
+       "gasChromatographs": 1,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "lng",
+       "client": "PTTLNG / SASTECH",
+       "project": "ASU OSBL: NG and LNG custody metering",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 4,
+       "gasChromatographs": 1,
+       "fluid": "LNG / natural gas",
+       "featured": true
+      },
+      {
+       "group": "lng",
+       "client": "POSCO",
+       "project": "PTTLNG receiving terminal 1.5 MTPA expansion (clamp-on meters)",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 4,
+       "gasChromatographs": 0,
+       "fluid": "LNG",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "Gulf",
+       "project": "Gulf 12 SPP power plants",
+       "year": "2016-2018",
+       "flowComputers": 24,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "power",
+       "client": "PTT",
+       "project": "PTT SPP power plants: new flow computer installation",
+       "year": "2021-2022",
+       "flowComputers": 22,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "power",
+       "client": "PTT - EGAT",
+       "project": "Hin Kong 2 gas metering station",
+       "year": "2010",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "PTT - EGAT",
+       "project": "Wang Noi mixed gas metering station",
+       "year": "2010",
+       "flowComputers": 8,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "power",
+       "client": "PTT - EGAT",
+       "project": "Rayong 2 gas metering station",
+       "year": "2012",
+       "flowComputers": 6,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "PTT - EGAT",
+       "project": "BV12 gas metering station",
+       "year": "2012",
+       "flowComputers": 6,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "PTT - EGAT",
+       "project": "RGCO gas metering station",
+       "year": "2013",
+       "flowComputers": 8,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "PTT - EGAT",
+       "project": "RBWN gas metering station",
+       "year": "2013",
+       "flowComputers": 3,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "TECO (IPP)",
+       "project": "TECO gas metering station",
+       "year": "2012",
+       "flowComputers": 3,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "Glow (IPP)",
+       "project": "Glow IPP gas metering station",
+       "year": "2014",
+       "flowComputers": 4,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "GPSC (IPP)",
+       "project": "GPSC gas metering station",
+       "year": "2014",
+       "flowComputers": 3,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Rojana SPP2 gas metering station",
+       "year": "2012",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Bang Kadi gas metering station",
+       "year": "2014",
+       "flowComputers": 4,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "IRPC CHP 2 gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Amata B.Grimm 3 gas metering station",
+       "year": "2012",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Amata B.Grimm 4 gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Amata B.Grimm 5 gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Thai Oil 2 gas metering station",
+       "year": "2014",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Samut Prakan cogeneration gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Nong Khae cogeneration gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Siam Pure Rice gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Bowin Clean Energy gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "SPP",
+       "project": "Khao Khanun gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "PTT",
+       "project": "Khanom: flow computer system on ERP platform",
+       "year": "2018",
+       "flowComputers": 4,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "IBPC",
+       "project": "Berkprai cogeneration (BPC) flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "NC",
+       "project": "Nong Khae cogeneration flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "Instrumech",
+       "project": "Flow computer cabinet for BPC",
+       "year": "2017",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Rojana 1 gas metering station",
+       "year": "2013",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Rojana 2 gas metering station",
+       "year": "2013",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Amata Rangsit gas metering station",
+       "year": "2014",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Amata Nakorn 1 gas metering station",
+       "year": "2014",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Lat Krabang gas metering station",
+       "year": "2014",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Navanakorn gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Bang Phli gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "Amata City gas metering station",
+       "year": "2015",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "BV10 gas metering station",
+       "year": "2014",
+       "flowComputers": 3,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "QTEC",
+       "project": "Gulf Eastern Seaboard NGD2: flow computer cabinet (materials and engineering)",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "ngd",
+       "client": "QTEC",
+       "project": "Gulf Eastern Seaboard NGD4: flow computer cabinet (materials and engineering)",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "ngd",
+       "client": "Polytech",
+       "project": "Amata NGD-OTS2 flow computers",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "WHA NGD2 flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "WHA NGD4 flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "OTS HESIE flow computers",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "OTS HESIE flow computers (phase 2)",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "OTS Amata City 2 flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "offshore",
+       "client": "PTT",
+       "project": "Pailin platform: ultrasonic flow meter replacement",
+       "year": "2017",
+       "flowComputers": 1,
+       "ultrasonicMeters": 1,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "offshore",
+       "client": "PTTEP",
+       "project": "Bongkot platform: HMI",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "offshore",
+       "client": "PTTEP",
+       "project": "Bongkot: Metering Online Information (MOI) system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "offshore",
+       "client": "PTTEP",
+       "project": "Arthit platform: remote gas metering data router",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "oil",
+       "client": "Thai Excise Department",
+       "project": "PTT oil terminal: master meter prover",
+       "year": "2014",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "Thai Excise Department",
+       "project": "Shell oil terminal: master meter prover",
+       "year": "2014",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": true
+      },
+      {
+       "group": "oil",
+       "client": "Thai Excise Department",
+       "project": "PTT Phra Khanong oil terminal: master meter prover",
+       "year": "2015",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "Thai Excise Department",
+       "project": "Susco oil terminal: master meter prover",
+       "year": "2015",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "Thai Excise Department",
+       "project": "Bangchak oil terminal: master meter prover",
+       "year": "2015",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": true
+      },
+      {
+       "group": "oil",
+       "client": "Thai Excise Department",
+       "project": "Esso oil terminal: master meter prover",
+       "year": "2016",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": true
+      },
+      {
+       "group": "oil",
+       "client": "Thai Excise Department",
+       "project": "Excise research: gas-liquid cylindrical cyclone (GLCC) simulation",
+       "year": "2016",
+       "flowComputers": 6,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "Demier",
+       "project": "Demier liquid calibration lab (described as the largest in Thailand)",
+       "year": "2019",
+       "flowComputers": 5,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": true
+      },
+      {
+       "group": "oil",
+       "client": "Demier",
+       "project": "Prover system hardware with gateway PLC",
+       "year": "2018",
+       "flowComputers": 4,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "PK Progressive",
+       "project": "Compact prover",
+       "year": "2017",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "Unity Focus",
+       "project": "Flow-X compact prover",
+       "year": "2017",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "FPT",
+       "project": "FPT04 station flow computer replacement",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "FPT",
+       "project": "FPT flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "Utility One",
+       "project": "PLC modification for PTT NGD Rangsit liquid lab",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Liquid",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Chana flow computers",
+       "year": "2019",
+       "flowComputers": 6,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "upgrade",
+       "client": "V25 Engineering",
+       "project": "Chana Flow-X replacement",
+       "year": "2017",
+       "flowComputers": 1,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "Thaioil",
+       "project": "Thaioil flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Thaioil flow computers",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Thaioil temporary flow computers",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "IRPC",
+       "project": "IRPC Block 1 flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "TTCL",
+       "project": "IRPC Block 1 flow computers",
+       "year": "2017",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "ERP flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "TTPMC",
+       "project": "TTPMC flow computers",
+       "year": "2019",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "Toyo Thai",
+       "project": "Natural gas flow computer replacement",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Replace HMI: Glow IPP and GPSC",
+       "year": "2019",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Replace HMI: RGCO and RPCL",
+       "year": "2019",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Replace HMI: Nam Phong",
+       "year": "2019",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Upgrade HMI: Nam Phong",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT NGD",
+       "project": "Replace RTU: Lat Krabang, Rangsit, Bang Phli, Navanakorn",
+       "year": "2019",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "PLC engineering for Region 2 and Region 3",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Wang Noi mixed gas PLC modification",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Engineering backup: flow computer, MMI and PLC",
+       "year": "2017",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "HMI workstation at TECO for PTT Region 5",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Flow-X configuration and calculation test, Region 2",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Flow-X/M monitor module for Rojana 2",
+       "year": "2018",
+       "flowComputers": 2,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "TRC",
+       "project": "NGV Nam Phong HOV system modification",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "TRC",
+       "project": "SAT SCADA, RTU and HMI",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "Polytech",
+       "project": "RTU and panel engineering",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT NGD",
+       "project": "RTU modification for OTS Rangsit",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT NGD",
+       "project": "RTU for OTS BPL and OTS NVK",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "Modbus addressing for EGAT power plant gas metering data router",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "Esso",
+       "project": "Jiskoot water test",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Natural gas billing system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Automatic meter reading (AMR) system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Gas quality management system (GQMS)",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "GQMS on web: system improvement",
+       "year": "2017",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Report Storage Professional (RSP) system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Customer information system (CIS)",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Natural gas billing on web for customers",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "NG billing and data analysis",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "EGAT",
+       "project": "Automatic natural gas billing for all EGAT power plants",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "systems",
+       "client": "EGAT",
+       "project": "Real-time gas measurement: Bang Pakong, South Bangkok, Wang Noi, Nam Phong, Rayong 2",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "EGAT",
+       "project": "Gas billing online: Khanom and Ratchaburi",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "Siam Rajathanee",
+       "project": "RSP (LAN) at BVW#10 station, PTT Region 5",
+       "year": "2018",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Gas measurement and control for gas metering stations",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Remote billing data transmission over GSM",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Remote gas chromatograph control and analysis over GSM",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Natural gas customer identification system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Natural gas pricing system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "systems",
+       "client": "PTT",
+       "project": "Natural gas contractual control system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "EGAT",
+       "project": "RPCL Ratchaburi: gas metering data router system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "EGAT",
+       "project": "Chana, Songkhla: gas metering data router system",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "power",
+       "client": "PTT - EGAT",
+       "project": "Ratchaburi gas metering station",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "PLC upgrade for gas metering control: Bowin power plant",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "PLC upgrade for gas metering control: Bang Bo power plant",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "PLC upgrade for gas metering control: Tri Energy power plant",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "PLC upgrade for gas metering control: Bang Pakong power plant",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "PLC upgrade for gas metering control: Nam Phong power plant",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "PLC upgrade for gas metering control: Khanom power plant",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "upgrade",
+       "client": "PTT",
+       "project": "DCS and PLC development for mixed gas control, Wang Noi",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "HMI and SCADA system: Amata",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": true
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "HMI and SCADA system: Bang Phli",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "HMI and SCADA system: Bang Bo",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "HMI and SCADA system: Bowin",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "ngd",
+       "client": "PTT NGD",
+       "project": "HMI and SCADA system: Hemmaraj",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Natural gas",
+       "featured": false
+      },
+      {
+       "group": "oil",
+       "client": "Thai Petroleum Pipeline (Thappline)",
+       "project": "Ultrasonic flow metering",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "Oil",
+       "featured": true
+      },
+      {
+       "group": "lng",
+       "client": "PTTLNG",
+       "project": "Ultrasonic flow meters for LNG high-pressure process",
+       "year": "",
+       "flowComputers": 0,
+       "ultrasonicMeters": 0,
+       "gasChromatographs": 0,
+       "fluid": "LNG",
+       "featured": false
+      }
+     ]
+    };
+
+    function escapeHTML(str) {
+      return String(str).replace(/[&<>"']/g, function(c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    /* Sort: recent: true first, then dated rows newest first, then other undated rows last */
+    function projectSortKey(p) {
+      if (p.recent) return Infinity;
+      var years = String(p.year || '').match(/\d{4}/g);
+      return years ? Math.max.apply(null, years.map(Number)) : -Infinity;
+    }
+
+    function projectChips(p) {
+      var chips = [];
+      function add(n, one, many) { if (n > 0) chips.push(n + ' ' + (n === 1 ? one : many)); }
+      add(p.flowComputers, 'flow computer', 'flow computers');
+      add(p.ultrasonicMeters, 'ultrasonic meter', 'ultrasonic meters');
+      add(p.gasChromatographs, 'GC', 'GCs');
+      if (p.fluid && p.fluid !== 'Natural gas') chips.push(p.fluid);
+      if (!chips.length) return '—';
+      return '<div class="feature-chips">' + chips.map(function(c) {
+        return '<span class="chip">' + escapeHTML(c) + '</span>';
+      }).join('') + '</div>';
+    }
+
+    function renderProjectList() {
+      var root = document.getElementById('project-list');
+      if (!root) return;
+      var html = '';
+      PROJECT_DATA.groups.forEach(function(g) {
+        var rows = PROJECT_DATA.projects
+          .map(function(p, i) { return { p: p, i: i }; })
+          .filter(function(r) { return r.p.group === g.id; })
+          .sort(function(a, b) { var ka = projectSortKey(a.p), kb = projectSortKey(b.p); return ka === kb ? a.i - b.i : (kb > ka ? 1 : -1); });
+        if (!rows.length) return;
+        var hidden = rows.filter(function(r) { return !r.p.featured; }).length;
+        html += '<div class="project-group" data-group="' + g.id + '">' +
+          '<h3 class="project-group__title">' + escapeHTML(g.title) +
+          ' <span class="partner-badge">' + rows.length + ' project' + (rows.length === 1 ? '' : 's') + '</span></h3>' +
+          '<div class="ref-table-wrap"><table class="ref-table ref-table--compact">' +
+          '<thead><tr><th scope="col">Client</th><th scope="col">Project</th><th scope="col">Scope</th><th scope="col">Year</th></tr></thead><tbody>' +
+          rows.map(function(r) {
+            var p = r.p;
+            var id = /^LMPT2 OLE3/.test(p.project) ? ' id="project-ole3"' : '';
+            return '<tr' + id + (p.featured ? '' : ' hidden data-extra') + '>' +
+              '<td>' + escapeHTML(p.client) + '</td>' +
+              '<td>' + escapeHTML(p.project) + '</td>' +
+              '<td>' + projectChips(p) + '</td>' +
+              '<td class="project-year">' + (p.year ? escapeHTML(p.year) : '—') + '</td></tr>';
+          }).join('') +
+          '</tbody></table></div>' +
+          (hidden ? '<button type="button" class="btn-ghost btn-ghost--light project-toggle" aria-expanded="false" data-all="Show all ' + rows.length + ' projects">Show all ' + rows.length + ' projects</button>' : '') +
+          '</div>';
+      });
+      root.innerHTML = html;
+
+      root.querySelectorAll('.project-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() { toggleProjectGroup(btn); });
+      });
+    }
+
+    function toggleProjectGroup(btn, forceOpen) {
+      var open = forceOpen === true ? true : btn.getAttribute('aria-expanded') !== 'true';
+      btn.closest('.project-group').querySelectorAll('tr[data-extra]').forEach(function(tr) { tr.hidden = !open; });
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Show fewer' : btn.getAttribute('data-all');
+    }
+
+    /* Open Other projects and scroll to a list row or card by id (expands a hidden row's group first) */
+    function showProjectRow(rowId) {
+      showPage('other-projects');
+      var row = document.getElementById(rowId);
+      if (!row) return;
+      if (row.hidden) {
+        var btn = row.closest('.project-group').querySelector('.project-toggle');
+        if (btn) toggleProjectGroup(btn, true);
+      }
+      setTimeout(function() { row.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 50);
+    }
+
+    document.addEventListener('DOMContentLoaded', renderProjectList);
   </script>
 
 </body>

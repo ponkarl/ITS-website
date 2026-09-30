@@ -25,7 +25,7 @@
        Used throughout for nav, feature chips, and contact rows.
        Full icon list: https://tabler.io/icons
   ============================================================ -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
 
   <style>
     /* ============================================================
@@ -3108,7 +3108,7 @@
 
       <footer class="footer-bar">
         <div class="container">
-          <span>&copy; 2025 ITS Industrial Technology Supply Co., Ltd. &mdash; All rights reserved</span>
+          <span>&copy; <span class="js-year">2026</span> ITS Industrial Technology Supply Co., Ltd. &mdash; All rights reserved</span>
           <span>Khok Kham, Samut Sakhon</span>
         </div>
       </footer>
@@ -3125,6 +3125,11 @@
     footerIds.forEach(function(id) {
       var el = document.getElementById(id);
       if (el) el.innerHTML = footerHTML;
+    });
+
+    /* Footer copyright year (HTML fallback: 2026) */
+    document.querySelectorAll('.js-year').forEach(function(el) {
+      el.textContent = new Date().getFullYear();
     });
 
 
