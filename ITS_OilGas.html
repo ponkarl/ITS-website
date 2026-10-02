@@ -918,26 +918,6 @@
               </div>
             </article>
 
-            <article class="project-card" id="card-ole3">
-              <!-- TODO: replace placeholder with OLE3 photo (images/ole3-*.jpg) when received -->
-              <div class="project-card__placeholder" role="img" aria-label="Photo coming soon">
-                <i class="ti ti-photo" aria-hidden="true"></i>
-                <span>Photo coming soon</span>
-              </div>
-              <div class="project-card__body">
-                <!-- TODO: add OLE3 year -->
-                <span class="project-card__eyebrow">PE LNG</span>
-                <h3 class="project-card__title">LMPT2 OLE3 — cold energy utilization metering</h3>
-                <div class="feature-chips">
-                  <span class="chip">1 flow computer system</span>
-                  <span class="chip">1 KROHNE ALTOSONIC 5 (6&quot;)</span>
-                  <span class="chip">1 GC</span>
-                  <span class="chip">1 sampling system</span>
-                  <span class="chip">Vaporizer system</span>
-                </div>
-              </div>
-            </article>
-
             <article class="project-card">
               <img class="project-card__photo" src="images/image66.jpeg" alt="Completed metering skid at the PTTLNG in-plant generator station" loading="lazy" />
               <div class="project-card__body">
@@ -1166,9 +1146,7 @@
         <div class="related-projects">
           <h3 class="ref-table-title">Related projects</h3>
           <div class="related-projects__list">
-            <a class="partner-link" href="#" onclick="showPage('projects'); return false;">PTTLNG ITCP Metering — 4 ALTOSONIC V12 Twin meters, 24&quot; <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-            <a class="partner-link" href="#" onclick="showProjectRow('card-ole3'); return false;">PE LNG LMPT2 OLE3 — ALTOSONIC 5 liquid meter, 6&quot; <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-          </div>
+            <a class="partner-link" href="#" onclick="showPage('projects'); return false;">PTTLNG ITCP Metering — 4 ALTOSONIC V12 Twin meters, 24&quot; <i class="ti ti-arrow-right" aria-hidden="true"></i></a>          </div>
         </div>
 
         <!-- CTA -->
@@ -1685,7 +1663,8 @@
     });
 
     /* ── Project reference list (Other projects page) ─────────────
-       Copy of oilgas_projects.json with _note and note fields removed.
+       Copy of oilgas_projects.json with _note and note fields removed
+       and unpublished rows ("published": false) excluded.
        Re-embed when the JSON changes.
     ─────────────────────────────────────────────────────────── */
     const PROJECT_DATA = {
@@ -1763,18 +1742,6 @@
        "ultrasonicMeters": 4,
        "gasChromatographs": 2,
        "fluid": "Natural gas",
-       "featured": true,
-       "recent": true
-      },
-      {
-       "group": "lng",
-       "client": "PE LNG",
-       "project": "LMPT2 OLE3 cold energy utilization (OSBL): KROHNE ALTOSONIC 5 liquid metering, incl. vaporizer",
-       "year": "",
-       "flowComputers": 1,
-       "ultrasonicMeters": 1,
-       "gasChromatographs": 1,
-       "fluid": "LNG",
        "featured": true,
        "recent": true
       },
@@ -3233,7 +3200,7 @@
       PROJECT_DATA.groups.forEach(function(g) {
         var rows = PROJECT_DATA.projects
           .map(function(p, i) { return { p: p, i: i }; })
-          .filter(function(r) { return r.p.group === g.id; })
+          .filter(function(r) { return r.p.group === g.id && r.p.published !== false; })
           .sort(function(a, b) { var ka = projectSortKey(a.p), kb = projectSortKey(b.p); return ka === kb ? a.i - b.i : (kb > ka ? 1 : -1); });
         if (!rows.length) return;
         var hidden = rows.filter(function(r) { return !r.p.featured; }).length;
@@ -3244,8 +3211,7 @@
           '<thead><tr><th scope="col">Client</th><th scope="col">Project</th><th scope="col">Scope</th><th scope="col">Year</th></tr></thead><tbody>' +
           rows.map(function(r) {
             var p = r.p;
-            var id = /^LMPT2 OLE3/.test(p.project) ? ' id="project-ole3"' : '';
-            return '<tr' + id + (p.featured ? '' : ' hidden data-extra') + '>' +
+            return '<tr' + (p.featured ? '' : ' hidden data-extra') + '>' +
               '<td>' + escapeHTML(p.client) + '</td>' +
               '<td>' + escapeHTML(p.project) + '</td>' +
               '<td>' + projectChips(p) + '</td>' +
@@ -3267,18 +3233,6 @@
       btn.closest('.project-group').querySelectorAll('tr[data-extra]').forEach(function(tr) { tr.hidden = !open; });
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       btn.textContent = open ? 'Show fewer' : btn.getAttribute('data-all');
-    }
-
-    /* Open Other projects and scroll to a list row or card by id (expands a hidden row's group first) */
-    function showProjectRow(rowId) {
-      showPage('other-projects');
-      var row = document.getElementById(rowId);
-      if (!row) return;
-      if (row.hidden) {
-        var btn = row.closest('.project-group').querySelector('.project-toggle');
-        if (btn) toggleProjectGroup(btn, true);
-      }
-      setTimeout(function() { row.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 50);
     }
 
     document.addEventListener('DOMContentLoaded', renderProjectList);

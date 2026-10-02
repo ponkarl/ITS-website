@@ -6,3 +6,4 @@ stock_issues.txt
 stock_export.log
 last_count.txt
 .claude/settings.local.json
+vault/
