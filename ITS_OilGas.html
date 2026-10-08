@@ -71,6 +71,7 @@
       --clr-page-bg:      #FFFFFF;   /* Page background behind sections/cards (same as light-100 in light mode) */
       --clr-orange-text:  #A85600;   /* Orange for TEXT on light surfaces (4.7:1+); brand orange stays for fills/icons */
       --clr-text-soft:    #9A9890;   /* Secondary text on dark cards (4.8:1 on dark-700) */
+      --text-outline:     -1px -1px 0 rgba(0,0,0,.4), 1px -1px 0 rgba(0,0,0,.4), -1px 1px 0 rgba(0,0,0,.4), 1px 1px 0 rgba(0,0,0,.4);   /* Thin dark outline for white text on orange */
     }
 
     /* ============================================================
@@ -118,6 +119,23 @@
       .navbar__actions { display: none; }   /* Mobile: CTA + theme toggle live in the drawer */
     }
 
+    /* Light mode: white navbar. Dark mode keeps the dark navbar from the base NAVBAR rules.
+       Text meets 4.5:1 on white; active/hover text uses --clr-orange-text. */
+    :root:not([data-theme="dark"]) .navbar { background: var(--clr-light-100); box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08); }
+    :root:not([data-theme="dark"]) .navbar__logo-name { color: var(--clr-dark-800); }
+    :root:not([data-theme="dark"]) .navbar__logo-sub { color: var(--clr-text-dim); }
+    :root:not([data-theme="dark"]) .nav-item__link,
+    :root:not([data-theme="dark"]) .nav-item__link i { color: var(--clr-dark-700); }
+    :root:not([data-theme="dark"]) .nav-item__link:hover,
+    :root:not([data-theme="dark"]) .nav-item__link.active,
+    :root:not([data-theme="dark"]) .nav-item:hover .nav-item__link i { color: var(--clr-orange-text); }
+    :root:not([data-theme="dark"]) .dropdown { background: var(--clr-light-100); border-color: var(--clr-light-border); border-top-color: var(--clr-orange); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+    :root:not([data-theme="dark"]) .dropdown__link { color: var(--clr-dark-700); border-bottom-color: var(--clr-light-border); }
+    :root:not([data-theme="dark"]) .dropdown__link:hover { background: var(--clr-light-300); color: var(--clr-orange-text); }
+    :root:not([data-theme="dark"]) .theme-btn,
+    :root:not([data-theme="dark"]) .navbar__hamburger { color: var(--clr-dark-700); border-color: var(--clr-text-light); }
+    :root:not([data-theme="dark"]) .theme-btn:hover { color: var(--clr-orange-text); border-color: var(--clr-orange); }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; scroll-behavior: smooth; }
     body { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--clr-text-body); background: var(--clr-page-bg); -webkit-font-smoothing: antialiased; }
@@ -132,9 +150,9 @@
     /* TOPBAR */
     .topbar { background: var(--clr-orange); height: var(--topbar-height); display: flex; align-items: center; }
     .topbar .container { display: flex; justify-content: space-between; align-items: center; }
-    .topbar__company { font-size: 0.6875rem; font-weight: 500; color: var(--clr-dark-800); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .topbar__company { font-size: 0.6875rem; font-weight: 600; color: var(--clr-text-white); text-shadow: var(--text-outline); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .topbar__links { display: flex; gap: var(--space-md); list-style: none; flex-shrink: 0; }
-    .topbar__links a { display: flex; align-items: center; gap: 4px; font-size: 0.6875rem; font-weight: 500; color: var(--clr-dark-800); transition: opacity var(--transition); }
+    .topbar__links a { display: flex; align-items: center; gap: 4px; font-size: 0.6875rem; font-weight: 600; color: var(--clr-text-white); text-shadow: var(--text-outline); transition: opacity var(--transition); }
     .topbar__links a:hover { opacity: 0.7; }
     .topbar__links i { font-size: 11px; }
 
@@ -159,7 +177,7 @@
     .dropdown__link { display: block; padding: 11px 18px; font-size: 0.75rem; font-weight: 400; color: var(--clr-text-muted); border-bottom: 0.5px solid var(--clr-dark-700); transition: background var(--transition), color var(--transition); white-space: nowrap; }
     .dropdown__link:last-child { border-bottom: none; }
     .dropdown__link:hover { background: var(--clr-dark-700); color: var(--clr-orange); }
-    .navbar__cta { display: flex; align-items: center; padding: 8px 18px; margin-left: 10px; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.75rem; font-weight: 500; border: none; border-radius: var(--border-radius); transition: background var(--transition); white-space: nowrap; text-decoration: none; }
+    .navbar__cta { display: flex; align-items: center; padding: 8px 18px; margin-left: 10px; background: var(--clr-orange); color: var(--clr-text-white); text-shadow: var(--text-outline); font-size: 0.75rem; font-weight: 600; border: none; border-radius: var(--border-radius); transition: background var(--transition); white-space: nowrap; text-decoration: none; }
     .navbar__cta:hover { background: var(--clr-orange-dark); }
     .navbar__hamburger { display: none; align-items: center; justify-content: center; width: 36px; height: 36px; background: transparent; border: 0.5px solid var(--clr-dark-600); border-radius: var(--border-radius); color: var(--clr-text-muted); font-size: 20px; }
 
@@ -188,7 +206,7 @@
     .hero__headline span { color: var(--clr-orange); }
     .hero__body { font-size: 0.9375rem; line-height: 1.8; color: var(--clr-text-light); margin-bottom: var(--space-lg); max-width: 420px; }
     .hero__actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.8125rem; font-weight: 500; border: none; border-radius: var(--border-radius); transition: background var(--transition); cursor: pointer; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: var(--clr-orange); color: var(--clr-text-white); text-shadow: var(--text-outline); font-size: 0.8125rem; font-weight: 600; border: none; border-radius: var(--border-radius); transition: background var(--transition); cursor: pointer; }
     .btn-primary:hover { background: var(--clr-orange-dark); }
     .btn-ghost { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; background: transparent; color: var(--clr-text-muted); font-size: 0.8125rem; font-weight: 400; border: 0.5px solid var(--clr-dark-500); border-radius: var(--border-radius); transition: border-color var(--transition), color var(--transition); cursor: pointer; }
     .btn-ghost:hover { border-color: var(--clr-orange); color: var(--clr-orange); }
@@ -213,10 +231,18 @@
     .logo-box i { color: var(--clr-orange); font-size: 24px; }
     .logo-box--img { background: var(--clr-logo-tile); padding: 6px; }
     .logo-box--img img { width: 100%; height: 100%; object-fit: contain; }
-    .partner-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.625rem; font-weight: 500; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
+    /* Large partner logo (O&G partner rows only): fills the logo column, no orange border.
+       Light mode: no tile, logo sits on the row background. Dark mode: plain white tile. */
+    .logo-box--large { width: 100%; height: 104px; padding: 12px; border: none; background: transparent; }
+    .logo-box--large img { max-height: 72px; object-fit: contain; }   /* Same max height for every logo so square marks (B&R) don't dominate */
+    :root[data-theme="dark"] .logo-box--large { background: var(--clr-logo-tile); }
+    .partner-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--clr-orange); color: var(--clr-text-white); text-shadow: var(--text-outline); font-size: 0.625rem; font-weight: 600; padding: 3px 8px; border-radius: 3px; white-space: nowrap; }
     .partner-tag i { font-size: 10px; }
-    .partner-name { font-size: 0.75rem; font-weight: 500; color: var(--clr-text-dark); }
     .partner-category { font-size: 0.625rem; color: var(--clr-text-label); }
+    /* O&G partner rows: larger badge and category to match the large logo */
+    .partner-row__logo .partner-tag { font-size: 0.8125rem; padding: 4px 10px; gap: 5px; }
+    .partner-row__logo .partner-tag i { font-size: 13px; }
+    .partner-row__logo .partner-category { font-size: 0.9375rem; line-height: 1.5; color: var(--clr-text-body); }
     .partner-row__info { padding: var(--space-lg) var(--space-xl); }
     .partner-row__info h3 { font-size: 0.9375rem; font-weight: 500; color: var(--clr-text-dark); margin-bottom: 6px; display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-sm); }
     .partner-badge { font-size: 0.625rem; font-weight: 400; background: var(--clr-orange-soft); color: var(--clr-text-badge); padding: 2px 8px; border-radius: 3px; }
@@ -228,10 +254,10 @@
     /* SOCIAL STRIP */
     .social-strip { background: var(--clr-orange); padding: 13px 0; }
     .social-strip .container { display: flex; justify-content: center; align-items: center; gap: var(--space-lg); flex-wrap: wrap; }
-    .social-strip__link { display: flex; align-items: center; gap: 7px; font-size: 0.75rem; font-weight: 500; color: var(--clr-dark-800); transition: opacity var(--transition); }
+    .social-strip__link { display: flex; align-items: center; gap: 7px; font-size: 0.75rem; font-weight: 600; color: var(--clr-text-white); text-shadow: var(--text-outline); transition: opacity var(--transition); }
     .social-strip__link:hover { opacity: 0.75; }
     .social-strip__link i { font-size: 16px; }
-    .social-sep { width: 1px; height: 16px; background: rgba(24,23,22,0.3); }
+    .social-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.5); }
 
     /* CONTACT BAND */
     .contact-band { background: var(--clr-light-100); border-top: 3px solid var(--clr-orange); padding: var(--space-xl) 0; }
@@ -374,7 +400,7 @@
     .build-steps__list { list-style: none; display: flex; justify-content: space-between; position: relative; }
     .build-steps__list::before { content: ""; position: absolute; top: 13px; left: 10%; right: 10%; height: 2px; background: var(--clr-orange); }
     .build-steps__step { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 0.6875rem; color: var(--clr-text-body); text-align: center; }
-    .build-steps__dot { width: 28px; height: 28px; border-radius: 50%; background: var(--clr-orange); color: var(--clr-dark-800); font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; justify-content: center; }
+    .build-steps__dot { width: 28px; height: 28px; border-radius: 50%; background: var(--clr-orange); color: var(--clr-text-white); text-shadow: var(--text-outline); font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; }
     .role-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
     .role-item { border-top: 2px solid var(--clr-orange); padding-top: var(--space-md); }
     .role-item > i { font-size: 22px; color: var(--clr-orange); }
@@ -396,6 +422,7 @@
       .hero__stats { display: none; }
       .partner-row { grid-template-columns: 1fr; }
       .partner-row__logo { border-right: none; border-bottom: 0.5px solid var(--clr-light-border); flex-direction: row; align-items: center; padding: var(--space-md) var(--space-lg); gap: var(--space-md); }
+      .logo-box--large { width: 160px; max-width: 100%; }
       .contact-band .container { grid-template-columns: 1fr 1fr; gap: var(--space-lg); }
       .contact-col { padding: 0; border: none; }
       .contact-layout { grid-template-columns: 1fr; }
@@ -418,6 +445,7 @@
       .hero { padding: var(--space-xl) 0; }
       .hero__headline { font-size: 2rem; }
       .partner-row__logo { flex-direction: row; flex-wrap: wrap; }
+      .logo-box--large { width: 128px; height: 84px; padding: 10px; }
       .contact-band .container { grid-template-columns: 1fr; gap: var(--space-lg); }
       .footer-bar .container { flex-direction: column; gap: 4px; text-align: center; }
       .social-strip .container { flex-direction: column; gap: var(--space-sm); }
@@ -584,8 +612,6 @@
       </div>
     </section>
 
-    <div class="divider-bar"></div>
-
     <div class="section-header">
       <div class="container">
         <h2 class="section-header__title">Our technology partners</h2>
@@ -596,10 +622,9 @@
     <!-- Partner 1: KROHNE -->
     <article class="partner-row" aria-label="KROHNE">
       <div class="partner-row__logo">
-        <div class="logo-box logo-box--img"><img src="images/Logo_Krohne.svg.png" alt="Krohne logo" /></div>
+        <div class="logo-box logo-box--img logo-box--large"><img src="images/Logo_Krohne.svg.png" alt="Krohne logo" /></div>
         <span class="partner-tag"><i class="ti ti-users" aria-hidden="true"></i> Project partner</span>
         <div>
-          <div class="partner-name">KROHNE</div>
           <div class="partner-category">Flow measurement · Process instrumentation</div>
         </div>
       </div>
@@ -627,10 +652,9 @@
     <!-- Partner 2: Della Foglia -->
     <article class="partner-row" aria-label="Della Foglia">
       <div class="partner-row__logo">
-        <div class="logo-box logo-box--img"><img src="images/Della_Foglia.png" alt="Della Foglia logo" /></div>
+        <div class="logo-box logo-box--img logo-box--large"><img src="images/Della_Foglia.png" alt="Della Foglia logo" /></div>
         <span class="partner-tag"><i class="ti ti-map-pin" aria-hidden="true"></i> Thai representative</span>
         <div>
-          <div class="partner-name">Della Foglia</div>
           <div class="partner-category">Ball valves · Oil &amp; gas · LNG</div>
         </div>
       </div>
@@ -656,9 +680,8 @@
     <!-- Partner 3: B&R Automation -->
     <article class="partner-row" aria-label="B&R Automation">
       <div class="partner-row__logo">
-        <div class="logo-box logo-box--img"><img src="images/BR_logo.png" alt="B&R Automation logo" /></div>
+        <div class="logo-box logo-box--img logo-box--large"><img src="images/BR_logo.png" alt="B&R Automation logo" /></div>
         <div>
-          <div class="partner-name">B&amp;R Automation</div>
           <div class="partner-category">PLC · HMI · Motion · IPC · ABB Group</div>
         </div>
       </div>
@@ -1038,10 +1061,9 @@
         <!-- Overview (copy of the home page partner card) -->
         <article class="partner-row" aria-label="KROHNE">
           <div class="partner-row__logo">
-            <div class="logo-box logo-box--img"><img src="images/Logo_Krohne.svg.png" alt="Krohne logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/Logo_Krohne.svg.png" alt="Krohne logo" /></div>
             <span class="partner-tag"><i class="ti ti-users" aria-hidden="true"></i> Project partner</span>
             <div>
-              <div class="partner-name">KROHNE</div>
               <div class="partner-category">Flow measurement · Process instrumentation</div>
             </div>
           </div>
@@ -1193,10 +1215,9 @@
         <!-- Overview (copy of the home page partner card) -->
         <article class="partner-row" aria-label="Della Foglia">
           <div class="partner-row__logo">
-            <div class="logo-box logo-box--img"><img src="images/Della_Foglia.png" alt="Della Foglia logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/Della_Foglia.png" alt="Della Foglia logo" /></div>
             <span class="partner-tag"><i class="ti ti-map-pin" aria-hidden="true"></i> Thai representative</span>
             <div>
-              <div class="partner-name">Della Foglia</div>
               <div class="partner-category">Ball valves · Oil &amp; gas · LNG</div>
             </div>
           </div>
@@ -1352,9 +1373,8 @@
         <!-- Overview (copy of the home page partner card) -->
         <article class="partner-row" aria-label="B&R Automation">
           <div class="partner-row__logo">
-            <div class="logo-box logo-box--img"><img src="images/BR_logo.png" alt="B&R Automation logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/BR_logo.png" alt="B&R Automation logo" /></div>
             <div>
-              <div class="partner-name">B&amp;R Automation</div>
               <div class="partner-category">PLC · HMI · Motion · IPC · ABB Group</div>
             </div>
           </div>

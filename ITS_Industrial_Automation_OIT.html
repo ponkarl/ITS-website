@@ -107,6 +107,7 @@
       --clr-page-bg:      #FFFFFF;   /* Page background behind sections/cards (same as light-100 in light mode) */
       --clr-orange-text:  #A85600;   /* Orange for TEXT on light surfaces (4.7:1+); brand orange stays for fills/icons */
       --clr-text-soft:    #9A9890;   /* Secondary text on dark cards (4.8:1 on dark-700) */
+      --text-outline:     -1px -1px 0 rgba(0,0,0,.4), 1px -1px 0 rgba(0,0,0,.4), -1px 1px 0 rgba(0,0,0,.4), 1px 1px 0 rgba(0,0,0,.4);   /* Thin dark outline for white text on orange */
     }
 
     /* ============================================================
@@ -153,6 +154,23 @@
     @media (max-width: 600px) {
       .navbar__actions { display: none; }   /* Mobile: CTA + theme toggle live in the drawer */
     }
+
+    /* Light mode: white navbar. Dark mode keeps the dark navbar from the base NAVIGATION BAR rules.
+       Text meets 4.5:1 on white; active/hover text uses --clr-orange-text. */
+    :root:not([data-theme="dark"]) .navbar { background: var(--clr-light-100); box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08); }
+    :root:not([data-theme="dark"]) .navbar__logo-name { color: var(--clr-dark-800); }
+    :root:not([data-theme="dark"]) .navbar__logo-sub { color: var(--clr-text-dim); }
+    :root:not([data-theme="dark"]) .nav-item__link,
+    :root:not([data-theme="dark"]) .nav-item__link i { color: var(--clr-dark-700); }
+    :root:not([data-theme="dark"]) .nav-item__link:hover,
+    :root:not([data-theme="dark"]) .nav-item__link.active,
+    :root:not([data-theme="dark"]) .nav-item:hover .nav-item__link i { color: var(--clr-orange-text); }
+    :root:not([data-theme="dark"]) .dropdown { background: var(--clr-light-100); border-color: var(--clr-light-border); border-top-color: var(--clr-orange); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+    :root:not([data-theme="dark"]) .dropdown__link { color: var(--clr-dark-700); border-bottom-color: var(--clr-light-border); }
+    :root:not([data-theme="dark"]) .dropdown__link:hover { background: var(--clr-light-300); color: var(--clr-orange-text); }
+    :root:not([data-theme="dark"]) .theme-btn,
+    :root:not([data-theme="dark"]) .navbar__hamburger { color: var(--clr-dark-700); border-color: var(--clr-text-light); }
+    :root:not([data-theme="dark"]) .theme-btn:hover { color: var(--clr-orange-text); border-color: var(--clr-orange); }
 
     /* ============================================================
        RESET & BASE STYLES
@@ -249,8 +267,9 @@
 
     .topbar__company {
       font-size: 0.6875rem;   /* 11px */
-      font-weight: 500;
-      color: var(--clr-dark-800);
+      font-weight: 600;
+      color: var(--clr-text-white);
+      text-shadow: var(--text-outline);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -268,8 +287,9 @@
       align-items: center;
       gap: 4px;
       font-size: 0.6875rem;
-      font-weight: 500;
-      color: var(--clr-dark-800);
+      font-weight: 600;
+      color: var(--clr-text-white);
+      text-shadow: var(--text-outline);
       transition: opacity var(--transition);
     }
 
@@ -456,9 +476,10 @@
       padding: 8px 18px;
       margin-left: 10px;
       background: var(--clr-orange);
-      color: var(--clr-dark-800);
+      color: var(--clr-text-white);
+      text-shadow: var(--text-outline);
       font-size: 0.75rem;
-      font-weight: 500;
+      font-weight: 600;
       border: none;
       border-radius: var(--border-radius);
       transition: background var(--transition);
@@ -649,9 +670,10 @@
       gap: 6px;
       padding: 10px 22px;
       background: var(--clr-orange);
-      color: var(--clr-dark-800);
+      color: var(--clr-text-white);
+      text-shadow: var(--text-outline);
       font-size: 0.8125rem;
-      font-weight: 500;
+      font-weight: 600;
       border: none;
       border-radius: var(--border-radius);
       transition: background var(--transition);
@@ -830,9 +852,10 @@
       align-items: center;
       gap: 4px;
       background: var(--clr-orange);
-      color: var(--clr-dark-800);
+      color: var(--clr-text-white);
+      text-shadow: var(--text-outline);
       font-size: 0.625rem;
-      font-weight: 500;
+      font-weight: 600;
       padding: 3px 8px;
       border-radius: 3px;
       white-space: nowrap;
@@ -960,6 +983,31 @@
       margin-bottom: var(--space-sm);
     }
 
+    /* Large partner logo (same modifier as ITS_OilGas.html): no orange border.
+       Light mode: no tile, logo sits on the card. Dark mode: plain white tile. */
+    .logo-box--large {
+      border: none;
+      background: transparent;
+    }
+
+    :root[data-theme="dark"] .logo-box--large {
+      background: var(--clr-logo-tile);
+    }
+
+    /* Home grid: full-width logo area, logo centred; same height on every card
+       so the names line up across each row */
+    .partner-card .logo-box--large {
+      width: 100%;
+      height: 96px;
+      padding: 0;
+    }
+
+    .partner-card .logo-box--large img {
+      width: 80%;
+      height: 64px;
+      object-fit: contain;
+    }
+
     .partner-card .partner-name {
       font-size: 0.875rem;
     }
@@ -1030,8 +1078,9 @@
       align-items: center;
       gap: 7px;
       font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--clr-dark-800);
+      font-weight: 600;
+      color: var(--clr-text-white);
+      text-shadow: var(--text-outline);
       transition: opacity var(--transition);
     }
 
@@ -1047,7 +1096,7 @@
     .social-sep {
       width: 1px;
       height: 16px;
-      background: rgba(24, 23, 22, 0.3);
+      background: rgba(255, 255, 255, 0.5);
     }
 
 
@@ -2111,8 +2160,6 @@
       </div>
     </section>
 
-    <div class="divider-bar"></div>
-
     <!-- Partners section header -->
     <div class="section-header">
       <div class="container">
@@ -2130,7 +2177,7 @@
 
           <!-- Partner: B&R Automation -->
           <article class="partner-card" aria-label="B&R Automation">
-            <div class="logo-box logo-box--img"><img src="images/BR_logo.png" alt="B&R Automation logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/BR_logo.png" alt="B&R Automation logo" /></div>
             <div class="partner-name">B&amp;R Automation</div>
             <div class="partner-category">PLC · HMI · Motion · IPC</div>
             <p class="partner-card__desc">PLC, HMI, motion control and industrial PCs. Part of ABB.</p>
@@ -2139,7 +2186,7 @@
 
           <!-- Partner: Westermo -->
           <article class="partner-card" aria-label="Westermo">
-            <div class="logo-box logo-box--img"><img src="images/Westermo-logo.png" alt="Westermo logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/Westermo-logo.png" alt="Westermo logo" /></div>
             <div class="partner-name">Westermo</div>
             <div class="partner-category">Industrial data communications</div>
             <p class="partner-card__desc">Rugged Ethernet switches and routers for harsh environments.</p>
@@ -2147,7 +2194,7 @@
 
           <!-- Partner: Spirit IT -->
           <article class="partner-card" aria-label="Spirit IT">
-            <div class="logo-box logo-box--img"><img src="images/ABB_logo.svg.png" alt="Spirit IT logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/ABB_logo.svg.png" alt="Spirit IT logo" /></div>
             <div class="partner-name">Spirit IT</div>
             <div class="partner-category">Flow computers · Metering</div>
             <p class="partner-card__desc">Flow computers and metering software.</p>
@@ -2156,7 +2203,7 @@
 
           <!-- Partner: TRACO POWER -->
           <article class="partner-card" aria-label="TRACO POWER">
-            <div class="logo-box logo-box--img"><img src="images/Traco_Power.png" alt="TRACO POWER logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/Traco_Power.png" alt="TRACO POWER logo" /></div>
             <div class="partner-name">TRACO POWER</div>
             <div class="partner-category">DIN-rail power supply</div>
             <p class="partner-card__desc">Swiss-made DIN-rail and enclosed power supplies.</p>
@@ -2165,7 +2212,7 @@
 
           <!-- Partner: Raycap -->
           <article class="partner-card" aria-label="Raycap">
-            <div class="logo-box logo-box--img"><img src="images/Raycap-Logo.jpg" alt="Raycap logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/Raycap-Logo.jpg" alt="Raycap logo" /></div>
             <div class="partner-name">Raycap</div>
             <div class="partner-category">Surge &amp; lightning protection</div>
             <p class="partner-card__desc">Surge and lightning protection for power and data lines.</p>
@@ -2174,7 +2221,7 @@
 
           <!-- Partner: InHand Networks -->
           <article class="partner-card" aria-label="InHand Networks">
-            <div class="logo-box logo-box--img"><img src="images/inhand-logo-black-outline.png" alt="InHand Networks logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/inhand-logo-black-outline.png" alt="InHand Networks logo" /></div>
             <div class="partner-name">InHand Networks</div>
             <div class="partner-category">4G routers · IIoT · Gateways</div>
             <p class="partner-card__desc">4G/5G industrial routers and IoT gateways.</p>
@@ -2183,7 +2230,7 @@
 
           <!-- Partner: Control Maestro -->
           <article class="partner-card" aria-label="Control Maestro">
-            <div class="logo-box logo-box--img"><img src="images/controlmaestro_logo.jpg" alt="Control Maestro logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/controlmaestro_logo.jpg" alt="Control Maestro logo" /></div>
             <div class="partner-name">Control Maestro</div>
             <div class="partner-category">SCADA · Automation software</div>
             <p class="partner-card__desc">SCADA software with built-in web access.</p>
@@ -2192,7 +2239,7 @@
 
           <!-- Partner: ORing Network -->
           <article class="partner-card" aria-label="ORing Network">
-            <div class="logo-box logo-box--img"><img src="images/Oring.png" alt="ORing Network logo" /></div>
+            <div class="logo-box logo-box--img logo-box--large"><img src="images/Oring.png" alt="ORing Network logo" /></div>
             <div class="partner-name">ORing Network</div>
             <div class="partner-category">Datacom · IIoT</div>
             <p class="partner-card__desc">Industrial Ethernet switches and IIoT networking.</p>
