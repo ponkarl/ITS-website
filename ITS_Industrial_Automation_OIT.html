@@ -107,7 +107,6 @@
       --clr-page-bg:      #FFFFFF;   /* Page background behind sections/cards (same as light-100 in light mode) */
       --clr-orange-text:  #A85600;   /* Orange for TEXT on light surfaces (4.7:1+); brand orange stays for fills/icons */
       --clr-text-soft:    #9A9890;   /* Secondary text on dark cards (4.8:1 on dark-700) */
-      --text-outline:     -1px -1px 0 rgba(0,0,0,.4), 1px -1px 0 rgba(0,0,0,.4), -1px 1px 0 rgba(0,0,0,.4), 1px 1px 0 rgba(0,0,0,.4);   /* Thin dark outline for white text on orange */
     }
 
     /* ============================================================
@@ -157,7 +156,7 @@
 
     /* Light mode: white navbar. Dark mode keeps the dark navbar from the base NAVIGATION BAR rules.
        Text meets 4.5:1 on white; active/hover text uses --clr-orange-text. */
-    :root:not([data-theme="dark"]) .navbar { background: var(--clr-light-100); box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08); }
+    :root:not([data-theme="dark"]) .navbar { background: var(--clr-light-100); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08); }
     :root:not([data-theme="dark"]) .navbar__logo-name { color: var(--clr-dark-800); }
     :root:not([data-theme="dark"]) .navbar__logo-sub { color: var(--clr-text-dim); }
     :root:not([data-theme="dark"]) .nav-item__link,
@@ -269,7 +268,7 @@
       font-size: 0.6875rem;   /* 11px */
       font-weight: 600;
       color: var(--clr-text-white);
-      text-shadow: var(--text-outline);
+     
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -289,7 +288,7 @@
       font-size: 0.6875rem;
       font-weight: 600;
       color: var(--clr-text-white);
-      text-shadow: var(--text-outline);
+     
       transition: opacity var(--transition);
     }
 
@@ -313,7 +312,6 @@
       top: 0;
       z-index: 1000;
       background: var(--clr-dark-800);
-      border-bottom: 2px solid var(--clr-orange);
       height: var(--nav-height);
     }
 
@@ -477,7 +475,7 @@
       margin-left: 10px;
       background: var(--clr-orange);
       color: var(--clr-text-white);
-      text-shadow: var(--text-outline);
+     
       font-size: 0.75rem;
       font-weight: 600;
       border: none;
@@ -671,7 +669,7 @@
       padding: 10px 22px;
       background: var(--clr-orange);
       color: var(--clr-text-white);
-      text-shadow: var(--text-outline);
+     
       font-size: 0.8125rem;
       font-weight: 600;
       border: none;
@@ -853,7 +851,7 @@
       gap: 4px;
       background: var(--clr-orange);
       color: var(--clr-text-white);
-      text-shadow: var(--text-outline);
+     
       font-size: 0.625rem;
       font-weight: 600;
       padding: 3px 8px;
@@ -1080,7 +1078,7 @@
       font-size: 0.75rem;
       font-weight: 600;
       color: var(--clr-text-white);
-      text-shadow: var(--text-outline);
+     
       transition: opacity var(--transition);
     }
 
