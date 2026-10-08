@@ -314,12 +314,19 @@
       flex-shrink: 0;
     }
 
+    /* Logo image links to index.html (the landing page) */
     .navbar__logo-mark {
       height: 38px;
       width: auto;
       flex-shrink: 0;
       display: flex;
       align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .navbar__logo-mark:hover {
+      text-decoration: none;
     }
 
     .navbar__logo-mark img {
@@ -1940,15 +1947,15 @@
     <div class="container">
 
       <!-- Logo -->
-      <a class="navbar__logo" href="#" onclick="showPage('home')" aria-label="ITS Industrial Technology Supply — Home">
-        <div class="navbar__logo-mark">
+      <div class="navbar__logo">
+        <a class="navbar__logo-mark" href="index.html" aria-label="ITS Industrial Technology Supply — back to start">
           <img src="images/ITS_Logo-removebg-preview.png" alt="ITS Industrial Technology Supply logo" />
-        </div>
+        </a>
         <div class="navbar__logo-text">
           <span class="navbar__logo-name">ITS Industrial Technology Supply</span>
           <span class="navbar__logo-sub">Perfection in Automation &nbsp;·&nbsp; Thailand</span>
         </div>
-      </a>
+      </div>
 
       <!-- Desktop nav links -->
       <ul class="navbar__nav">

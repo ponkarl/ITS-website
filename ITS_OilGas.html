@@ -142,7 +142,8 @@
     .navbar { position: sticky; top: 0; z-index: 1000; background: var(--clr-dark-800); border-bottom: 2px solid var(--clr-orange); height: var(--nav-height); }
     .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 100%; }
     .navbar__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
-    .navbar__logo-mark { height: 38px; width: auto; flex-shrink: 0; display: flex; align-items: center; }
+    .navbar__logo-mark { height: 38px; width: auto; flex-shrink: 0; display: flex; align-items: center; text-decoration: none; cursor: pointer; }   /* Logo image links to index.html (landing page) */
+    .navbar__logo-mark:hover { text-decoration: none; }
     .navbar__logo-mark img { height: 100%; width: auto; object-fit: contain; display: block; }
     .navbar__logo-text { display: flex; flex-direction: column; line-height: 1.2; }
     .navbar__logo-name { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--clr-text-white); letter-spacing: 0.3px; }
@@ -448,15 +449,15 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
 
-      <a class="navbar__logo" href="#" onclick="showPage('home')" aria-label="ITS Oil &amp; Gas — Home">
-        <div class="navbar__logo-mark">
+      <div class="navbar__logo">
+        <a class="navbar__logo-mark" href="index.html" aria-label="ITS Industrial Technology Supply — back to start">
           <img src="images/ITS_Logo-removebg-preview.png" alt="ITS logo" />
-        </div>
+        </a>
         <div class="navbar__logo-text">
           <span class="navbar__logo-name">ITS Industrial Technology Supply</span>
           <span class="navbar__logo-sub">Oil &amp; Gas &nbsp;·&nbsp; Process Industry &nbsp;·&nbsp; Thailand</span>
         </div>
-      </a>
+      </div>
 
       <ul class="navbar__nav">
 
