@@ -61,7 +61,6 @@
       --space-3xl:  64px;
       --max-width:      1200px;
       --nav-height:     58px;
-      --topbar-height:  36px;
       --border-radius:  6px;
       --border-radius-lg: 10px;
       --transition: 0.18s ease;
@@ -145,15 +144,6 @@
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .container { width: 100%; max-width: var(--max-width); margin-left: auto; margin-right: auto; padding-left: var(--space-xl); padding-right: var(--space-xl); }
     .divider-bar { height: 3px; background: var(--clr-orange); width: 100%; }
-
-    /* TOPBAR */
-    .topbar { background: var(--clr-orange); height: var(--topbar-height); display: flex; align-items: center; }
-    .topbar .container { display: flex; justify-content: space-between; align-items: center; }
-    .topbar__company { font-size: 0.6875rem; font-weight: 400; color: var(--clr-text-white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .topbar__links { display: flex; gap: var(--space-md); list-style: none; flex-shrink: 0; }
-    .topbar__links a { display: flex; align-items: center; gap: 4px; font-size: 0.6875rem; font-weight: 400; color: var(--clr-text-white); transition: opacity var(--transition); }
-    .topbar__links a:hover { opacity: 0.7; }
-    .topbar__links i { font-size: 11px; }
 
     /* NAVBAR */
     .navbar { position: sticky; top: 0; z-index: 1000; background: var(--clr-dark-800); height: var(--nav-height); }
@@ -433,7 +423,6 @@
       .product-grid, .role-list { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
-      .topbar__company { display: none; }
       .navbar__nav, .navbar__cta { display: none; }
       .navbar__hamburger { display: flex; flex-shrink: 0; }
       /* Brand text shrinks/truncates so it never touches the menu button */
@@ -459,18 +448,6 @@
 </head>
 
 <body>
-
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="container">
-      <span class="topbar__company">ITS Industrial Technology Supply Co., Ltd. &nbsp;·&nbsp; Nonthaburi, Thailand</span>
-      <ul class="topbar__links">
-        <li><a href="tel:+66808300058"><i class="ti ti-phone"></i> 080 830 0058</a></li>
-        <li><a href="tel:+6634834840"><i class="ti ti-phone"></i> +66 3483 4840</a></li>
-        <li><a href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener"><i class="ti ti-brand-line"></i> itsltd</a></li>
-      </ul>
-    </div>
-  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar" role="navigation" aria-label="Main navigation">

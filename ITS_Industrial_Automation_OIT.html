@@ -95,7 +95,6 @@
       /* --- Layout --- */
       --max-width:      1200px;   /* Maximum content width */
       --nav-height:     58px;     /* Fixed nav bar height */
-      --topbar-height:  36px;     /* Top utility bar height */
       --border-radius:  6px;      /* Standard corner radius */
       --border-radius-lg: 10px;   /* Card corner radius */
 
@@ -243,61 +242,6 @@
       height: 3px;
       background: var(--clr-orange);
       width: 100%;
-    }
-
-
-    /* ============================================================
-       TOPBAR
-       Thin utility bar at the very top — contact info and social
-       links. Changes to a single centered line on mobile.
-    ============================================================ */
-    .topbar {
-      background: var(--clr-orange);
-      height: var(--topbar-height);
-      display: flex;
-      align-items: center;
-    }
-
-    .topbar .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .topbar__company {
-      font-size: 0.6875rem;   /* 11px */
-      font-weight: 400;
-      color: var(--clr-text-white);
-     
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .topbar__links {
-      display: flex;
-      gap: var(--space-md);
-      list-style: none;
-      flex-shrink: 0;
-    }
-
-    .topbar__links a {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.6875rem;
-      font-weight: 400;
-      color: var(--clr-text-white);
-     
-      transition: opacity var(--transition);
-    }
-
-    .topbar__links a:hover {
-      opacity: 0.7;
-    }
-
-    .topbar__links i {
-      font-size: 11px;
     }
 
 
@@ -1854,11 +1798,6 @@
 
     /* --- Mobile (≤600px) --- */
     @media (max-width: 600px) {
-      /* Hide topbar company name on small screens */
-      .topbar__company {
-        display: none;
-      }
-
       /* Hide desktop nav; show hamburger */
       .navbar__nav,
       .navbar__cta {
@@ -1962,21 +1901,6 @@
 </head>
 
 <body>
-
-  <!-- ============================================================
-       TOPBAR
-       Thin utility bar: company name (left) + contact links (right)
-       To change contact info: update the <a> tags below.
-  ============================================================ -->
-  <div class="topbar">
-    <div class="container">
-      <span class="topbar__company">ITS Industrial Technology Supply Co., Ltd. &nbsp;·&nbsp; Khok Kham, Samut Sakhon</span>
-      <ul class="topbar__links">
-        <li><a href="tel:+6634834840"><i class="ti ti-phone"></i> +66 3483 4840</a></li>
-        <li><a href="https://line.me/ti/p/itsltd" target="_blank" rel="noopener"><i class="ti ti-brand-line"></i> itsltd</a></li>
-      </ul>
-    </div>
-  </div>
 
   <!-- ============================================================
        NAVIGATION BAR
